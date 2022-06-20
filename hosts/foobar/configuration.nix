@@ -41,12 +41,12 @@
           enable = true;
           enableContribAndExtras = true;
           config = ''
-          import XMonad
+            import XMonad
 
-          main = xmonad def
-            	{ modMask = mod4Mask
-            	, terminal = "kitty"
-            	}
+            main = xmonad def
+              	{ modMask = mod4Mask
+              	, terminal = "kitty"
+              	}
           '';
         };
       };

@@ -46,12 +46,13 @@ myLayout =
         ||| Full
         ||| threeCol
   where
+    borderWidth = 3
     mySpacing =
       spacingRaw
         False
-        (Border 5 5 5 5)
+        (Border borderWidth borderWidth borderWidth borderWidth)
         True
-        (Border 5 5 5 5)
+        (Border borderWidth borderWidth borderWidth borderWidth)
         True
     threeCol = ThreeColMid nmaster delta ratio
     tiled = Tall nmaster delta ratio

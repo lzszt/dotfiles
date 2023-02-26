@@ -36,6 +36,7 @@
         justusadam.language-haskell
         waderyan.gitblame
         donjayamanne.githistory
+        arrterian.nix-env-selector
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace
       (import ./extensions.nix).extensions;
   };

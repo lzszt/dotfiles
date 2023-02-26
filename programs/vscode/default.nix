@@ -14,6 +14,7 @@
       "window.zoomLevel" = 1;
       # git settings
       "git.confirmSync" = false;
+      "git.autofetch" = true;
 
       # default haskell settings
       "haskell.formattingProvider" = "ormolu";

@@ -1,26 +1,17 @@
 { config, lib, pkgs, stdenv, ... }: {
   programs.home-manager.enable = true;
   home.stateVersion = "22.11";
-  imports = [
-    ./programs/xmonad/default.nix
-    ./programs/polybar/default.nix
-    ./programs/rofi/default.nix
-    ./programs/vscode/default.nix
-  ];
+  imports = [ ./programs ];
 
   programs = {
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-
-    git = {
-      enable = true;
-      userName = "Felix Leitz";
-      userEmail = "felix.leitz@active-group.de";
-      # delta.enable = true;  whats this???
-    };
   };
+
+    modules = { git.email = "felix.leitz@active-group.de"; };
+
   home.packages = with pkgs; [
     thunderbird
     keepassxc

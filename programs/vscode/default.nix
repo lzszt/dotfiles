@@ -12,6 +12,8 @@
       # miscellaneous settings
       "workbench.colorThem" = "Default Dark+";
       "window.zoomLevel" = 1;
+      # git settings
+      "git.confirmSync" = false;
 
       # default haskell settings
       "haskell.formattingProvider" = "ormolu";

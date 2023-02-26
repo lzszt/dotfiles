@@ -97,7 +97,8 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    settings.max-jobs = 4;
+
+    settings.max-jobs = 12;
   };
 
   # This value determines the NixOS release from which the default

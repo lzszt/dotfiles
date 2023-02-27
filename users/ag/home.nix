@@ -1,4 +1,6 @@
-{ config, lib, pkgs, stdenv, ... }: {
+{ config, lib, pkgs, stdenv, ... }:
+let email = "felix.leitz@active-group.de";
+in {
   programs.home-manager.enable = true;
   home.stateVersion = "22.11";
   imports = [ ../../modules ];
@@ -12,7 +14,7 @@
   };
 
   modules = {
-    git.email = "felix.leitz@active-group.de";
+    git.email = email;
     desktop = {
       xmonad.enable = true;
       polybar.enable = true;
@@ -68,10 +70,6 @@
     google-chrome
 
     apache-directory-studio
-
-    ghc
-    haskell-language-server
-    ormolu
 
     remmina
     openconnect

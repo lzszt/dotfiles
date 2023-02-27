@@ -1,4 +1,6 @@
-{ config, lib, pkgs, stdenv, ... }: {
+{ config, lib, pkgs, stdenv, ... }:
+let email = "felix.leitz92@gmail.com";
+in {
   programs.home-manager.enable = true;
   home.stateVersion = "22.11";
   imports = [ ../../modules ];
@@ -12,7 +14,7 @@
   };
 
   modules = {
-    git.email = "felix.leitz92@gmail.com";
+    git.email = email;
     desktop = {
       xmonad.enable = true;
       polybar.enable = true;
@@ -79,6 +81,7 @@
 
   home.packages = with pkgs; [
     thunderbird
+    mutt
     keepassxc
     signal-desktop
     discord

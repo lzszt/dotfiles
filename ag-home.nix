@@ -10,7 +10,11 @@
     };
   };
 
-    modules = { git.email = "felix.leitz@active-group.de"; };
+  modules = {
+    git.email = "felix.leitz@active-group.de";
+    desktop.xmonad.enable = true;
+    desktop.polybar.enable = true;
+  };
 
   home.packages = with pkgs; [
     thunderbird

@@ -1,22 +1,25 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-let
-  mypolybar = pkgs.polybar.override {
-    alsaSupport = true;
-    githubSupport = true;
-    mpdSupport = true;
-    pulseSupport = true;
-  };
-
+let cfg = config.modules.desktop.polybar;
 in {
-  services.polybar = {
-    enable = true;
-    package = mypolybar;
-    config = let configFile = ./config.nix; in import configFile pkgs;
-    script = ''
-      for m in $(polybar --list-monitors | ${pkgs.coreutils}/bin/cut -d":" -f1); do
-        MONITOR=$m polybar -r bottom &
-      done
-    '';
+  options.modules.desktop.polybar = { enable = lib.mkEnableOption "polybar"; };
+
+  config = lib.mkIf cfg.enable {
+    services.polybar = let
+      myPolybar = pkgs.polybar.override {
+        alsaSupport = true;
+        githubSupport = true;
+        pulseSupport = true;
+      };
+    in {
+      enable = true;
+      package = myPolybar;
+      script = ''
+        for m in $(polybar --list-monitors | ${pkgs.coreutils}/bin/cut -d":" -f1); do
+          MONITOR=$m polybar -r bottom &
+        done
+      '';
+      config = let configFile = ./config.nix; in import configFile pkgs;
+    };
   };
 }

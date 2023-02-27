@@ -1,3 +1,4 @@
+-- Imports for Polybar --
 import Codec.Binary.UTF8.String qualified as UTF8
 import DBus qualified as D
 import DBus.Client qualified as D
@@ -15,28 +16,28 @@ import XMonad.Layout.Magnifier
 import XMonad.Layout.Spacing
 import XMonad.Layout.ThreeColumns
 import XMonad.Util.EZConfig
-import XMonad.Util.Run
 import XMonad.Util.Ungrab
 
 main :: IO ()
-main = do
-  -- Connect to DBus
-  dbus <- mkDbusClient
-  -- start xmonad
+main = mkDbusClient >>= main'
+
+main' :: D.Client -> IO ()
+main' dbus =
   xmonad $
-    def
-      { -- modMask = mod4Mask, -- Rebind Mod to the Super key
-        terminal = "alacritty",
-        layoutHook = myLayout,
-        logHook = myPolybarLogHook dbus
-      }
-      `additionalKeysP` [ ("M-f", spawn "firefox"),
-                          ("M-k", spawn "keepassxc"),
-                          ("C-<Space>", spawn "rofi -disable-history -show run"),
-                          ("M-m", spawn "amixer set Master toggle"),
-                          ("M-<Up>", spawn "amixer set Master 5%+"),
-                          ("M-<Down>", spawn "amixer set Master 5%-")
-                        ]
+    docks $
+      def
+        { terminal = "alacritty",
+          layoutHook = myLayout,
+          borderWidth = 3,
+          normalBorderColor = "#1d2021",
+          focusedBorderColor = "#fbf1c7",
+          logHook = myPolybarLogHook dbus
+        }
+        `additionalKeysP` [ ("C-<Space>", spawn "rofi -disable-history -show run"),
+                            ("M-m", spawn "amixer set Master toggle"),
+                            ("M-<Up>", spawn "amixer set Master 5%+"),
+                            ("M-<Down>", spawn "amixer set Master 5%-")
+                          ]
 
 myLayout =
   avoidStruts $
@@ -46,17 +47,18 @@ myLayout =
         ||| Full
         ||| threeCol
   where
-    borderWidth = 3
+    borderWidth = 5
+    border = Border borderWidth borderWidth borderWidth borderWidth
     mySpacing =
       spacingRaw
         False
-        (Border borderWidth borderWidth borderWidth borderWidth)
+        border
         True
-        (Border borderWidth borderWidth borderWidth borderWidth)
+        border
         True
     threeCol = ThreeColMid nmaster delta ratio
     tiled = Tall nmaster delta ratio
-    nmaster = 1 -- Default nummber of windows in the master pane
+    nmaster = 1 -- Default number of windows in the master pane
     ratio = 1 / 2 -- Default proportion of screen occupied by master pane
     delta = 3 / 100 -- Percent of screen to increment by when resizing panes
 

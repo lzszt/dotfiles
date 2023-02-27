@@ -16,7 +16,11 @@
 
     };
 
-  modules = { git.email = "felix.leitz92@gmail.com"; };
+  modules = {
+    git.email = "felix.leitz92@gmail.com";
+    desktop.xmonad.enable = true;
+    desktop.polybar.enable = true;
+  };
 
   home.packages = with pkgs; [
     thunderbird

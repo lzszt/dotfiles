@@ -1,7 +1,7 @@
 { config, lib, pkgs, stdenv, ... }: {
   programs.home-manager.enable = true;
   home.stateVersion = "22.11";
-  imports = [ ../../programs ];
+  imports = [ ../../modules ];
 
   programs = {
     direnv = {
@@ -13,6 +13,10 @@
 
   modules = {
     git.email = "felix.leitz@active-group.de";
+    desktop = {
+      xmonad.enable = true;
+      polybar.enable = true;
+    };
     rofi.enable = true;
   };
 

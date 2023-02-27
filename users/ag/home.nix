@@ -6,11 +6,6 @@ in {
   imports = [ ../../modules ];
 
   programs = {
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      nix-direnv.enable = true;
-    };
     mercurial = {
       enable = true;
       userEmail = email;
@@ -27,6 +22,7 @@ in {
     rofi.enable = true;
     firefox.enable = true;
     bash.enable = true;
+    direnv.enable = true;
     cloneRepos = {
       enable = true;
       repos = let

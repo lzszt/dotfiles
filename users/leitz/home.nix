@@ -5,14 +5,6 @@ in {
   home.stateVersion = "22.11";
   imports = [ ../../modules ];
 
-  programs = {
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      nix-direnv.enable = true;
-    };
-  };
-
   modules = {
     git.email = email;
     desktop = {
@@ -22,6 +14,7 @@ in {
     rofi.enable = true;
     firefox.enable = true;
     bash.enable = true;
+    direnv.enable = true;
     cloneRepos = {
       enable = true;
       repos = let

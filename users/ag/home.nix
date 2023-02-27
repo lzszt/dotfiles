@@ -18,6 +18,7 @@
       polybar.enable = true;
     };
     rofi.enable = true;
+    firefox.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -31,7 +32,6 @@
     ripgrep
     fd
     google-chrome
-    firefox
 
     apache-directory-studio
 

@@ -9,12 +9,6 @@
       enableBashIntegration = true;
       nix-direnv.enable = true;
     };
-
-    firefox = {
-      enable = true;
-      profiles.myprofile.extensions = [ ];
-    };
-
   };
 
   modules = {
@@ -24,6 +18,7 @@
       polybar.enable = true;
     };
     rofi.enable = true;
+    firefox.enable = true;
   };
 
   home.packages = with pkgs; [

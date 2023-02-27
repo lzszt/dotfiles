@@ -13,8 +13,7 @@
 
   modules = {
     git.email = "felix.leitz@active-group.de";
-    desktop.xmonad.enable = true;
-    desktop.polybar.enable = true;
+    rofi.enable = true;
   };
 
   home.packages = with pkgs; [

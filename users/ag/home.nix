@@ -19,6 +19,7 @@
     };
     rofi.enable = true;
     firefox.enable = true;
+    bash.enable = true;
     cloneRepos = {
       enable = true;
       repos = let

@@ -11,6 +11,11 @@ in {
       enableBashIntegration = true;
       nix-direnv.enable = true;
     };
+    mercurial = {
+      enable = true;
+      userEmail = email;
+      userName = "Felix Leitz";
+    };
   };
 
   modules = {

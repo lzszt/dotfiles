@@ -97,7 +97,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-
+    settings.trusted-users = [ "root" "leitz" "ag" ];
     settings.max-jobs = 12;
   };
 

@@ -19,6 +19,61 @@
     };
     rofi.enable = true;
     firefox.enable = true;
+    cloneRepos = {
+      enable = true;
+      repos = let
+        projects = "projects";
+        haskellProjects = projects + "/haskell";
+        gitlab = "git@gitlab.com:";
+        github = "git@github.com:";
+      in [
+        {
+          dir = haskellProjects;
+          url = github + "lzszt/config.git";
+          name = "config";
+        }
+        {
+          dir = haskellProjects;
+          url = github + "lzszt/polysemy-utils.git";
+          name = "polysemy-utils";
+        }
+        {
+          dir = haskellProjects;
+          url = gitlab + "leitz-projects/shortcuts.git";
+          name = "shortcuts";
+        }
+        {
+          dir = projects;
+          url = gitlab + "Zwiebeljunge/it.git";
+          name = "it";
+        }
+        {
+          dir = haskellProjects;
+          url = gitlab + "leitz-projects/expense-tracker.git";
+          name = "expense-tracker";
+        }
+        {
+          dir = haskellProjects;
+          url = gitlab + "leitz-projects/bildschirm.git";
+          name = "BILDschirm";
+        }
+        {
+          dir = haskellProjects;
+          url = gitlab + "leitz-projects/strava-runner.git";
+          name = "strava-runner";
+        }
+        {
+          dir = haskellProjects;
+          url = gitlab + "Zwiebeljunge/stravaapi.git";
+          name = "strava-api";
+        }
+        {
+          dir = haskellProjects;
+          url = gitlab + "leitz-projects/homeautomation.git";
+          name = "home-automation";
+        }
+      ];
+    };
   };
 
   home.packages = with pkgs; [
@@ -53,75 +108,6 @@
     font-awesome_5
     nerdfonts
   ];
-
-  home.activation = let
-    projects = "projects";
-    haskellProjects = projects + "/haskell";
-    gitlab = "git@gitlab.com:";
-    github = "git@github.com:";
-    repos_to_clone = [
-      {
-        dir = haskellProjects;
-        url = github + "lzszt/config.git";
-        name = "config";
-      }
-      {
-        dir = haskellProjects;
-        url = github + "lzszt/polysemy-utils.git";
-        name = "polysemy-utils";
-      }
-      {
-        dir = haskellProjects;
-        url = gitlab + "leitz-projects/shortcuts.git";
-        name = "shortcuts";
-      }
-      {
-        dir = projects;
-        url = gitlab + "Zwiebeljunge/it.git";
-        name = "it";
-      }
-      {
-        dir = haskellProjects;
-        url = gitlab + "leitz-projects/expense-tracker.git";
-        name = "expense-tracker";
-      }
-      {
-        dir = haskellProjects;
-        url = gitlab + "leitz-projects/bildschirm.git";
-        name = "BILDschirm";
-      }
-      {
-        dir = haskellProjects;
-        url = gitlab + "leitz-projects/strava-runner.git";
-        name = "strava-runner";
-      }
-      {
-        dir = haskellProjects;
-        url = gitlab + "Zwiebeljunge/stravaapi.git";
-        name = "strava-api";
-      }
-      {
-        dir = haskellProjects;
-        url = gitlab + "leitz-projects/homeautomation.git";
-        name = "home-automation";
-      }
-    ];
-  in {
-    cloneRepos = let
-      cloneSingleRepo = repo: ''
-        mkdir -p $HOME/${repo.dir}
-        cd $HOME/${repo.dir}
-
-        if [ ! -d $HOME/${repo.dir}/${repo.name} ]
-        then
-            $DRY_RUN_CMD ${pkgs.gitAndTools.gitFull}/bin/git clone ${repo.url} ${repo.name}
-        else
-            echo 'Not cloning ${repo.url} because it already exists.' 
-        fi
-      '';
-      script = lib.concatLines (builtins.map cloneSingleRepo repos_to_clone);
-    in lib.hm.dag.entryAfter [ "writeBoundary" ] script;
-  };
 
   services = {
     dropbox = {

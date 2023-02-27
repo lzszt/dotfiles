@@ -15,8 +15,8 @@
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-            users.leitz = import ./leitz-home.nix;
-            users.ag = import ./ag-home.nix;
+            users.leitz = import ./users/leitz/home.nix;
+            users.ag = import ./users/ag/home.nix;
             useGlobalPkgs = true;
             useUserPackages = false;
 

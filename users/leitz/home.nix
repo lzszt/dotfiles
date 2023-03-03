@@ -134,6 +134,7 @@ in {
     lazygit
 
     htop
+    dig
 
     # Fonts
     font-awesome_5

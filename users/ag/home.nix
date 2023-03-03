@@ -78,6 +78,7 @@ in {
     teams
 
     htop
+    dig
 
     docker
     docker-compose

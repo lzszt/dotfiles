@@ -13,7 +13,13 @@ in {
     };
     rofi.enable = true;
     firefox.enable = true;
-    bash.enable = true;
+    bash = {
+      enable = true;
+      customAliases = {
+        # nixos
+        nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+      };
+    };
     direnv.enable = true;
     cloneRepos = {
       enable = true;

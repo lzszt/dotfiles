@@ -1,8 +1,8 @@
 { pkgs }:
 
 {
-  # nixos
-  nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+  # nix
+  nfu = "nix flake update";
 
   # direnv
   dea = "direnv allow";

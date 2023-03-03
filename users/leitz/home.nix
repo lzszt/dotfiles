@@ -21,6 +21,34 @@ in {
       };
     };
     direnv.enable = true;
+    ssh = {
+      enable = true;
+      matchBlocks = let
+        mkLzsztInfoSsh = subdomain: {
+          host = subdomain;
+          hostname = "${subdomain}.lzszt.info";
+          user = "root";
+          compression = true;
+        };
+
+      in {
+        "gitlab-runner-1" = {
+          host = "gitlab-runner-1";
+          user = "root";
+          proxyCommand = "ssh root@turing -W %h:%p";
+        };
+
+        "turing" = {
+          host = "turing";
+          user = "root";
+          compression = true;
+        };
+
+        "grafana" = mkLzsztInfoSsh "grafana";
+
+        "apps" = mkLzsztInfoSsh "apps";
+      };
+    };
     cloneRepos = {
       enable = true;
       repos = let

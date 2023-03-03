@@ -11,5 +11,6 @@
     ./direnv.nix
     ./firefox.nix
     ./git.nix
+    ./ssh.nix
   ];
 }

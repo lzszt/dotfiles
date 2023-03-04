@@ -11,4 +11,7 @@
 
   # misc
   ll = "ls -lisah";
+
+  de = "setxkbmap de";
+  us = "setxkbmap us";
 }

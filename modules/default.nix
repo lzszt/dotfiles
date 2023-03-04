@@ -6,7 +6,7 @@
     ./rofi
     ./vscode
     ./xmonad
-    ./bash.nix
+    ./bash
     ./cloneRepos.nix
     ./direnv.nix
     ./firefox.nix

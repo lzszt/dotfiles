@@ -34,14 +34,12 @@ in {
     bottom = true;
     modules-left = "filesystem cpu memory";
     modules-center = "date";
-    modules-right = "audio eth wlan wlan1 powermenu";
+    modules-right = "audio eth wlan wlan1";
     monitor = "\${env:MONITOR:}";
     background = "${colors.background}";
     foreground = "${colors.foreground}";
     fixed-center = true;
     font-0 = "Iosevka Nerd Font:size=15;4";
-    font-1 = "FuraCode Nerd Font:style=Bold:size=19;4";
-    font-2 = "Iosevka Nerd Font:style=Bold:size=15;4";
     height = "30";
     locale = "en_US.UTF-8";
     offset-x = "0%";
@@ -69,7 +67,7 @@ in {
 
   "module/filesystem" = {
     type = "internal/fs";
-    format = " <label>";
+    format = "<label>";
     format-background = "${colors.background}";
     format-foreground = "${colors.foreground}";
     format-padding = 2;
@@ -79,7 +77,7 @@ in {
   };
 
   "module/cpu" = {
-    format = "  <label>";
+    format = "<label>";
     format-background = "${colors.background}";
     format-foreground = "${colors.foreground}";
     format-padding = 2;
@@ -241,7 +239,7 @@ in {
   };
 
   "module/memory" = {
-    format = "  <label>";
+    format = "<label>";
     format-background = "${colors.background}";
     format-foreground = "${colors.foreground}";
     format-padding = 2;

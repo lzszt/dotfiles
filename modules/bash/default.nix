@@ -12,20 +12,9 @@ in {
       enable = true;
 
       initExtra = ''
-        precmd () {
-            local nix_tag
-            if [[ x"$IN_NIX_SHELL" == "x" ]]; then
-                nix_tag=""
-            else
-                nix_tag="[nix]"
-            fi
-
-            PR_NIX_SHELL=%F{240}$nix_tag%f
-        }
-
-        PS1=$'\[\033[01;32m\]\u \[\033[00m\]\[\033[01;36m\]\w $(${
+        PS1=$'\[\033[01;32m\]\u \[\033[00m\]\[\033[01;36m\]\w \[\033[00m\]$(${
           ./nix.bash
-        })\U2b9e\[\033[00m\] '
+        })\[\033[01;36m\]\U276F\[\033[00m\] '
       '';
 
       historyIgnore = [ "ls" "cd" "exit" ];

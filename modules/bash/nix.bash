@@ -3,5 +3,5 @@
 if [[ x"$IN_NIX_SHELL" == "x" ]]; then
     echo ""
 else
-    echo "[nix] "
+    echo -e "\U2744"
 fi

@@ -9,6 +9,10 @@
   ded = "direnv deny";
   der = "direnv reload";
 
+  # git
+  gst = "git status";
+  gl = "git log";
+
   # misc
   ll = "ls -lisah";
 

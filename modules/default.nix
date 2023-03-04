@@ -11,6 +11,7 @@
     ./direnv.nix
     ./firefox.nix
     ./git.nix
+    ./neomutt.nix
     ./ssh.nix
   ];
 }

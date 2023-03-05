@@ -102,6 +102,16 @@ in {
           url = gitlab + "leitz-projects/homeautomation.git";
           name = "home-automation";
         }
+        {
+          dir = haskellProjects;
+          url = gitlab + "leitz-projects/3d.git";
+          name = "3d";
+        }
+        {
+          dir = projects;
+          url = gitlab + "Zwiebeljunge/haskellmode.git";
+          name = "haskellmode";
+        }
       ];
     };
   };

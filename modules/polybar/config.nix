@@ -34,7 +34,7 @@ in {
     bottom = true;
     modules-left = "filesystem cpu memory";
     modules-center = "date";
-    modules-right = "audio eth wlan wlan1";
+    modules-right = "xkeyboard audio eth wlan1";
     monitor = "\${env:MONITOR:}";
     background = "${colors.background}";
     foreground = "${colors.foreground}";
@@ -205,13 +205,7 @@ in {
     type = "internal/network";
     interface = "enp34s0";
     interface-type = "wired";
-    label-connected = "%{F#F0C674}%{F-} %local_ip%";
-  };
-  "module/wlan" = {
-    type = "internal/network";
-    interface = "wlo1";
-    interface-type = "wireless";
-    label-connected = "%{F#F0C674}%%%{F-} %local_ip%";
+    label-connected = "⬆ %upspeed% ⬇ %downspeed%";
   };
 
   "module/wlan1" = {

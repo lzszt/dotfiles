@@ -25,6 +25,13 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  hardware.opengl = {
+    enable = true;
+    package = pkgs.mesa.drivers;
+    driSupport32Bit = true;
+    package32 = pkgs.pkgsi686Linux.mesa.drivers;
+  };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";

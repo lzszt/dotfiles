@@ -13,6 +13,7 @@ in {
     };
     rofi.enable = true;
     firefox.enable = true;
+    vscode.enable = true;
     bash = {
       enable = true;
       customAliases = {

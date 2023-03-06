@@ -20,6 +20,7 @@ in {
       polybar.enable = true;
     };
     rofi.enable = true;
+    vscode.enable = true;
     firefox.enable = true;
     bash.enable = true;
     direnv.enable = true;

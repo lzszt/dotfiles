@@ -71,6 +71,8 @@ in {
     fd
     google-chrome
 
+    jetbrains.datagrip
+
     apache-directory-studio
 
     remmina
@@ -83,5 +85,7 @@ in {
 
     docker
     docker-compose
+
+    alacritty
   ];
 }

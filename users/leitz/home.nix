@@ -1,9 +1,7 @@
 { config, lib, pkgs, stdenv, ... }:
 let email = "felix.leitz92@gmail.com";
 in {
-  programs.home-manager.enable = true;
-  home.stateVersion = "22.11";
-  imports = [ ../../modules ];
+  imports = [ ../../modules ../../modules/base.nix ];
 
   modules = {
     git.email = email;
@@ -11,20 +9,14 @@ in {
       xmonad.enable = true;
       polybar.enable = true;
     };
-    rofi.enable = true;
-    firefox.enable = true;
+
     vscode.enable = true;
-    bash = {
-      enable = true;
-      customAliases = {
+    bash.customAliases = {
         # nixos
         nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
       };
-    };
-    direnv.enable = true;
-    ssh = {
-      enable = true;
-      matchBlocks = let
+
+    ssh.matchBlocks = let
         mkLzsztInfoSsh = subdomain: {
           host = subdomain;
           hostname = "${subdomain}.lzszt.info";
@@ -49,7 +41,7 @@ in {
 
         "apps" = mkLzsztInfoSsh "apps";
       };
-    };
+
     cloneRepos = {
       enable = true;
       repos = let
@@ -118,37 +110,23 @@ in {
   };
 
   home.packages = with pkgs; [
-    thunderbird
-    mutt
-    keepassxc
     signal-desktop
     discord
     ghc
     haskell-language-server
     ormolu
-    pavucontrol
 
     docker
     docker-compose
-
-    google-chrome
+    jetbrains.datagrip
 
     steam
 
     prusa-slicer
 
-    alacritty
-
     rink
 
-    ripgrep
-    lazygit
-
-    htop
-    dig
-
     # Fonts
-    font-awesome_5
     nerdfonts
   ];
 
@@ -158,4 +136,5 @@ in {
       path = "${config.home.homeDirectory}/Dropbox";
     };
   };
+  home.stateVersion = "22.11";
 }

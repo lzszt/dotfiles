@@ -1,9 +1,7 @@
 { config, lib, pkgs, stdenv, ... }:
 let email = "felix.leitz@active-group.de";
 in {
-  programs.home-manager.enable = true;
-  home.stateVersion = "22.11";
-  imports = [ ../../modules ];
+  imports = [ ../../modules ../../modules/base.nix ];
 
   programs = {
     mercurial = {
@@ -60,16 +58,11 @@ in {
   };
 
   home.packages = with pkgs; [
-    thunderbird
-    keepassxc
     mattermost-desktop
-    pavucontrol
     jitsi-meet-electron
     linphone
-    lazygit
-    ripgrep
+
     fd
-    google-chrome
 
     jetbrains.datagrip
 
@@ -80,12 +73,8 @@ in {
     vpn-slice
     teams
 
-    htop
-    dig
-
     docker
     docker-compose
-
-    alacritty
   ];
+  home.stateVersion = "22.11";
 }

@@ -21,9 +21,6 @@
           home-manager = {
             users.leitz = import ./users/leitz/home.nix;
             users.ag = import ./users/ag/home.nix;
-            useGlobalPkgs = true;
-            useUserPackages = false;
-
           };
         }
       ];

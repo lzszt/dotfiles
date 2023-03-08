@@ -12,6 +12,7 @@
   # git
   gst = "git status";
   gl = "git log";
+  lgit = "lazygit";
 
   # misc
   ll = "ls -lisah";

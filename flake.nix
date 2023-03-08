@@ -12,18 +12,22 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }: {
-    nixosConfigurations.desktop-nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            users.leitz = import ./users/leitz/home.nix;
-            users.ag = import ./users/ag/home.nix;
-          };
-        }
-      ];
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+    let specialArgs = { inherit inputs; };
+    in {
+      nixosConfigurations.desktop-nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              users.leitz = import ./users/leitz/home.nix;
+              users.ag = import ./users/ag/home.nix;
+              extraSpecialArgs = specialArgs;
+            };
+          }
+        ];
+      };
     };
-  };
 }

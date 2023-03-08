@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 let cfg = config.modules.vscode;
 in {
   options.modules.vscode = { enable = lib.mkEnableOption "vscode"; };

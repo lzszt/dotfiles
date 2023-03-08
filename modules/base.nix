@@ -26,6 +26,9 @@ in {
       htop
       dig
       pavucontrol
+
+      # Fonts
+      nerdfonts
     ];
   };
 }

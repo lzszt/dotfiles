@@ -5,6 +5,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    haskellmode = {
+      url = "gitlab:Zwiebeljunge/haskellmode";
+      flake = true;
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }: {

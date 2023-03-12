@@ -25,14 +25,6 @@ in {
         "haskell.formattingProvider" = "ormolu";
       };
 
-      keybindings = [
-        # {
-        #   key = "ctrl+j";
-        #   command = "workbench.action.focusActiveEditorGroup";
-        #   when = "!terminalFocus";
-        # }
-      ];
-
       extensions = with pkgs.vscode-extensions;
         [
           bbenoist.nix

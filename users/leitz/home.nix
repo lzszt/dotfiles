@@ -105,6 +105,11 @@ in {
           url = gitlab + "Zwiebeljunge/haskellmode.git";
           name = "haskellmode";
         }
+        {
+          dir = projects;
+          url = github + "lzszt/home-manager.git";
+          name = "home-manager";
+        }
       ];
     };
   };

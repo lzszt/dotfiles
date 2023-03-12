@@ -3,13 +3,6 @@ let
   cfg = config.modules.vscode;
 
   userSnippets = {
-    global = {
-      fixme = {
-        prefix = [ "fixme" ];
-        body = [ "$LINE_COMMENT FIXME (felix): $0" ];
-        description = "Insert a FIXME remark";
-      };
-    };
     haskell = {
       newtype = {
         prefix = [ "newtype" ];
@@ -41,6 +34,13 @@ let
         body = [ "$1 :: $2" ''$1 = ''${0:error "implement $1"}'' ];
         description = "Generate a definition";
       };
+    };
+  };
+  globalSnippets = {
+    fixme = {
+      prefix = [ "fixme" ];
+      body = [ "$LINE_COMMENT FIXME (felix): $0" ];
+      description = "Insert a FIXME remark";
     };
   };
 in {
@@ -80,19 +80,31 @@ in {
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace
         (import ./extensions.nix).extensions;
     };
-    home.activation.vscode-userSnippets = let
+    home.activation.vscode-snippets = let
       snippetDir = "$HOME/.config/Code/User/snippets";
-      generateLanguageSnippetsFile = language: snippets:
-        if language == "global" then ''
-          SNIPPET_FILE_CONTENT='${builtins.toJSON snippets}'
-          echo $SNIPPET_FILE_CONTENT | ${pkgs.jq}/bin/jq . > ${snippetDir}/global.code-snippets
-        '' else ''
-          SNIPPET_FILE_CONTENT='${builtins.toJSON snippets}'
-          echo $SNIPPET_FILE_CONTENT | ${pkgs.jq}/bin/jq . > ${snippetDir}/${language}.json
-        '';
 
-      script = lib.concatLines ([ "mkdir -p ${snippetDir}" ]
-        ++ lib.mapAttrsToList generateLanguageSnippetsFile userSnippets);
+      generateSnippetFile = filename: snippets:
+        "$DRY_RUN_CMD echo '${
+          builtins.toJSON snippets
+        }' | ${pkgs.jq}/bin/jq . > ${snippetDir}/${filename}";
+
+      generateLanguageSnippetsFile = language:
+        generateSnippetFile "${language}.json";
+
+      generateUserSnippetFiles = lib.concatLines
+        (lib.mapAttrsToList generateLanguageSnippetsFile userSnippets);
+
+      generateGlobalSnippets = generateSnippetFile "global.code-snippets";
+
+      generateGlobalSnippetsFile = generateGlobalSnippets globalSnippets;
+
+      script = ''
+        mkdir -p ${snippetDir}
+        $VERBOSE_ECHO 'Generating VSCode user snippets'
+        ${generateUserSnippetFiles}
+        $VERBOSE_ECHO 'Generating VSCode global snippets'
+        ${generateGlobalSnippetsFile}
+      '';
     in lib.hm.dag.entryAfter [ "writeBoundary" ] script;
   };
 

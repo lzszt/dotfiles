@@ -3,8 +3,48 @@ let email = "felix.leitz92@gmail.com";
 in {
   imports = [ ../../modules ../../modules/base.nix ];
 
+  accounts = {
+    email = {
+      accounts = {
+        gmail = {
+          address = "felix.leitz92@gmail.com";
+          userName = "felix.leitz92@gmail.com";
+          imap.host = "imap.gmail.com";
+          smtp.host = "smtp.gmail.com";
+          realName = "Felix Leitz";
+          primary = true;
+          neomutt.enable = true;
+          passwordCommand = "echo 'fvfporcpfyspchrm'";
+          mbsync = {
+            enable = true;
+            create = "maildir";
+          };
+        };
+        uni-mail = {
+          address = "felix.leitz@student.uni-tuebingen.de";
+          userName = "zxmfh96";
+          imap.host = "mailserv.uni-tuebingen.de";
+          smtp.host = "smtpserv.uni-tuebingen.de";
+          realName = "Felix Leitz";
+          neomutt.enable = true;
+          passwordCommand = "echo 'a39PufQ@'";
+          mbsync = {
+            enable = true;
+            create = "maildir";
+          };
+        };
+      };
+    };
+  };
+
+  programs = {
+    mbsync.enable = true;
+    msmtp.enable = true;
+  };
+
   modules = {
     git.email = email;
+    neomutt.enable = true;
     desktop = {
       xmonad.enable = true;
       polybar.enable = true;
@@ -12,39 +52,39 @@ in {
 
     vscode.enable = true;
     bash.customAliases = {
-        # nixos
-        nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
-      };
+      # nixos
+      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+    };
 
     ssh.matchBlocks = let
-        mkLzsztInfoSsh = subdomain: {
-          host = subdomain;
-          hostname = "${subdomain}.lzszt.info";
-          user = "root";
-          compression = true;
-        };
-
-      in {
-        "gitlab-runner-1" = {
-          host = "gitlab-runner-1";
-          user = "root";
-          proxyCommand = "ssh root@turing -W %h:%p";
-        };
-
-        "turing" = {
-          host = "turing";
-          user = "root";
-          compression = true;
-        };
-
-        "grafana" = mkLzsztInfoSsh "grafana";
-
-        "apps" = mkLzsztInfoSsh "apps";
+      mkLzsztInfoSsh = subdomain: {
+        host = subdomain;
+        hostname = "${subdomain}.lzszt.info";
+        user = "root";
+        compression = true;
       };
+
+    in {
+      "gitlab-runner-1" = {
+        host = "gitlab-runner-1";
+        user = "root";
+        proxyCommand = "ssh root@turing -W %h:%p";
+      };
+
+      "turing" = {
+        host = "turing";
+        user = "root";
+        compression = true;
+      };
+
+      "grafana" = mkLzsztInfoSsh "grafana";
+
+      "apps" = mkLzsztInfoSsh "apps";
+    };
 
     cloneRepos = {
       enable = true;
-      repos = let
+      git.repos = let
         projects = "projects";
         haskellProjects = projects + "/haskell";
         gitlab = "git@gitlab.com:";
@@ -130,9 +170,6 @@ in {
     prusa-slicer
 
     rink
-
-    # Fonts
-    nerdfonts
   ];
 
   services = {

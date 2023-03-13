@@ -2,7 +2,7 @@
 let
   cfg = config.modules.vscode;
 
-  userSnippets = {
+  languageSnippets = {
     haskell = {
       newtype = {
         prefix = [ "newtype" ];
@@ -36,6 +36,7 @@ let
       };
     };
   };
+
   globalSnippets = {
     fixme = {
       prefix = [ "fixme" ];
@@ -79,33 +80,9 @@ in {
           arrterian.nix-env-selector
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace
         (import ./extensions.nix).extensions;
+
+      inherit languageSnippets globalSnippets;
     };
-    home.activation.vscode-snippets = let
-      snippetDir = "$HOME/.config/Code/User/snippets";
-
-      generateSnippetFile = filename: snippets:
-        "$DRY_RUN_CMD echo '${
-          builtins.toJSON snippets
-        }' | ${pkgs.jq}/bin/jq . > ${snippetDir}/${filename}";
-
-      generateLanguageSnippetsFile = language:
-        generateSnippetFile "${language}.json";
-
-      generateUserSnippetFiles = lib.concatLines
-        (lib.mapAttrsToList generateLanguageSnippetsFile userSnippets);
-
-      generateGlobalSnippets = generateSnippetFile "global.code-snippets";
-
-      generateGlobalSnippetsFile = generateGlobalSnippets globalSnippets;
-
-      script = ''
-        mkdir -p ${snippetDir}
-        $VERBOSE_ECHO 'Generating VSCode user snippets'
-        ${generateUserSnippetFiles}
-        $VERBOSE_ECHO 'Generating VSCode global snippets'
-        ${generateGlobalSnippetsFile}
-      '';
-    in lib.hm.dag.entryAfter [ "writeBoundary" ] script;
   };
 
 }

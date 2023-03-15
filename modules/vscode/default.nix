@@ -82,6 +82,8 @@ in {
   config = lib.mkIf cfg.enable {
     programs.vscode = {
       enable = true;
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
       inherit userSettings extensions languageSnippets globalSnippets;
     };
   };

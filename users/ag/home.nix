@@ -19,11 +19,12 @@ in {
     };
     rofi.enable = true;
     vscode.enable = true;
-    firefox.enable = true;
-    bash.enable = true;
-    direnv.enable = true;
-    cloneRepos = {
+    ssh = {
       enable = true;
+      matchBlocks = (inputs.dotfile-secrets.packages.${system}.agSsh {
+        inherit lib;
+      }).agSshMatchBlocks;
+    };
     cloneRepos = let ag = "ag";
     in {
       enable = true;

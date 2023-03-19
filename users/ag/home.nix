@@ -24,9 +24,10 @@ in {
     direnv.enable = true;
     cloneRepos = {
       enable = true;
-      repos = let
-        ag = "ag";
-        gitlabAG = "ssh://git@gitlab.active-group.de:1022";
+    cloneRepos = let ag = "ag";
+    in {
+      enable = true;
+      git.repos = let gitlabAG = "ssh://git@gitlab.active-group.de:1022";
       in [
         {
           dir = ag;

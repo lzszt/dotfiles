@@ -43,6 +43,11 @@ let
       body = [ "$LINE_COMMENT FIXME (felix): $0" ];
       description = "Insert a FIXME remark";
     };
+    todo = {
+      prefix = [ "todo" ];
+      body = [ "$LINE_COMMENT TODO (felix): $0" ];
+      description = "Insert a TODO remark";
+    };
   };
 
   userSettings = {

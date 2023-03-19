@@ -13,10 +13,13 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-    let specialArgs = { inherit inputs; };
+    let
+      # TODO (felix): generalize this
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs system; };
     in {
       nixosConfigurations.desktop-nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager

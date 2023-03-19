@@ -1,4 +1,4 @@
-{ inputs, config, lib, pkgs, ... }:
+{ inputs, system, config, lib, pkgs, ... }:
 let
   cfg = config.modules.vscode;
 
@@ -69,9 +69,8 @@ let
     "haskell.formattingProvider" = "ormolu";
   };
 
-  # FIXME (felix): inherit system here
   haskellmode = let
-    haskellmodeInput = inputs.haskellmode.packages.x86_64-linux;
+    haskellmodeInput = inputs.haskellmode.packages.${system};
     haskellmode-version = haskellmodeInput.haskellmode-version;
   in pkgs.vscode-utils.buildVscodeMarketplaceExtension {
     mktplcRef = {

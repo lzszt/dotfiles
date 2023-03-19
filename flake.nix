@@ -5,10 +5,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    haskellmode = {
-      url = "gitlab:Zwiebeljunge/haskellmode";
-      flake = true;
-    };
+    # dotfile-secrets = {
+    #   url = "git+ssh://git@github.com/lzszt/dotfile-secrets";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    haskellmode.url = "gitlab:Zwiebeljunge/haskellmode";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:

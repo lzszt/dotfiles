@@ -69,6 +69,20 @@ let
     "haskell.formattingProvider" = "ormolu";
   };
 
+  # FIXME (felix): inherit system here
+  haskellmode = let
+    haskellmodeInput = inputs.haskellmode.packages.x86_64-linux;
+    haskellmode-version = haskellmodeInput.haskellmode-version;
+  in pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+    mktplcRef = {
+      publisher = "lzszt";
+      name = "haskell-mode";
+      version = haskellmode-version;
+    };
+    vsix =
+      "${haskellmodeInput.haskellmode}/haskellmode-${haskellmode-version}.zip";
+  };
+
   extensions = with pkgs.vscode-extensions;
     [
       bbenoist.nix
@@ -78,6 +92,7 @@ let
       waderyan.gitblame
       donjayamanne.githistory
       arrterian.nix-env-selector
+      haskellmode
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace
     (import ./extensions.nix).extensions;
 

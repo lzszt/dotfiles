@@ -91,6 +91,11 @@ in {
         github = "git@github.com:";
       in [
         {
+          dir = ".";
+          url = github + "lzszt/dotfile-secrets.git";
+          name = "dotfile-secrets";
+        }
+        {
           dir = haskellProjects;
           url = github + "lzszt/config.git";
           name = "config";

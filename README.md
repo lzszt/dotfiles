@@ -6,8 +6,6 @@
   - fix polybar not autostarting
   - fix symbols
   - not showing workspaces
-- dropbox
-  - not working
 - mail
   - finish mail setup
 - firefox

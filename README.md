@@ -13,7 +13,6 @@
 - cloneRepos
   - get mercurial and subversion working
 - misc
-  - some steam windows drift (maybe not exclusive to steam?)
   - factorio where does it launch to?
   - prepare for multiple hosts
   - generate haskell project stub

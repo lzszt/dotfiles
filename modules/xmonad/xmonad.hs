@@ -1,7 +1,10 @@
--- Imports for Polybar --
+{-# LANGUAGE LambdaCase #-}
+
 import Codec.Binary.UTF8.String qualified as UTF8
 import DBus qualified as D
 import DBus.Client qualified as D
+import Data.Map.Strict qualified as M
+import Data.Monoid
 import XMonad
 import XMonad.Actions.DynamicProjects
   ( Project (..),
@@ -12,9 +15,13 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.RefocusLast
 import XMonad.Layout.Magnifier
 import XMonad.Layout.Spacing
 import XMonad.Layout.ThreeColumns
+import XMonad.Prelude
+import XMonad.StackSet qualified as W
 import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
 
@@ -31,7 +38,8 @@ main' dbus =
           borderWidth = 3,
           normalBorderColor = "#1d2021",
           focusedBorderColor = "#fbf1c7",
-          logHook = myPolybarLogHook dbus
+          logHook = myPolybarLogHook dbus,
+          handleEventHook = myEventHook
         }
         `additionalKeysP` [ ("C-<Space>", spawn "rofi -disable-history -show run"),
                             ("M-m", spawn "amixer set Master toggle"),
@@ -104,3 +112,53 @@ dbusOutput dbus str =
       signal = D.signal opath iname mname
       body = [D.toVariant $ UTF8.decodeString str]
    in D.emit dbus $ signal {D.signalBody = body}
+
+-- Event hook
+-- Fix for sliding windows
+-- https://github.com/xmonad/xmonad/issues/423
+
+myEventHook :: Event -> X All
+myEventHook =
+  mconcat
+    [ floatConfReqHook myFloatConfReqManageHook
+    ]
+
+floatConfReqHook :: MaybeManageHook -> Event -> X All
+floatConfReqHook mh ev@ConfigureRequestEvent {ev_window = w} =
+  runQuery (join <$> (isFloat -?> mh)) w >>= \case
+    Nothing -> mempty
+    Just e -> do
+      windows (appEndo e)
+      sendConfWindow -- if still floating, send ConfigureWindow
+      pure (All False)
+  where
+    sendConfWindow = withWindowSet $ \ws ->
+      whenJust (M.lookup w (W.floating ws)) $ \fr ->
+        whenJust (findScreenRect ws) (confWindow fr)
+    findScreenRect ws =
+      listToMaybe
+        [ screenRect (W.screenDetail s)
+          | s <- W.current ws : W.visible ws,
+            w `elem` W.integrate' (W.stack (W.workspace s))
+        ]
+    confWindow fr sr = withDisplay $ \dpy -> do
+      let r = scaleRationalRect sr fr
+      bw <- asks (borderWidth . config)
+      io $
+        configureWindow dpy w (ev_value_mask ev) $
+          WindowChanges
+            { wc_x = fi $ rect_x r,
+              wc_y = fi $ rect_y r,
+              wc_width = fi $ rect_width r,
+              wc_height = fi $ rect_height r,
+              wc_border_width = fromIntegral bw,
+              wc_sibling = ev_above ev,
+              wc_stack_mode = ev_detail ev
+            }
+floatConfReqHook _ _ = mempty
+
+myFloatConfReqManageHook :: MaybeManageHook
+myFloatConfReqManageHook =
+  composeAll
+    [ className =? "Steam" -?> doFloat -- prevent Steam from moving its floats to primary screen
+    ]

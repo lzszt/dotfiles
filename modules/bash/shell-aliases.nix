@@ -3,6 +3,7 @@
 {
   # nix
   nfu = "nix flake update";
+  nfui = "nix flake lock --update-input";
 
   # direnv
   dea = "direnv allow";

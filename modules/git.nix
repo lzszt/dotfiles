@@ -15,6 +15,10 @@ in {
 
       # VS Code
       ".vscode"
+
+      # nix
+      "result"
+      "restult/*"
     ];
     # delta.enable = true;  whats this???
   };

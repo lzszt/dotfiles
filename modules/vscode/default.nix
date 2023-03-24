@@ -73,14 +73,15 @@ let
     haskellmodeInput = inputs.haskellmode.packages.${system};
     haskellmode-version = haskellmodeInput.haskellmode-version;
 
-    vsixToZip = input: version:
+    extensionFilename = "haskellmode-${haskellmode-version}";
+
+    vsixToZip = input: filename:
       pkgs.stdenv.mkDerivation {
         name = "vsix-to-zip";
         src = input;
-        buildInputs = [ ];
         buildPhase = pkgs.writeScript "vsix-to-zip" ''
           mkdir result
-          mv haskellmode-${version}.vsix result/haskellmode-${version}.zip
+          mv ${filename}.vsix result/${filename}.zip
           mv result $out
         '';
       };
@@ -92,8 +93,8 @@ let
       version = haskellmode-version;
     };
     vsix = "${
-        vsixToZip haskellmodeInput.haskellmode haskellmode-version
-      }/haskellmode-${haskellmode-version}.zip";
+        vsixToZip haskellmodeInput.haskellmode extensionFilename
+      }/${extensionFilename}.zip";
   };
 
   extensions = with pkgs.vscode-extensions;

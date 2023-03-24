@@ -35,5 +35,4 @@ in {
       inherit (snippets) languageSnippets globalSnippets;
     };
   };
-
 }

@@ -26,10 +26,8 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
 
 main :: IO ()
-main = mkDbusClient >>= main'
-
-main' :: D.Client -> IO ()
-main' dbus =
+main = do
+  dbus <- mkDbusClient
   xmonad $
     docks $
       def
@@ -99,8 +97,10 @@ polybarHook dbus =
           ppTitle = const "" -- shorten 100 . wrapper normal
         }
 
+myPolybarLogHook :: D.Client -> X ()
 myPolybarLogHook dbus = myLogHook <+> dynamicLogWithPP (polybarHook dbus)
 
+myLogHook :: X ()
 myLogHook = fadeInactiveLogHook 0.9
 
 -- Emit a DBus signal on log updates

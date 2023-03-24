@@ -72,14 +72,28 @@ let
   haskellmode = let
     haskellmodeInput = inputs.haskellmode.packages.${system};
     haskellmode-version = haskellmodeInput.haskellmode-version;
+
+    vsixToZip = input: version:
+      pkgs.stdenv.mkDerivation {
+        name = "vsix-to-zip";
+        src = input;
+        buildInputs = [ ];
+        buildPhase = pkgs.writeScript "vsix-to-zip" ''
+          mkdir result
+          mv haskellmode-${version}.vsix result/haskellmode-${version}.zip
+          mv result $out
+        '';
+      };
+
   in pkgs.vscode-utils.buildVscodeMarketplaceExtension {
     mktplcRef = {
       publisher = "lzszt";
       name = "haskell-mode";
       version = haskellmode-version;
     };
-    vsix =
-      "${haskellmodeInput.haskellmode}/haskellmode-${haskellmode-version}.zip";
+    vsix = "${
+        vsixToZip haskellmodeInput.haskellmode haskellmode-version
+      }/haskellmode-${haskellmode-version}.zip";
   };
 
   extensions = with pkgs.vscode-extensions;

@@ -55,11 +55,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1679220167,
-        "narHash": "sha256-JPPe+3gv1Pv3Jp4PYumdq+S/8QR3ATE2D4tbmWVQsjw=",
+        "lastModified": 1679592498,
+        "narHash": "sha256-yuazOPyrTQVqS9MUdu4ZvLBp50Y+gRxBVF/Bj6whPkU=",
         "owner": "Zwiebeljunge",
         "repo": "haskellmode",
-        "rev": "5e14116da3737e7973043d51b15673fc5966ad7b",
+        "rev": "a12c293c877c2c01c9ee168818257b79c03006fb",
         "type": "gitlab"
       },
       "original": {

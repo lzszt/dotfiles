@@ -37,5 +37,10 @@ in with pkgs.vscode-extensions;
   donjayamanne.githistory
   arrterian.nix-env-selector
   haskellmode
-] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [ ]
+] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+  publisher = "mtsmfm";
+  name = "vscode-stl-viewer";
+  version = "0.3.0";
+  sha256 = "sha256-1xQl+5PMAsSjf9y25/G63Z5YYj8mQMPOuDSVY4YBukc=";
+}]
 

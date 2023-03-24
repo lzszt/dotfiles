@@ -162,9 +162,6 @@ in {
   home.packages = with pkgs; [
     signal-desktop
     discord
-    ghc
-    haskell-language-server
-    ormolu
 
     docker
     docker-compose

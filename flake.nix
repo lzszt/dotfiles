@@ -29,5 +29,16 @@
           }
         ];
       };
+      devShells.${system} = let
+        pkgs = nixpkgs.legacyPackages.${system};
+        ghcEnv = pkgs.haskellPackages.ghcWithPackages (hp:
+          with hp; [
+            ormolu
+            haskell-language-server
+            dbus
+            xmonad-contrib
+            monad-logger
+          ]);
+      in { default = pkgs.mkShell { buildInputs = [ ghcEnv ]; }; };
     };
 }

@@ -14,7 +14,7 @@ in {
           realName = "Felix Leitz";
           primary = true;
           neomutt.enable = true;
-          passwordCommand = "echo 'fvfporcpfyspchrm'";
+          passwordCommand = "";
           mbsync = {
             enable = true;
             create = "maildir";
@@ -27,7 +27,7 @@ in {
           smtp.host = "smtpserv.uni-tuebingen.de";
           realName = "Felix Leitz";
           neomutt.enable = true;
-          passwordCommand = "echo 'a39PufQ@'";
+          passwordCommand = "";
           mbsync = {
             enable = true;
             create = "maildir";

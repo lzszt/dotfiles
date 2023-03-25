@@ -25,6 +25,7 @@ let
     "stlViewer.showInfo" = true;
     "stlViewer.showBoundingBox" = true;
     "stlViewer.meshMaterialType" = "normal";
+    "stlViewer.viewOffset" = 100;
   };
 
   snippets = import ./snippets.nix;

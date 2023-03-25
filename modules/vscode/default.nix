@@ -19,6 +19,12 @@ let
 
     # default haskell settings
     "haskell.formattingProvider" = "ormolu";
+
+    # stl viewer settings
+    "stlViewer.showAxes" = true;
+    "stlViewer.showInfo" = true;
+    "stlViewer.showBoundingBox" = true;
+    "stlViewer.meshMaterialType" = "normal";
   };
 
   snippets = import ./snippets.nix;

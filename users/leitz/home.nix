@@ -156,6 +156,11 @@ in {
           url = github + "lzszt/home-manager.git";
           name = "home-manager";
         }
+        {
+          dir = projects;
+          url = github + "NixOS/nixpkgs.git";
+          name = "nixpkgs";
+        }
       ];
     };
   };

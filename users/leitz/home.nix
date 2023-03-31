@@ -1,5 +1,8 @@
 { config, lib, pkgs, stdenv, ... }:
-let email = "felix.leitz92@gmail.com";
+let
+  email = "felix.leitz92@gmail.com";
+  projects = "projects";
+  haskellProjects = projects + "/haskell";
 in {
   imports = [ ../../modules ../../modules/base.nix ];
 
@@ -85,8 +88,6 @@ in {
     cloneRepos = {
       enable = true;
       git.repos = let
-        projects = "projects";
-        haskellProjects = projects + "/haskell";
         gitlab = "git@gitlab.com:";
         github = "git@github.com:";
       in [

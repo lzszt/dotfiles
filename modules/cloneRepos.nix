@@ -26,9 +26,8 @@ in {
 
       gitCloneScript =
         lib.concatLines (builtins.map cloneSingleGitRepo cfg.git.repos);
-      script = lib.concatLines [
-        gitCloneScript
-      ];
+
+      script = lib.concatLines [ gitCloneScript ];
     in lib.hm.dag.entryAfter [ "writeBoundary" ] script;
   };
 

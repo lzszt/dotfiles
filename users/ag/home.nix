@@ -75,6 +75,8 @@ in {
     vpn-slice
     teams
 
+    virt-manager
+
     docker
     docker-compose
   ];

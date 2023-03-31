@@ -17,6 +17,9 @@ let
     "git.confirmSync" = false;
     "git.autofetch" = true;
 
+    # explorer settings
+    "explorer.confirmDragAndDrop" = false;
+
     # default haskell settings
     "haskell.formattingProvider" = "ormolu";
 

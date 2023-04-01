@@ -29,33 +29,15 @@ in {
     in {
       enable = true;
       git.repos = let gitlabAG = "ssh://git@gitlab.active-group.de:1022";
-      in [
-        {
-          dir = ag;
-          url = gitlabAG + "/ag/equals-web.git";
-          name = "equals";
-        }
-        {
-          dir = ag;
-          url = gitlabAG + "/ag-sensitive/it-configs.git";
-          name = "it-configs";
-        }
-        {
-          dir = ag;
-          url = gitlabAG + "/ag/siemens-anomaly-app.git";
-          name = "siemens-anomaly-app";
-        }
-        {
-          dir = ag;
-          url = gitlabAG + "/ag/siemens-anomaly-app.git";
-          name = "siemens-anomaly-app";
-        }
-        {
-          dir = ag;
-          url = gitlabAG + "/ag/isaqb-foundation.git";
-          name = "isaqb-foundation";
-        }
-      ];
+      in {
+        ag = {
+          equals.url = gitlabAG + "/ag/equals-web.git";
+          it-configs.url = gitlabAG + "/ag-sensitive/it-configs.git";
+          siemens-anomaly-app.url = gitlabAG + "/ag/siemens-anomaly-app.git";
+          isaqb-foundation.url = gitlabAG + "/ag/isaqb-foundation.git";
+          # howto.url = gitlabAG + "ag/howto";
+        };
+      };
     };
   };
 

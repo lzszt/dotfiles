@@ -1,8 +1,5 @@
 { config, lib, pkgs, stdenv, ... }:
-let
-  email = "felix.leitz92@gmail.com";
-  projects = "projects";
-  haskellProjects = projects + "/haskell";
+let email = "felix.leitz92@gmail.com";
 in {
   imports = [ ../../modules ../../modules/base.nix ];
 
@@ -87,81 +84,29 @@ in {
 
     cloneRepos = {
       enable = true;
-      git.repos = let
-        gitlab = "git@gitlab.com:";
-        github = "git@github.com:";
-      in [
-        {
-          dir = ".";
-          url = github + "lzszt/dotfile-secrets.git";
-          name = "dotfile-secrets";
-        }
-        {
-          dir = haskellProjects;
-          url = github + "lzszt/config.git";
-          name = "config";
-        }
-        {
-          dir = haskellProjects;
-          url = github + "lzszt/polysemy-utils.git";
-          name = "polysemy-utils";
-        }
-        {
-          dir = haskellProjects;
-          url = gitlab + "leitz-projects/shortcuts.git";
-          name = "shortcuts";
-        }
-        {
-          dir = projects;
-          url = gitlab + "Zwiebeljunge/it.git";
-          name = "it";
-        }
-        {
-          dir = haskellProjects;
-          url = gitlab + "leitz-projects/expense-tracker.git";
-          name = "expense-tracker";
-        }
-        {
-          dir = haskellProjects;
-          url = gitlab + "leitz-projects/bildschirm.git";
-          name = "BILDschirm";
-        }
-        {
-          dir = haskellProjects;
-          url = gitlab + "leitz-projects/strava-runner.git";
-          name = "strava-runner";
-        }
-        {
-          dir = haskellProjects;
-          url = gitlab + "Zwiebeljunge/stravaapi.git";
-          name = "strava-api";
-        }
-        {
-          dir = haskellProjects;
-          url = gitlab + "leitz-projects/homeautomation.git";
-          name = "home-automation";
-        }
-        {
-          dir = haskellProjects;
-          url = gitlab + "leitz-projects/3d.git";
-          name = "3d";
-        }
-        {
-          dir = projects;
-          url = gitlab + "Zwiebeljunge/haskellmode.git";
-          name = "haskellmode";
-        }
-        {
-          dir = projects;
-          url = github + "lzszt/home-manager.git";
-          name = "home-manager";
-        }
-        {
-          dir = projects;
-          url = github + "NixOS/nixpkgs.git";
-          name = "nixpkgs";
-        }
-      ];
+      git.repos = {
+        dotfile-secrets.url = "git@github.com:lzszt/dotfile-secrets.git";
+        projects = {
+          it.url = "git@gitlab.com:Zwiebeljunge/it.git";
+          haskellmode.url = "git@gitlab.com:Zwiebeljunge/haskellmode.git";
+          home-manager.url = "git@github.com:lzszt/home-manager.git";
+          nixpkgs.url = "git@github.com:NixOS/nixpkgs.git";
+          haskell = {
+            config.url = "git@github.com:lzszt/config.git";
+            polysemy-utils.url = "git@github.com:lzszt/polysemy-utils.git";
+            shortcuts.url = "git@gitlab.com:leitz-projects/shortcuts.git";
+            expense-tracker.url =
+              "git@gitlab.com:leitz-projects/expense-tracker.git";
+            BILDschirm.url = "git@gitlab.com:leitz-projects/bildschirm.git";
+            strava-runner.url =
+              "git@gitlab.com:leitz-projects/strava-runner.git";
+            strava-api.url = "git@gitlab.com:Zwiebeljunge/stravaapi.git";
+            home-automation.url =
+              "git@gitlab.com:leitz-projects/homeautomation.git";
+            cad.url = "git@gitlab.com:leitz-projects/3d.git";
+          };
+        };
+      };
     };
   };
 

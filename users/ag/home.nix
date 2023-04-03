@@ -25,17 +25,17 @@ in {
         inherit lib;
       }).agSshMatchBlocks;
     };
-    cloneRepos = let ag = "ag";
-    in {
+    cloneRepos = {
       enable = true;
-      git.repos = let gitlabAG = "ssh://git@gitlab.active-group.de:1022";
+      git.repos = let gitlabAG = "ssh://git@gitlab.active-group.de:1022/";
       in {
         ag = {
-          equals.url = gitlabAG + "/ag/equals-web.git";
-          it-configs.url = gitlabAG + "/ag-sensitive/it-configs.git";
-          siemens-anomaly-app.url = gitlabAG + "/ag/siemens-anomaly-app.git";
-          isaqb-foundation.url = gitlabAG + "/ag/isaqb-foundation.git";
-          # howto.url = gitlabAG + "ag/howto";
+          equals.url = gitlabAG + "ag/equals-web.git";
+          it-configs.url = gitlabAG + "ag-sensitive/it-configs.git";
+          siemens-anomaly-app.url = gitlabAG + "ag/siemens-anomaly-app.git";
+          isaqb-foundation.url = gitlabAG + "ag/isaqb-foundation.git";
+          howto.url = gitlabAG + "ag/howto";
+          angebote.url = gitlabAG + "ag/angebote";
         };
       };
     };

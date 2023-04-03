@@ -120,7 +120,7 @@ in {
 
     steam
 
-    prusa-slicer
+    (pkgs.callPackage ./prusa-slicer-alpha.nix { })
 
     rink
   ];

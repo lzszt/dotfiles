@@ -123,6 +123,8 @@ in {
     (pkgs.callPackage ./prusa-slicer-alpha.nix { })
 
     rink
+
+    teamviewer
   ];
 
   services = {

@@ -11,7 +11,7 @@
 - firefox
   - manage extensions
 - cloneRepos
-  - get mercurial and subversion working
+  - get subversion working
 - misc
   - factorio where does it launch to?
   - prepare for multiple hosts

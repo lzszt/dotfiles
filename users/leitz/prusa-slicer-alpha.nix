@@ -37,7 +37,7 @@ let
   });
 in stdenv.mkDerivation rec {
   pname = "prusa-slicer";
-  version = "2.6.0-alpha5";
+  version = "2.6.0-beta2";
 
   nativeBuildInputs = [ cmake pkg-config wrapGAppsHook ];
 
@@ -124,7 +124,7 @@ in stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "prusa3d";
     repo = "PrusaSlicer";
-    sha256 = "sha256-sIbwuB1Ai2HrzN7tYm6gDL4aCppRcgjsdkuqQTTD3d0=";
+    sha256 = "sha256-T47UBpugnt1iTQ00ovTVEqiMdgTvM43iFODPfT56YGc=";
     rev = "version_${version}";
   };
 

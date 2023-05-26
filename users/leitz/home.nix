@@ -80,6 +80,8 @@ in {
       "grafana" = mkLzsztInfoSsh "grafana";
 
       "apps" = mkLzsztInfoSsh "apps";
+
+      "mail" = mkLzsztInfoSsh "mail";
     };
 
     cloneRepos = {

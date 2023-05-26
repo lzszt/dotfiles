@@ -13,6 +13,5 @@
 - cloneRepos
   - get subversion working
 - misc
-  - factorio where does it launch to?
   - prepare for multiple hosts
   - generate haskell project stub

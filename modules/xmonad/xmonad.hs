@@ -29,21 +29,22 @@ main :: IO ()
 main = do
   dbus <- mkDbusClient
   xmonad $
-    docks $
-      def
-        { terminal = "alacritty",
-          layoutHook = myLayout,
-          borderWidth = 3,
-          normalBorderColor = "#1d2021",
-          focusedBorderColor = "#fbf1c7",
-          logHook = myPolybarLogHook dbus,
-          handleEventHook = myEventHook
-        }
-        `additionalKeysP` [ ("C-<Space>", spawn "rofi -disable-history -show run"),
-                            ("M-m", spawn "amixer set Master toggle"),
-                            ("M-<Up>", spawn "amixer set Master 5%+"),
-                            ("M-<Down>", spawn "amixer set Master 5%-")
-                          ]
+    ewmh $
+      docks $
+        def
+          { terminal = "alacritty",
+            layoutHook = myLayout,
+            borderWidth = 3,
+            normalBorderColor = "#1d2021",
+            focusedBorderColor = "#fbf1c7",
+            logHook = myPolybarLogHook dbus,
+            handleEventHook = myEventHook <+> fullscreenEventHook
+          }
+          `additionalKeysP` [ ("C-<Space>", spawn "rofi -disable-history -show run"),
+                              ("M-m", spawn "amixer set Master toggle"),
+                              ("M-<Up>", spawn "amixer set Master 5%+"),
+                              ("M-<Down>", spawn "amixer set Master 5%-")
+                            ]
 
 myLayout =
   avoidStruts $

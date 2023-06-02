@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, custom, pkgs, ... }:
 
 {
   services = {
@@ -7,7 +7,7 @@
 
     xserver = {
       enable = true;
-      layout = "us";
+      layout = custom.defaultLayout;
 
       displayManager.defaultSession = "none+xmonad";
 

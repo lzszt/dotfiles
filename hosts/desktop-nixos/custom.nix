@@ -4,5 +4,6 @@
     ag.userDefDir = "work";
 
   };
+  defaultLayout = "us";
   defaultUser = "leitz";
 }

@@ -7,7 +7,7 @@
 
     xserver = {
       enable = true;
-      layout = custom.defaultLayout;
+      layout = custom.default.layout;
 
       displayManager.defaultSession = "none+xmonad";
 

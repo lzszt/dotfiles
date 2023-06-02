@@ -20,7 +20,7 @@
 
   de = "setxkbmap de";
   us = "setxkbmap us";
-} // lib.optionalAttrs (config.home.username == custom.defaultUser) {
+} // lib.optionalAttrs (config.home.username == custom.default.user) {
   # nixos
   nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
 }

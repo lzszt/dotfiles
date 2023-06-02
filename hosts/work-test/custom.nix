@@ -1,5 +1,7 @@
 {
   users = { leitz.userDefDir = "work"; };
-  defaultLayout = "de";
-  defaultUser = "leitz";
+  default = {
+    layout = "de";
+    user = "leitz";
+  };
 }

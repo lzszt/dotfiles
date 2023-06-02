@@ -8,7 +8,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "work-test";
+    hostName = custom.hostname;
     networkmanager.enable = true;
   };
 

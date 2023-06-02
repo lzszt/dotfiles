@@ -11,7 +11,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "desktop-nixos";
+    hostName = custom.hostname;
     networkmanager.enable = true;
   };
 

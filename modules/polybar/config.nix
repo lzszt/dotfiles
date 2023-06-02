@@ -39,7 +39,7 @@ in {
     background = "${colors.background}";
     foreground = "${colors.foreground}";
     fixed-center = true;
-    font-0 = "Iosevka Nerd Font:size=15;4";
+    font-0 = "JetBrains Nerd Font Medium:size=15;4";
     height = "30";
     locale = "en_US.UTF-8";
     offset-x = "0%";

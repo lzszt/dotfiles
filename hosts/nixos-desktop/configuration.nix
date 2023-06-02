@@ -7,7 +7,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./wm/xmonad.nix
+    ./../../wm/xmonad.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -100,6 +100,19 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+  # networking.extraHosts = ''
+  #   193.186.94.33 dns0.tun0		# vpn-slice-tun0 AUTOCREATED
+  #   193.186.94.34 dns1.tun0		# vpn-slice-tun0 AUTOCREATED
+  #   193.186.88.7 rdsivo.egv.at rdsivo		# vpn-slice-tun0 AUTOCREATED
+  # '';
+  # networking.openconnect.interfaces = {
+  #   illwerke = {
+  #     gateway = "vpn.egv.at";
+  #     protocol = "anyconnect";
+  #     user = "ext_activegroup2";
+  #   };
+  # };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

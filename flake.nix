@@ -18,12 +18,12 @@
       nixosConfigurations.desktop-nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration.nix
+          ./hosts/nixos-desktop/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              users.leitz = import ./users/leitz/home.nix;
-              users.ag = import ./users/ag/home.nix;
+              users.leitz = import ./hosts/nixos-desktop/users/leitz/home.nix;
+              users.ag = import ./hosts/nixos-desktop/users/ag/home.nix;
               extraSpecialArgs = specialArgs;
             };
           }

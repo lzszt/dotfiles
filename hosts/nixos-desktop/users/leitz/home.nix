@@ -1,7 +1,7 @@
 { config, lib, pkgs, stdenv, ... }:
 let email = "felix.leitz92@gmail.com";
 in {
-  imports = [ ../../modules ../../modules/base.nix ];
+  imports = [ ../../../../modules ../../../../modules/base.nix ];
 
   accounts = {
     email = {
@@ -51,9 +51,16 @@ in {
     };
 
     vscode.enable = true;
-    bash.customAliases = {
-      # nixos
-      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+    bash = {
+      haskellProjectBootstrap = {
+        enable = true;
+        defaultProjectLocation =
+          "${config.home.homeDirectory}/projects/haskell";
+      };
+      customAliases = {
+        # nixos
+        nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+      };
     };
 
     ssh.matchBlocks = let

@@ -1,7 +1,9 @@
-{ config, lib, pkgs, stdenv, ... }:
-let email = "felix.leitz@active-group.de";
+{ inputs, system, config, lib, pkgs, stdenv, ... }:
+let
+  email = "felix.leitz@active-group.de";
+  ldapUser = "leitz";
 in {
-  imports = [ ../../modules ../../modules/base.nix ];
+  imports = [ ../../../../modules ../../../../modules/base.nix ];
 
   programs = {
     mercurial = {
@@ -9,16 +11,50 @@ in {
       userEmail = email;
       userName = "Felix Leitz";
     };
+    mbsync.enable = true;
+    msmtp.enable = true;
+  };
+
+  accounts = {
+    email = {
+      accounts = {
+        work = {
+          address = email;
+          userName = ldapUser;
+          imap.host = "imap.active-group.de";
+          smtp.host = "smtp.active-group.de";
+          realName = "Felix Leitz";
+          primary = true;
+          neomutt.enable = true;
+          passwordCommand = "";
+          mbsync = {
+            enable = true;
+            create = "maildir";
+          };
+        };
+      };
+    };
   };
 
   modules = {
     git.email = email;
+    neomutt.enable = true;
     desktop = {
       xmonad.enable = true;
       polybar.enable = true;
     };
-    rofi.enable = true;
+
     vscode.enable = true;
+    bash.customAliases = {
+      illc = ''
+        sudo ${pkgs.openconnect}/bin/openconnect --protocol=anyconnect \
+        --user=ext_activegroup2 vpn.egv.at
+      '';
+      illr = "";
+
+    };
+    # -s "${pkgs.vpn-slice}/bin/vpn-slice --no-host-names --no-ns-hosts 10.0.0.0/8 rdsivo.egv.at"
+
     ssh = {
       enable = true;
       matchBlocks = (inputs.dotfile-secrets.packages.${system}.agSsh {
@@ -38,6 +74,12 @@ in {
           angebote.url = gitlabAG + "ag/angebote";
         };
       };
+
+      # subversion.repos = [{
+      #   dir = ag + "/stundenzettel";
+      #   url = "https://svn.active-group.de/svn/controlling/2023/Stundenzettel";
+      #   name = "2023";
+      # }];
     };
   };
 

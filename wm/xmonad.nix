@@ -9,8 +9,6 @@
       enable = true;
       layout = "us";
 
-      videoDrivers = [ "amdgpu" ];
-
       displayManager.defaultSession = "none+xmonad";
 
       windowManager.xmonad = {

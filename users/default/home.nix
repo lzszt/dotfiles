@@ -51,12 +51,6 @@ in {
     };
 
     vscode.enable = true;
-    bash = {
-      customAliases = {
-        # nixos
-        nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
-      };
-    };
 
     ssh.matchBlocks = let
       mkLzsztInfoSsh = subdomain: {

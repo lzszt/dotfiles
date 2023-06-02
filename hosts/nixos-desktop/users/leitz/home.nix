@@ -52,11 +52,6 @@ in {
 
     vscode.enable = true;
     bash = {
-      haskellProjectBootstrap = {
-        enable = true;
-        defaultProjectLocation =
-          "${config.home.homeDirectory}/projects/haskell";
-      };
       customAliases = {
         # nixos
         nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";

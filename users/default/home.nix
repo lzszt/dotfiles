@@ -1,7 +1,7 @@
 { config, lib, pkgs, stdenv, ... }:
 let email = "felix.leitz92@gmail.com";
 in {
-  imports = [ ../../../../modules ../../../../modules/base.nix ];
+  imports = [ ../../modules ../../modules/base.nix ];
 
   accounts = {
     email = {

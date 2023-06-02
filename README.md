@@ -13,5 +13,4 @@
 - cloneRepos
   - get subversion working
 - misc
-  - prepare for multiple hosts
   - generate haskell project stub

@@ -3,7 +3,7 @@ let
   email = "felix.leitz@active-group.de";
   ldapUser = "leitz";
 in {
-  imports = [ ../../../../modules ../../../../modules/base.nix ];
+  imports = [ ../../modules ../../modules/base.nix ];
 
   programs = {
     mercurial = {

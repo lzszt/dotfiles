@@ -11,24 +11,27 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
-      # TODO (felix): generalize this
       system = "x86_64-linux";
-      specialArgs = { inherit inputs system; };
-    in {
-      nixosConfigurations.desktop-nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/nixos-desktop/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              users.leitz = import ./hosts/nixos-desktop/users/leitz/home.nix;
-              users.ag = import ./hosts/nixos-desktop/users/ag/home.nix;
-              extraSpecialArgs = specialArgs;
-            };
-          }
-        ];
+      overlays = [
+        (final: prev: {
+          # Shorter than prev.lib.extend (f: p: ...), but I don't know
+          # if there's another difference.
+          lib = prev.lib // { my = import ./lib { inherit (final) lib; }; };
+        })
+      ];
+      pkgs = import nixpkgs {
+        config.allowUnfree = true;
+        inherit overlays system;
       };
+      inherit (pkgs) lib;
+    in {
+      nixosConfigurations = let machines = lib.my.readDirNames ./hosts;
+      in builtins.foldl' (acc: hostname:
+        acc // {
+          ${hostname} =
+            lib.my.mkNixosSystem { inherit hostname system inputs pkgs; };
+        }) { } machines;
+
       devShells.${system}.default = let pkgs = nixpkgs.legacyPackages.${system};
       in pkgs.mkShell {
         buildInputs = [
@@ -43,4 +46,5 @@
         ];
       };
     };
+
 }

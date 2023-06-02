@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, custom, ... }:
 
 let cfg = config.modules.bash;
 in {
@@ -21,7 +21,8 @@ in {
 
       historyIgnore = [ "ls" "cd" "exit" ];
 
-      shellAliases = (import ./shell-aliases.nix { inherit pkgs; })
+      shellAliases =
+        (import ./shell-aliases.nix { inherit pkgs custom config lib; })
         // cfg.customAliases // (if cfg.haskellProjectBootstrap.enable then {
           hpb = import ./haskell-project-bootstrap.nix { inherit pkgs; };
         } else

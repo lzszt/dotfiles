@@ -11,9 +11,8 @@
       dir = ../hosts + "/${hostname}";
       custom = (import (dir + /custom.nix)) // { inherit hostname; };
       specialArgs = { inherit inputs system custom; };
-      users = lib.mapAttrs
-        (userName: homeDefDir: import (../users + "/${homeDefDir}/home.nix"))
-        custom.users;
+      users = lib.mapAttrs (userName: userDef:
+        import (../users + "/${userDef.userDefDir}/home.nix")) custom.users;
     in nixpkgs.lib.nixosSystem {
       inherit system pkgs specialArgs;
       modules = [

@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, custom, config, lib, ... }:
 
 {
   # nix
@@ -20,4 +20,7 @@
 
   de = "setxkbmap de";
   us = "setxkbmap us";
+} // lib.optionalAttrs (config.home.username == custom.defaultUser) {
+  # nixos
+  nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
 }

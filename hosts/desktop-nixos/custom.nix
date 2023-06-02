@@ -1,6 +1,8 @@
 {
   users = {
-    leitz = "default";
-    ag = "work";
+    leitz.userDefDir = "default";
+    ag.userDefDir = "work";
+
   };
+  defaultUser = true;
 }

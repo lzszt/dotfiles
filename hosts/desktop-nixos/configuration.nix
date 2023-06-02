@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, custom, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -30,16 +30,11 @@
   hardware.pulseaudio.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.leitz = {
+  users.users = lib.mapAttrs (user: _: {
     isNormalUser = true;
     extraGroups =
       [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
-  };
-  users.users.ag = {
-    isNormalUser = true;
-    extraGroups =
-      [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
-  };
+  }) custom.users;
 
   virtualisation.docker.enable = true;
 
@@ -63,7 +58,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    settings.trusted-users = [ "root" "leitz" "ag" ];
+    settings.trusted-users = [ "root" ] ++ lib.attrNames custom.users;
     settings.max-jobs = 12;
   };
 

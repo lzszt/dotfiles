@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, custom, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ../../wm/xmonad.nix ];
@@ -23,10 +23,11 @@
   hardware.pulseaudio.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.leitz = {
+  users.users = lib.mapAttrs (user: _: {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
+    extraGroups =
+      [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+  }) custom.users;
 
   environment.systemPackages = with pkgs; [ nixfmt ];
 
@@ -35,7 +36,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    settings.trusted-users = [ "root" "leitz" ];
+    settings.trusted-users = [ "root" ] ++ lib.attrNames custom.users;
     settings.max-jobs = 12;
   };
 

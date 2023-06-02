@@ -12,5 +12,3 @@
   - manage extensions
 - cloneRepos
   - get subversion working
-- misc
-  - generate haskell project stub

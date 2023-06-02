@@ -8,20 +8,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "work-test"; # Define your hostname.
+    hostName = "work-test";
     networkmanager.enable = true;
   };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

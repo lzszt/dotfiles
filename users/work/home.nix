@@ -103,6 +103,8 @@ in {
 
     docker
     docker-compose
+
+    ncdu
   ];
   home.stateVersion = "22.11";
 }

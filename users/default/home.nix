@@ -123,6 +123,8 @@ in {
     rink
 
     teamviewer
+
+    ncdu
   ];
 
   services = {

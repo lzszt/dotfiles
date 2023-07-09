@@ -118,7 +118,7 @@ in {
 
     steam
 
-    (pkgs.callPackage ./prusa-slicer-alpha.nix { })
+    prusa-slicer
 
     rink
 

@@ -25,6 +25,7 @@
       };
       inherit (pkgs) lib;
     in {
+      formatter.${system} = pkgs.nixfmt;
       nixosConfigurations = let machines = lib.my.readDirNames ./hosts;
       in builtins.foldl' (acc: hostname:
         acc // {

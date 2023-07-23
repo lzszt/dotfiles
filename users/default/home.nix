@@ -120,8 +120,6 @@ in {
 
     prusa-slicer
 
-    rink
-
     teamviewer
 
     ncdu

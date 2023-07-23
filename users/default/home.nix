@@ -121,8 +121,6 @@ in {
     prusa-slicer
 
     teamviewer
-
-    ncdu
   ];
 
   services = {

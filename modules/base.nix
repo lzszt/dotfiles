@@ -28,6 +28,7 @@ in {
       htop
       dig
       pavucontrol
+      ncdu
 
       # Fonts
       nerdfonts

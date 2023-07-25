@@ -22,6 +22,7 @@ let
 
     # default haskell settings
     "haskell.formattingProvider" = "ormolu";
+    "haskell.manageHLS" = "PATH";
 
     # stl viewer settings
     "stlViewer.showAxes" = true;

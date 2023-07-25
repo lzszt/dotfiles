@@ -98,7 +98,6 @@ in {
     remmina
     openconnect
     vpn-slice
-    teams
 
     virt-manager
 

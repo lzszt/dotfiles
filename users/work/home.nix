@@ -72,6 +72,8 @@ in {
           howto.url = gitlabAG + "ag/howto";
           angebote.url = gitlabAG + "ag/angebote";
         };
+
+        dotfile-secrets.url = "git@github.com:lzszt/dotfile-secrets.git";
       };
 
       # subversion.repos = [{

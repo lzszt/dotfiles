@@ -34,6 +34,8 @@
       [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
   }) custom.users;
 
+  virtualisation.docker.enable = true;
+
   environment.systemPackages = with pkgs; [ nixfmt ];
 
   nix = {

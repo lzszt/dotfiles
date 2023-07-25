@@ -42,7 +42,7 @@
       experimental-features = nix-command flakes
     '';
     settings.trusted-users = [ "root" ] ++ lib.attrNames custom.users;
-    settings.max-jobs = 12;
+    settings.max-jobs = 16;
   };
 
   system.stateVersion = "23.05";

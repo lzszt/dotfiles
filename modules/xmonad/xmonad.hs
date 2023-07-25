@@ -41,7 +41,7 @@ main = do
             handleEventHook = myEventHook <+> fullscreenEventHook
           }
           `additionalKeysP` [ ("C-<Space>", spawn "rofi -disable-history -show run"),
-                              ("C-k", spawn "rofi -show calc -modi calc -no-show-match -no-sort"),
+                              -- ("C-k", spawn "rofi -show calc -modi calc -no-show-match -no-sort"),
                               ("M-m", spawn "amixer set Master toggle"),
                               ("M-<Up>", spawn "amixer set Master 5%+"),
                               ("M-<Down>", spawn "amixer set Master 5%-")

@@ -37,19 +37,6 @@
 
   environment.systemPackages = with pkgs; [ nixfmt ];
 
-  # networking.extraHosts = ''
-  #   193.186.94.33 dns0.tun0		# vpn-slice-tun0 AUTOCREATED
-  #   193.186.94.34 dns1.tun0		# vpn-slice-tun0 AUTOCREATED
-  #   193.186.88.7 rdsivo.egv.at rdsivo		# vpn-slice-tun0 AUTOCREATED
-  # '';
-  # networking.openconnect.interfaces = {
-  #   illwerke = {
-  #     gateway = "vpn.egv.at";
-  #     protocol = "anyconnect";
-  #     user = "ext_activegroup2";
-  #   };
-  # };
-
   nix = {
     # Enable flakes for the system Nix.
     extraOptions = ''

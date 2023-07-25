@@ -10,6 +10,11 @@
   networking = {
     hostName = custom.hostname;
     networkmanager.enable = true;
+    extraHosts = ''
+      193.186.94.33 dns0.tun0		# vpn-slice-tun0 AUTOCREATED
+      193.186.94.34 dns1.tun0		# vpn-slice-tun0 AUTOCREATED
+      193.186.88.7 rdsivo.egv.at rdsivo		# vpn-slice-tun0 AUTOCREATED
+    '';
   };
 
   # Set your time zone.

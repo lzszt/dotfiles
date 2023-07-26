@@ -207,13 +207,13 @@ in {
 
   "module/eth" = {
     type = "internal/network";
-    interface = "enp34s0";
+    interface = custom.polybar.ethernet;
     interface-type = "wired";
     label-connected = "⬆ %upspeed% ⬇ %downspeed%";
   };
 
   "module/wlan1" = {
-    interface = "wlo1";
+    interface = custom.polybar.wifi;
     type = "internal/network";
     accumulate-stats = "true";
     format-connected = "<label-connected>";

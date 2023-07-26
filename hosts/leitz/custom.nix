@@ -4,4 +4,5 @@
     layout = "us";
     user = "leitz";
   };
+  polybar.withBattery = true;
 }

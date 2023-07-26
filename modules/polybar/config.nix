@@ -1,4 +1,4 @@
-pkgs:
+{ custom, pkgs }:
 
 let
   colors = {
@@ -34,7 +34,11 @@ in {
     bottom = true;
     modules-left = "filesystem cpu memory";
     modules-center = "date";
-    modules-right = "xkeyboard audio eth wlan1";
+    modules-right = "xkeyboard audio eth wlan1 " + pkgs.lib.optionalString
+      # FIXME (felix): can this be done any better?
+      (builtins.hasAttr "polybar" custom
+        && builtins.hasAttr "withBattery" custom.polybar
+        && custom.polybar.withBattery) "battery";
     monitor = "\${env:MONITOR:}";
     background = "${colors.background}";
     foreground = "${colors.foreground}";
@@ -95,7 +99,7 @@ in {
     animation-charging-3 = "";
     animation-charging-4 = "";
     animation-charging-framerate = 500;
-    battery = "BAT0";
+    battery = "BAT1";
     format-charging = " <animation-charging> <label-charging>";
     format-charging-background = "#91ddff";
     format-charging-foreground = "#141228";

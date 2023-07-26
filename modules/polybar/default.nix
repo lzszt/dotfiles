@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ custom, config, lib, pkgs, ... }:
 
 let cfg = config.modules.desktop.polybar;
 in {
-  options.modules.desktop.polybar = { enable = lib.mkEnableOption "polybar"; };
+  options.modules.desktop.polybar.enable = lib.mkEnableOption "polybar";
 
   config = lib.mkIf cfg.enable {
     services.polybar = let
@@ -19,7 +19,10 @@ in {
           MONITOR=$m polybar -r bottom &
         done
       '';
-      config = let configFile = ./config.nix; in import configFile pkgs;
+      config = import ./config.nix {
+        inherit custom;
+        inherit pkgs;
+      };
     };
   };
 }

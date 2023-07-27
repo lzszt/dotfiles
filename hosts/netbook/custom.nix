@@ -5,7 +5,7 @@
     user = "leitz";
   };
   polybar = {
-    withBattery = true;
+    battery = "BAT0";
     ethernet = [ ];
     wifi = "wlp1s0";
   };

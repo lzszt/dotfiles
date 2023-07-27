@@ -37,6 +37,7 @@ in {
   };
 
   modules = {
+    fish.enable = true;
     git.email = email;
     neomutt.enable = true;
     desktop = {

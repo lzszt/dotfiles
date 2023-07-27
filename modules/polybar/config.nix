@@ -176,8 +176,8 @@ in {
       format-disconnected-padding = 2;
       format-disconnected-underline = "${colors.transparent}";
       interval = "1.0";
-      label-connected = "%essid% %signal%%";
-      label-disconnected = "DISCONNECTED";
+      label-connected = "󰖩 %essid%";
+      label-disconnected = "󰖪";
       unknown-as-up = true;
     };
 

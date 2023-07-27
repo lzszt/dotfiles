@@ -192,18 +192,6 @@ in {
       type = "internal/memory";
     };
 
-    "module/distro-icon" = {
-      exec =
-        "${pkgs.coreutils}/bin/uname -r | ${pkgs.coreutils}/bin/cut -d- -f1";
-      format = "   <label>";
-      format-background = "${colors.background}";
-      format-foreground = "${colors.foreground}";
-      format-padding = 2;
-      interval = "999999999";
-      label = "%output%";
-      type = "custom/script";
-    };
-
     "module/xmonad" = {
       type = "custom/script";
       exec = "${pkgs.xmonad-log}/bin/xmonad-log";

@@ -40,7 +40,7 @@ in {
   "bar/bottom" = {
     bottom = true;
     modules-left = "filesystem cpu memory";
-    modules-center = "date";
+    modules-center = "xmonad date";
     modules-right = "xkeyboard audio "
       + (if (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom) then
         (builtins.concatStringsSep " "

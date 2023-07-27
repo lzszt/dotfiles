@@ -19,9 +19,6 @@ let
     interface-type = "wired";
     label-connected = "⬆ %upspeed% ⬇ %downspeed%";
   };
-  # (a -> AttrSet) -> [a] -> AttrSet
-  mergeMapAttr = f: xs: builtins.foldl' (a: b: a // b) { } (builtins.map f xs);
-
 in {
   "global/wm" = {
     margin-bottom = 0;
@@ -272,7 +269,7 @@ in {
     };
   } // (if (pkgs.lib.hasAttr "polybar" custom
     && pkgs.lib.hasAttr "ethernet" custom.polybar) then
-    (mergeMapAttr
+    (pkgs.lib.my.mergeMapAttr
       (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
       (pkgs.lib.imap0 (index: interface: {
         index = index;

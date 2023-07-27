@@ -29,4 +29,7 @@
         }
       ];
     };
+
+  # (a -> AttrSet) -> [a] -> AttrSet
+  mergeMapAttr = f: xs: builtins.foldl' (a: b: a // b) { } (builtins.map f xs);
 }

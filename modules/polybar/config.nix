@@ -17,7 +17,7 @@ let
     type = "internal/network";
     interface = "${interface}";
     interface-type = "wired";
-    label-connected = "⬆ %upspeed% ⬇ %downspeed%";
+    label-connected = " %upspeed%  %downspeed%";
   };
 
 in {

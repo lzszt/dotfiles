@@ -117,7 +117,7 @@ in {
     full-at = 100;
     label-charging = "%percentage%% +%consumption%W";
     label-discharging = "%percentage%% -%consumption%W";
-    label-full = " 100%";
+    label-full = " ";
     poll-interval = 2;
     ramp-capacity-0 = "";
     ramp-capacity-1 = "";

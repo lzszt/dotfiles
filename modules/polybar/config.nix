@@ -19,6 +19,7 @@ let
     interface-type = "wired";
     label-connected = "⬆ %upspeed% ⬇ %downspeed%";
   };
+
 in {
   "global/wm" = {
     margin-bottom = 0;
@@ -40,13 +41,13 @@ in {
     bottom = true;
     modules-left = "filesystem cpu memory";
     modules-center = "date";
-    modules-right = "xkeyboard audio " + (if (pkgs.lib.hasAttr "polybar" custom
-      && pkgs.lib.hasAttr "ethernet" custom.polybar) then
-      (builtins.concatStringsSep " "
-        (pkgs.lib.imap0 (index: _: "eth${toString index}")
-          custom.polybar.ethernet))
-    else
-      "") + " wlan1 battery";
+    modules-right = "xkeyboard audio "
+      + (if (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom) then
+        (builtins.concatStringsSep " "
+          (pkgs.lib.imap0 (index: _: "eth${toString index}")
+            custom.polybar.ethernet))
+      else
+        "") + " wlan1 battery";
     monitor = "\${env:MONITOR:}";
     background = "${colors.background}";
     foreground = "${colors.foreground}";
@@ -97,43 +98,42 @@ in {
     label = "CPU %percentage%%";
     type = "internal/cpu";
   };
-} // (if (pkgs.lib.hasAttr "polybar" custom
-  && pkgs.lib.hasAttr "battery" custom.polybar) then {
-    "module/battery" = {
-      type = "internal/battery";
-      adapter = "AC0";
-      animation-charging-0 = "";
-      animation-charging-1 = "";
-      animation-charging-2 = "";
-      animation-charging-3 = "";
-      animation-charging-4 = "";
-      animation-charging-framerate = 500;
-      battery = custom.polybar.battery;
-      format-charging = " <animation-charging> <label-charging>";
-      format-charging-background = "#91ddff";
-      format-charging-foreground = "#141228";
-      format-charging-padding = 1;
-      format-discharging = "<ramp-capacity> <label-discharging>";
-      format-discharging-background = "#91ddff";
-      format-discharging-foreground = "#141228";
-      format-discharging-padding = 1;
-      format-full-background = "#91ddff";
-      format-full-foreground = "#141228";
-      format-full-padding = 1;
-      full-at = 101;
-      label-charging = "%percentage%% +%consumption%W";
-      label-discharging = "%percentage%% -%consumption%W";
-      label-full = " 100%";
-      poll-interval = 2;
-      ramp-capacity-0 = "";
-      ramp-capacity-0-foreground = "#e74c3c";
-      ramp-capacity-1 = "";
-      ramp-capacity-1-foreground = "#e74c3c";
-      ramp-capacity-2 = "";
-      ramp-capacity-3 = "";
-      ramp-capacity-4 = "";
-    };
-  } else
+} // (if (pkgs.lib.my.hasSubAttr "polybar.battery" custom) then {
+  "module/battery" = {
+    type = "internal/battery";
+    adapter = "AC0";
+    animation-charging-0 = "";
+    animation-charging-1 = "";
+    animation-charging-2 = "";
+    animation-charging-3 = "";
+    animation-charging-4 = "";
+    animation-charging-framerate = 500;
+    battery = custom.polybar.battery;
+    format-charging = " <animation-charging> <label-charging>";
+    format-charging-background = "#91ddff";
+    format-charging-foreground = "#141228";
+    format-charging-padding = 1;
+    format-discharging = "<ramp-capacity> <label-discharging>";
+    format-discharging-background = "#91ddff";
+    format-discharging-foreground = "#141228";
+    format-discharging-padding = 1;
+    format-full-background = "#91ddff";
+    format-full-foreground = "#141228";
+    format-full-padding = 1;
+    full-at = 101;
+    label-charging = "%percentage%% +%consumption%W";
+    label-discharging = "%percentage%% -%consumption%W";
+    label-full = " 100%";
+    poll-interval = 2;
+    ramp-capacity-0 = "";
+    ramp-capacity-0-foreground = "#e74c3c";
+    ramp-capacity-1 = "";
+    ramp-capacity-1-foreground = "#e74c3c";
+    ramp-capacity-2 = "";
+    ramp-capacity-3 = "";
+    ramp-capacity-4 = "";
+  };
+} else
   { }) // {
     "module/audio" = {
       format-muted = "<label-muted>";
@@ -267,8 +267,7 @@ in {
       exec = "${pkgs.xmonad-log}/bin/xmonad-log";
       tail = true;
     };
-  } // (if (pkgs.lib.hasAttr "polybar" custom
-    && pkgs.lib.hasAttr "ethernet" custom.polybar) then
+  } // (if (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom) then
     (pkgs.lib.my.mergeMapAttr
       (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
       (pkgs.lib.imap0 (index: interface: {

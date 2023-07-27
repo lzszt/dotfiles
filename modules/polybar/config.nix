@@ -145,33 +145,6 @@ in {
       type = "internal/pulseaudio";
     };
 
-    "module/xworkspaces" = {
-      type = "internal/xworkspaces";
-      enable-scroll = false;
-      pin-workspaces = true;
-      format = "<label-state>";
-      label-monitor = "";
-      label-active = "%name%";
-      label-active-background = "${colors.background}";
-      label-active-foreground = "${colors.foreground}";
-      label-active-padding = 1;
-      label-active-margin = 0;
-      label-active-font = 3;
-      label-occupied = "%name%";
-      label-occupied-background = "${colors.background}";
-      label-occupied-foreground = "#707070";
-      label-occupied-padding = 1;
-      label-occupied-margin = 0;
-      label-empty = "";
-      label-empty-padding = 0;
-      label-empty-margin = 0;
-      label-urgent = "%name%";
-      label-urgent-background = "${colors.background}";
-      label-urgent-foreground = "${colors.urgent}";
-      label-urgent-padding = 1;
-      label-urgent-margin = 0;
-    };
-
     "settings" = {
       compositing-background = "source";
       compositing-border = "over";

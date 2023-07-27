@@ -13,6 +13,15 @@ let
     transparent = "#00000000";
   };
 
+  mkEthModule = interface: {
+    type = "internal/network";
+    interface = "${interface}";
+    interface-type = "wired";
+    label-connected = "⬆ %upspeed% ⬇ %downspeed%";
+  };
+  # (a -> AttrSet) -> [a] -> AttrSet
+  mergeMapAttr = f: xs: builtins.foldl' (a: b: a // b) { } (builtins.map f xs);
+
 in {
   "global/wm" = {
     margin-bottom = 0;
@@ -34,7 +43,9 @@ in {
     bottom = true;
     modules-left = "filesystem cpu memory";
     modules-center = "date";
-    modules-right = "xkeyboard audio eth wlan1 " + pkgs.lib.optionalString
+    modules-right = "xkeyboard audio " + (builtins.concatStringsSep " "
+      (pkgs.lib.imap0 (index: _: "eth${toString index}")
+        custom.polybar.ethernet)) + " wlan1 " + pkgs.lib.optionalString
       # FIXME (felix): can this be done any better?
       (builtins.hasAttr "polybar" custom
         && builtins.hasAttr "withBattery" custom.polybar
@@ -205,13 +216,6 @@ in {
     menu-0-2-exec = "systemctl poweroff";
   };
 
-  "module/eth" = {
-    type = "internal/network";
-    interface = custom.polybar.ethernet;
-    interface-type = "wired";
-    label-connected = "⬆ %upspeed% ⬇ %downspeed%";
-  };
-
   "module/wlan1" = {
     interface = custom.polybar.wifi;
     type = "internal/network";
@@ -263,4 +267,9 @@ in {
     exec = "${pkgs.xmonad-log}/bin/xmonad-log";
     tail = true;
   };
-}
+} // (mergeMapAttr
+  (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
+  (pkgs.lib.imap0 (index: interface: {
+    index = index;
+    interface = interface;
+  }) custom.polybar.ethernet))

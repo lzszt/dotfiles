@@ -9,7 +9,7 @@
   };
 
   polybar = {
-    ethernet = "enp34s0";
+    ethernet = [ "enp34s0" ];
     wifi = "wlo1";
   };
 }

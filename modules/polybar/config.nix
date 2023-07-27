@@ -95,7 +95,7 @@ in {
     format-foreground = "${colors.foreground}";
     format-padding = 2;
     interval = "0.5";
-    label = "CPU %percentage%%";
+    label = " %percentage%%";
     type = "internal/cpu";
   };
 } // (if (pkgs.lib.my.hasSubAttr "polybar.battery" custom) then {

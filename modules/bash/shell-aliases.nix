@@ -11,6 +11,7 @@
   der = "direnv reload";
 
   # git
+  gp = "git pull";
   gst = "git status";
   gl = "git log";
   lgit = "lazygit";

@@ -6,7 +6,6 @@
   };
   polybar = {
     battery = "BAT0";
-    ethernet = [ ];
     wifi = "wlp1s0";
   };
 }

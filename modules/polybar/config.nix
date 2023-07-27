@@ -43,9 +43,13 @@ in {
     bottom = true;
     modules-left = "filesystem cpu memory";
     modules-center = "date";
-    modules-right = "xkeyboard audio " + (builtins.concatStringsSep " "
-      (pkgs.lib.imap0 (index: _: "eth${toString index}")
-        custom.polybar.ethernet)) + " wlan1 battery";
+    modules-right = "xkeyboard audio " + (if (pkgs.lib.hasAttr "polybar" custom
+      && pkgs.lib.hasAttr "ethernet" custom.polybar) then
+      (builtins.concatStringsSep " "
+        (pkgs.lib.imap0 (index: _: "eth${toString index}")
+          custom.polybar.ethernet))
+    else
+      "") + " wlan1 battery";
     monitor = "\${env:MONITOR:}";
     background = "${colors.background}";
     foreground = "${colors.foreground}";
@@ -266,9 +270,13 @@ in {
       exec = "${pkgs.xmonad-log}/bin/xmonad-log";
       tail = true;
     };
-  } // (mergeMapAttr
-    (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
-    (pkgs.lib.imap0 (index: interface: {
-      index = index;
-      interface = interface;
-    }) custom.polybar.ethernet))
+  } // (if (pkgs.lib.hasAttr "polybar" custom
+    && pkgs.lib.hasAttr "ethernet" custom.polybar) then
+    (mergeMapAttr
+      (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
+      (pkgs.lib.imap0 (index: interface: {
+        index = index;
+        interface = interface;
+      }) custom.polybar.ethernet))
+  else
+    { })

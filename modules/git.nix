@@ -20,6 +20,6 @@ in {
       "result"
       "restult/*"
     ];
-    # delta.enable = true;  whats this???
+    extraConfig = { pull.rebase = "false"; };
   };
 }

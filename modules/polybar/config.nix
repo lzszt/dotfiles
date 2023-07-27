@@ -134,14 +134,13 @@ in {
       format-muted-overline = "${colors.transparent}";
       format-muted-padding = 2;
       format-muted-margin = 0;
-      format-muted-prefix = "婢  ";
       format-muted-prefix-foreground = "${colors.urgent}";
-      format-volume = "墳  VOL <label-volume>";
+      format-volume = " <label-volume>";
       format-volume-background = "${colors.background}";
       format-volume-foreground = "${colors.foreground}";
       format-volume-padding = 2;
       format-volume-margin = 0;
-      label-muted = "MUTED";
+      label-muted = "";
       label-volume = "%percentage%%";
       type = "internal/pulseaudio";
     };

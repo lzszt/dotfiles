@@ -114,7 +114,7 @@ in {
     format-discharging = "<ramp-capacity> <label-discharging>";
     format-discharging-padding = 1;
     format-full-padding = 1;
-    full-at = 101;
+    full-at = 100;
     label-charging = "%percentage%% +%consumption%W";
     label-discharging = "%percentage%% -%consumption%W";
     label-full = " 100%";

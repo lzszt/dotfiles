@@ -110,15 +110,9 @@ in {
     animation-charging-framerate = 500;
     battery = custom.polybar.battery;
     format-charging = " <animation-charging> <label-charging>";
-    format-charging-background = "#91ddff";
-    format-charging-foreground = "#141228";
     format-charging-padding = 1;
     format-discharging = "<ramp-capacity> <label-discharging>";
-    format-discharging-background = "#91ddff";
-    format-discharging-foreground = "#141228";
     format-discharging-padding = 1;
-    format-full-background = "#91ddff";
-    format-full-foreground = "#141228";
     format-full-padding = 1;
     full-at = 101;
     label-charging = "%percentage%% +%consumption%W";
@@ -126,9 +120,7 @@ in {
     label-full = " 100%";
     poll-interval = 2;
     ramp-capacity-0 = "";
-    ramp-capacity-0-foreground = "#e74c3c";
     ramp-capacity-1 = "";
-    ramp-capacity-1-foreground = "#e74c3c";
     ramp-capacity-2 = "";
     ramp-capacity-3 = "";
     ramp-capacity-4 = "";

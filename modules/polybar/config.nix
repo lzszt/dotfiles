@@ -109,7 +109,7 @@ in {
     animation-charging-4 = "";
     animation-charging-framerate = 500;
     battery = custom.polybar.battery;
-    format-charging = " <animation-charging> <label-charging>";
+    format-charging = "󱐥 <animation-charging> <label-charging>";
     format-charging-padding = 1;
     format-discharging = "<ramp-capacity> <label-discharging>";
     format-discharging-padding = 1;

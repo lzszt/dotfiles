@@ -5,7 +5,6 @@ in {
   options.modules.bash = {
     enable = lib.mkEnableOption "bash";
     customAliases = lib.mkOption { default = { }; };
-    haskellProjectBootstrap.enable = lib.mkOption { default = false; };
   };
 
   config = lib.mkIf cfg.enable {
@@ -23,10 +22,7 @@ in {
 
       shellAliases =
         (import ./shell-aliases.nix { inherit pkgs custom config lib; })
-        // cfg.customAliases // (if cfg.haskellProjectBootstrap.enable then {
-          hpb = import ./haskell-project-bootstrap.nix { inherit pkgs; };
-        } else
-          { });
+        // cfg.customAliases;
     };
   };
 }

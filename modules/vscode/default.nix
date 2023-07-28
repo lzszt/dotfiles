@@ -15,6 +15,7 @@ let
     # git settings
     "git.confirmSync" = false;
     "git.autofetch" = true;
+    "git.autoStash" = true;
 
     # explorer settings
     "explorer.confirmDragAndDrop" = false;

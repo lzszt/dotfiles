@@ -4,8 +4,6 @@
 
 - polybar
   - fix polybar not autostarting
-  - fix symbols
-  - not showing workspaces
 - mail
   - finish mail setup
 - firefox

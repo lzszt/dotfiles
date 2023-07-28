@@ -8,8 +8,7 @@ let
     "editor.tabSize" = 2;
     "editor.formatOnSave" = true;
     # telemetry settings
-    "telemetry.enableTelemetry" = false;
-    "telemetry.enableCrashReporter" = false;
+    "telemetry.telemetryLevel" = "off";
     # miscellaneous settings
     "workbench.colorThem" = "Default Dark+";
     "window.zoomLevel" = 1;

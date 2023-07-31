@@ -85,16 +85,15 @@ polybarHook dbus =
         | otherwise = mempty
       normal = "#fbf1c7"
       gray = "#7F7F7F"
-      orange = "#ea4300"
-      purple = "#9058c7"
-      red = "#722222"
+      urgent = "#ea4300"
+      hidden = "#000000"
    in def
         { ppOutput = dbusOutput dbus,
           ppCurrent = wrapper normal,
           ppVisible = wrapper gray,
-          ppUrgent = wrapper orange,
+          ppUrgent = wrapper urgent,
           ppHidden = wrapper gray,
-          ppHiddenNoWindows = wrapper red,
+          ppHiddenNoWindows = wrapper hidden,
           -- i dont know how else to hide the window title
           ppTitle = const "" -- shorten 100 . wrapper normal
         }

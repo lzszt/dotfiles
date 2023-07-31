@@ -44,17 +44,5 @@ in with pkgs.vscode-extensions;
     version = "0.3.0";
     sha256 = "sha256-1xQl+5PMAsSjf9y25/G63Z5YYj8mQMPOuDSVY4YBukc=";
   }
-  {
-    publisher = "nwolverson";
-    name = "language-purescript";
-    version = "0.2.8";
-    sha256 = "sha256-2uOwCHvnlQQM8s8n7dtvIaMgpW8ROeoUraM02rncH9o=";
-  }
-  {
-    publisher = "nwolverson";
-    name = "ide-purescript";
-    version = "0.26.1";
-    sha256 = "sha256-ccTuoDSZKf1WsTRX2TxXeHy4eRuOXsAc7rvNZ2b56MU=";
-  }
 ]
 

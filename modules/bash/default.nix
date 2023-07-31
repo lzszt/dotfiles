@@ -19,6 +19,7 @@ in {
       '';
 
       historyIgnore = [ "ls" "cd" "exit" ];
+      historyControl = [ "erasedups" "ignoredups" "ignorespace" ];
 
       shellAliases =
         (import ./shell-aliases.nix { inherit pkgs custom config lib; })

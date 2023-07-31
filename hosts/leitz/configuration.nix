@@ -27,11 +27,14 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  programs.fish.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = lib.mapAttrs (user: _: {
     isNormalUser = true;
     extraGroups =
       [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.fish;
   }) custom.users;
 
   virtualisation.docker.enable = true;

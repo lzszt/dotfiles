@@ -23,5 +23,5 @@
   us = "setxkbmap us";
 } // lib.optionalAttrs (config.home.username == custom.default.user) {
   # nixos
-  nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+  nrs = "nixos-rebuild switch --use-remote-sudo --flake ~/dotfiles/";
 }

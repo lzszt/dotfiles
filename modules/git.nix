@@ -20,6 +20,9 @@ in {
       "result"
       "restult/*"
     ];
-    extraConfig = { pull.rebase = "false"; };
+    extraConfig = {
+      pull.rebase = "false";
+      init.defaultBranch = "main";
+    };
   };
 }

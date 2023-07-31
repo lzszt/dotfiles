@@ -35,15 +35,19 @@ let
   snippets = import ./snippets.nix;
   extensions = import ./extensions.nix { inherit inputs system pkgs; };
 in {
-  options.modules.vscode = { enable = lib.mkEnableOption "vscode"; };
+  options.modules.vscode = {
+    enable = lib.mkEnableOption "vscode";
+    extensions = lib.mkOption { default = [ ]; };
+  };
 
   config = lib.mkIf cfg.enable {
     programs.vscode = {
       enable = true;
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
-      inherit userSettings extensions;
+      inherit userSettings;
       inherit (snippets) languageSnippets globalSnippets;
+      extensions = extensions ++ cfg.extensions;
     };
   };
 }

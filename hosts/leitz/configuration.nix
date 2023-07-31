@@ -4,8 +4,10 @@
   imports = [ ./hardware-configuration.nix ../../wm/xmonad.nix ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   networking = {
     hostName = custom.hostname;
@@ -46,8 +48,10 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    settings.trusted-users = [ "root" ] ++ lib.attrNames custom.users;
-    settings.max-jobs = 16;
+    settings = {
+      trusted-users = [ "root" ] ++ lib.attrNames custom.users;
+      max-jobs = 16;
+    };
   };
 
   system.stateVersion = "23.05";

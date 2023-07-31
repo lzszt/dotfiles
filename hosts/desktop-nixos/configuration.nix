@@ -4,8 +4,10 @@
   imports = [ ./hardware-configuration.nix ../../wm/xmonad.nix ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   networking = {
     hostName = custom.hostname;
@@ -15,16 +17,18 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  hardware.opengl = {
-    enable = true;
-    package = pkgs.mesa.drivers;
-    driSupport32Bit = true;
-    package32 = pkgs.pkgsi686Linux.mesa.drivers;
+  hardware = {
+    opengl = {
+      enable = true;
+      package = pkgs.mesa.drivers;
+      driSupport32Bit = true;
+      package32 = pkgs.pkgsi686Linux.mesa.drivers;
+    };
+    pulseaudio.enable = true;
   };
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   programs.fish.enable = true;
 
@@ -45,8 +49,10 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    settings.trusted-users = [ "root" ] ++ lib.attrNames custom.users;
-    settings.max-jobs = 12;
+    settings = {
+      trusted-users = [ "root" ] ++ lib.attrNames custom.users;
+      max-jobs = 12;
+    };
   };
 
   system.stateVersion = "22.11";

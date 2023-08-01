@@ -36,17 +36,8 @@ in {
     };
   };
 
-  modules = {
-    fish.enable = true;
-    git.email = email;
-    neomutt.enable = true;
-    desktop = {
-      xmonad.enable = true;
-      polybar.enable = true;
-    };
-
-    vscode.enable = true;
-    bash.customAliases = {
+  modules = let
+    customAliases = {
       illc = ''
         sudo ${pkgs.openconnect}/bin/openconnect --protocol=anyconnect \
         --user=ext_activegroup2 vpn.egv.at \
@@ -58,6 +49,20 @@ in {
       virt-turing = "virt-manager -c 'qemu+ssh://turing/system'";
       virt-lovelace = "virt-manager -c 'qemu+ssh://lovelace/system'";
     };
+  in {
+    fish = {
+      enable = true;
+      inherit customAliases;
+    };
+    git.email = email;
+    neomutt.enable = true;
+    desktop = {
+      xmonad.enable = true;
+      polybar.enable = true;
+    };
+
+    vscode.enable = true;
+    bash = { inherit customAliases; };
 
     ssh = {
       enable = true;

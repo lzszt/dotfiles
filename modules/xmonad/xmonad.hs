@@ -24,6 +24,7 @@ import XMonad.Prelude
 import XMonad.StackSet qualified as W
 import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
+import XMonad.Util.SpawnOnce
 
 main :: IO ()
 main = do
@@ -39,6 +40,8 @@ main = do
             focusedBorderColor = "#fbf1c7",
             logHook = myPolybarLogHook dbus,
             handleEventHook = myEventHook <+> fullscreenEventHook
+            handleEventHook = myEventHook <+> fullscreenEventHook,
+            startupHook = myStartupHook
           }
           `additionalKeysP` [ ("C-<Space>", spawn "rofi -disable-history -show run"),
                               -- ("C-k", spawn "rofi -show calc -modi calc -no-show-match -no-sort"),
@@ -46,6 +49,9 @@ main = do
                               ("M-<Up>", spawn "amixer set Master 5%+"),
                               ("M-<Down>", spawn "amixer set Master 5%-")
                             ]
+
+myStartupHook = do
+  spawnOnce "systemctl --user restart polybar.service"
 
 myLayout =
   avoidStruts $

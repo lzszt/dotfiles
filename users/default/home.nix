@@ -47,7 +47,14 @@ in {
     fish.enable = true;
     neomutt.enable = true;
     desktop = {
-      xmonad.enable = true;
+      xmonad = {
+        enable = true;
+        workspaces = [
+          (pkgs.lib.my.mkWorkspace "home" [ "firefox" ])
+          (pkgs.lib.my.mkWorkspace "dev" [ "code" ])
+          (pkgs.lib.my.mkWorkspace "stuff" [ "keepassxc" ])
+        ];
+      };
       polybar.enable = true;
     };
 

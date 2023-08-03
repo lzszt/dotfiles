@@ -1,12 +1,14 @@
 {-# LANGUAGE LambdaCase #-}
 
-import Control.Exception
-import Data.Maybe
 import Codec.Binary.UTF8.String qualified as UTF8
+import Control.Exception
 import DBus qualified as D
 import DBus.Client qualified as D
+import Data.List.Split
 import Data.Map.Strict qualified as M
+import Data.Maybe
 import Data.Monoid
+import System.Directory
 import XMonad
 import XMonad.Actions.DynamicProjects
   ( Project (..),
@@ -25,25 +27,23 @@ import XMonad.Layout.ThreeColumns
 import XMonad.Prelude
 import XMonad.StackSet qualified as W
 import XMonad.Util.EZConfig
-import XMonad.Util.Ungrab
 import XMonad.Util.SpawnOnce
-import System.Directory
-import Data.List.Split
+import XMonad.Util.Ungrab
 
-data WorkspaceConfig = 
-  WorkspaceConfig [(WorkspaceId, [String])]
+data WorkspaceConfig
+  = WorkspaceConfig [(WorkspaceId, [String])]
   deriving (Show)
 
 workspaceConfigLocation :: FilePath
 workspaceConfigLocation = "/.xmonad/workspaces"
 
-parseWorkspaceConf :: String -> Maybe (WorkspaceId,[String])
+parseWorkspaceConf :: String -> Maybe (WorkspaceId, [String])
 parseWorkspaceConf = parse . filter (not . null) . splitOneOf ":,"
   where
     parse [] = Nothing
     parse (wsId : appsString) = Just (wsId, appsString)
 
-defaultWorkspaces = WorkspaceConfig [(show wId, [])| wId <- [1..9]]
+defaultWorkspaces = WorkspaceConfig [(show wId, []) | wId <- [1 .. 9]]
 
 loadWorkspaceConfig :: IO (Maybe WorkspaceConfig)
 loadWorkspaceConfig = do
@@ -57,10 +57,12 @@ loadWorkspaceConfig = do
 main :: IO ()
 main = do
   WorkspaceConfig workspaces <-
-    fromMaybe defaultWorkspaces <$>
-      (loadWorkspaceConfig `catch`
-        (\(e :: IOException) ->
-          pure Nothing))
+    fromMaybe defaultWorkspaces
+      <$> ( loadWorkspaceConfig
+              `catch` ( \(e :: IOException) ->
+                          pure Nothing
+                      )
+          )
 
   dbus <- mkDbusClient
   xmonad $
@@ -91,7 +93,7 @@ myStartupHook workspaces = do
     case apps of
       [] -> pure ()
       _ -> forM_ apps (spawnOnOnce wsId)
- 
+
 myLayout =
   avoidStruts $
     mySpacing $

@@ -30,7 +30,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Ungrab
 
-data WorkspaceConfig
+newtype WorkspaceConfig
   = WorkspaceConfig [(WorkspaceId, [String])]
   deriving (Show)
 
@@ -43,6 +43,7 @@ parseWorkspaceConf = parse . filter (not . null) . splitOneOf ":,"
     parse [] = Nothing
     parse (wsId : appsString) = Just (wsId, appsString)
 
+defaultWorkspaces :: WorkspaceConfig
 defaultWorkspaces = WorkspaceConfig [(show wId, []) | wId <- [1 .. 9]]
 
 loadWorkspaceConfig :: IO (Maybe WorkspaceConfig)
@@ -52,7 +53,7 @@ loadWorkspaceConfig = do
   let workspaces = filter (not . null) $ lines workspaceConfigContent
   case workspaces of
     [] -> pure Nothing
-    _ -> pure $ fmap WorkspaceConfig $ traverse parseWorkspaceConf workspaces
+    _ -> pure $ WorkspaceConfig <$> traverse parseWorkspaceConf workspaces
 
 main :: IO ()
 main = do

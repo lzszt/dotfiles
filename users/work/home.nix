@@ -60,8 +60,11 @@ in {
       xmonad = {
         enable = true;
         workspaces = [
-          (pkgs.lib.my.mkWorkspace "chat" [ "mattermost-desktop" ])
-          (pkgs.lib.my.mkWorkspace "home" [ "google-chrome-stable" "firefox" ])
+          (pkgs.lib.my.mkWorkspace "chat" [
+            "google-chrome-stable"
+            "mattermost-desktop"
+          ])
+          (pkgs.lib.my.mkWorkspace "home" [ "firefox" ])
           (pkgs.lib.my.mkWorkspace "dev" [ "code" ])
           (pkgs.lib.my.mkWorkspace "remote" [ ])
           (pkgs.lib.my.mkWorkspace "5" [ "keepassxc" ])

@@ -47,4 +47,9 @@
             attrset = attrset;
           };
     in (go (lib.splitString "." attrPath)).result;
+
+  mkWorkspace = workspaceId: apps: {
+    workspaceId = workspaceId;
+    apps = apps;
+  };
 }

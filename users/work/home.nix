@@ -57,7 +57,20 @@ in {
     git.email = email;
     neomutt.enable = true;
     desktop = {
-      xmonad.enable = true;
+      xmonad = {
+        enable = true;
+        workspaces = [
+          (pkgs.lib.my.mkWorkspace "chat" [ "mattermost-desktop" ])
+          (pkgs.lib.my.mkWorkspace "home" [ "firefox" ])
+          (pkgs.lib.my.mkWorkspace "dev" [ "code" ])
+          (pkgs.lib.my.mkWorkspace "remote" [ ])
+          (pkgs.lib.my.mkWorkspace "5" [ "keepassxc" ])
+          (pkgs.lib.my.mkWorkspace "cal" [ "thunderbird" ])
+          (pkgs.lib.my.mkWorkspace "video" [ ])
+          (pkgs.lib.my.mkWorkspace "8" [ ])
+          (pkgs.lib.my.mkWorkspace "9" [ ])
+        ];
+      };
       polybar.enable = true;
     };
 

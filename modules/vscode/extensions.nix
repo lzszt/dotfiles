@@ -27,7 +27,8 @@ let
         vsixToZip haskellmodeInput.haskellmode extensionFilename
       }/${extensionFilename}.zip";
   };
-in with pkgs.vscode-extensions; [
+in with pkgs.vscode-extensions;
+[
   bbenoist.nix
   brettm12345.nixfmt-vscode
   haskell.haskell
@@ -36,5 +37,9 @@ in with pkgs.vscode-extensions; [
   donjayamanne.githistory
   arrterian.nix-env-selector
   haskellmode
-]
-
+] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+  publisher = "ctf0";
+  name = "save-editors-layout";
+  version = "1.0.1";
+  sha256 = "sha256-8YnAP+njpuuZZkq9YokZP6e4H43jMHPQKHbJSLhbc5w=";
+}]

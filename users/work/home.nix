@@ -61,8 +61,8 @@ in {
         enable = true;
         workspaces = [
           (pkgs.lib.my.mkWorkspace "chat" [
-            "google-chrome-stable"
             "mattermost-desktop"
+            "google-chrome-stable"
           ])
           (pkgs.lib.my.mkWorkspace "home" [ "firefox" ])
           (pkgs.lib.my.mkWorkspace "dev" [ "code" ])

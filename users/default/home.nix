@@ -49,10 +49,10 @@ in {
     desktop = {
       xmonad = {
         enable = true;
-        workspaces = [
-          (pkgs.lib.my.mkWorkspace "home" [ "firefox" ])
-          (pkgs.lib.my.mkWorkspace "dev" [ "code" ])
-          (pkgs.lib.my.mkWorkspace "stuff" [ "keepassxc" ])
+        workspaces = with pkgs.lib.my; [
+          (mkWorkspace "home" [ "firefox" ])
+          (mkWorkspace "dev" [ "code" ])
+          (mkWorkspace "stuff" [ "keepassxc" ])
         ];
       };
       polybar.enable = true;

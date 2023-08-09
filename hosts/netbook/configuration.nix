@@ -10,6 +10,7 @@
   networking = {
     hostName = custom.hostname;
     networkmanager.enable = true;
+    firewall.enable = true;
   };
 
   # Set your time zone.

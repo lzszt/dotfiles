@@ -37,6 +37,7 @@ in with pkgs.vscode-extensions;
   donjayamanne.githistory
   arrterian.nix-env-selector
   haskellmode
+  mkhl.direnv
 ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
   publisher = "ctf0";
   name = "save-editors-layout";

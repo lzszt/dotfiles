@@ -1,7 +1,7 @@
 {
   users = { leitz.userDefDir = "work"; };
   default = {
-    layout = "us";
+    layout = "eu";
     user = "leitz";
   };
   polybar = {

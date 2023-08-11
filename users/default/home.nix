@@ -53,6 +53,12 @@ in {
           (mkWorkspace "home" [ "firefox" ])
           (mkWorkspace "dev" [ "code" ])
           (mkWorkspace "stuff" [ "keepassxc" ])
+          (mkWorkspace "4" [ ])
+          (mkWorkspace "5" [ ])
+          (mkWorkspace "6" [ ])
+          (mkWorkspace "7" [ ])
+          (mkWorkspace "8" [ ])
+          (mkWorkspace "9" [ ])
         ];
       };
       polybar.enable = true;

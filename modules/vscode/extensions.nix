@@ -35,7 +35,6 @@ in with pkgs.vscode-extensions;
   justusadam.language-haskell
   waderyan.gitblame
   donjayamanne.githistory
-  arrterian.nix-env-selector
   haskellmode
   mkhl.direnv
 ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{

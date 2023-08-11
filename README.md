@@ -3,7 +3,7 @@
 ## TODO's
 
 - polybar
-  - fix polybar not autostarting
+  - fix font crash on desktop-nixos
 - mail
   - finish mail setup
 - firefox

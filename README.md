@@ -10,3 +10,5 @@
   - manage extensions
 - cloneRepos
   - get subversion working
+- vscode
+  - fix extension problems when installing new ones

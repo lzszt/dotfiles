@@ -37,9 +37,17 @@ in with pkgs.vscode-extensions;
   donjayamanne.githistory
   haskellmode
   mkhl.direnv
-] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
-  publisher = "ctf0";
-  name = "save-editors-layout";
-  version = "1.0.1";
-  sha256 = "sha256-8YnAP+njpuuZZkq9YokZP6e4H43jMHPQKHbJSLhbc5w=";
-}]
+] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+  {
+    publisher = "ctf0";
+    name = "save-editors-layout";
+    version = "1.0.1";
+    sha256 = "sha256-8YnAP+njpuuZZkq9YokZP6e4H43jMHPQKHbJSLhbc5w=";
+  }
+  {
+    publisher = "Kelvin";
+    name = "vscode-sshfs";
+    version = "1.26.1";
+    sha256 = "sha256-WO9vYELNvwmuNeI05sUBE969KAiKYtrJ1fRfdZx3OYU=";
+  }
+]

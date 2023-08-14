@@ -21,6 +21,7 @@ import XMonad.Hooks.FadeInactive (fadeInactiveLogHook)
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.RefocusLast
+import XMonad.Hooks.SetWMName
 import XMonad.Layout.Magnifier
 import XMonad.Layout.Spacing
 import XMonad.Layout.ThreeColumns
@@ -79,7 +80,7 @@ main = do
             manageHook = manageSpawn,
             workspaces = map fst workspaces,
             handleEventHook = myEventHook <+> fullscreenEventHook,
-            startupHook = myStartupHook workspaces
+            startupHook = setWMName "LG3D" <+> myStartupHook workspaces
           }
           `additionalKeysP` [ ("C-<Space>", spawn "rofi -disable-history -show run"),
                               -- ("C-k", spawn "rofi -show calc -modi calc -no-show-match -no-sort"),

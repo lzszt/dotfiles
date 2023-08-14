@@ -1,33 +1,45 @@
 {
   # editor settings
-  "editor.minimap.enabled" = false;
-  "editor.tabSize" = 2;
-  "editor.formatOnSave" = true;
+  editor = {
+    minimap.enabled = false;
+    tabSize = 2;
+    formatOnSave = true;
+  };
   # telemetry settings
-  "telemetry.telemetryLevel" = "off";
+  telemetry.telemetryLevel = "off";
+
   # miscellaneous settings
-  "workbench.colorThem" = "Default Dark+";
-  "window.zoomLevel" = 1;
+  workbench.colorThem = "Default Dark+";
+  window.zoomLevel = 1;
+
   # git settings
-  "git.confirmSync" = false;
-  "git.autofetch" = true;
-  "git.autoStash" = true;
+  git = {
+    confirmSync = false;
+    autofetch = true;
+    autoStash = true;
+  };
 
   # search settings
-  "search.collapseResults" = "auto";
-  "search.useGlobalIgnoreFiles" = true;
+  search = {
+    collapseResults = "auto";
+    useGlobalIgnoreFiles = true;
+  };
 
   # explorer settings
-  "explorer.confirmDragAndDrop" = false;
+  explorer.confirmDragAndDrop = false;
 
   # default haskell settings
-  "haskell.formattingProvider" = "ormolu";
-  "haskell.manageHLS" = "PATH";
+  haskell = {
+    formattingProvider = "ormolu";
+    manageHLS = "PATH";
+  };
 
   # stl viewer settings
-  "stlViewer.showAxes" = true;
-  "stlViewer.showInfo" = true;
-  "stlViewer.showBoundingBox" = true;
-  "stlViewer.meshMaterialType" = "normal";
-  "stlViewer.viewOffset" = 100;
+  stlViewer = {
+    showAxes = true;
+    showInfo = true;
+    showBoundingBox = true;
+    meshMaterialType = "normal";
+    viewOffset = 100;
+  };
 }

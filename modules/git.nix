@@ -18,7 +18,7 @@ in {
 
       # nix
       "result"
-      "restult/*"
+      "result/*"
     ];
     extraConfig = {
       pull.rebase = "false";

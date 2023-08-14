@@ -1,8 +1,9 @@
 { inputs, system, config, lib, pkgs, ... }:
 let
   cfg = config.modules.vscode;
+  sshCfg = config.modules.ssh;
 
-  userSettings = import ./user-settings.nix;
+  userSettings = import ./user-settings.nix { inherit lib sshCfg; };
 
   snippets = import ./snippets.nix;
   extensions = import ./extensions.nix { inherit inputs system pkgs; };

@@ -1,4 +1,28 @@
-{
+{ sshCfg, lib, ... }:
+let
+  generateSSHFsConfig = config: {
+    name = config.name;
+    host = config.host;
+    root = config.root;
+    username = config.username;
+    privateKeyPath = config.privateKeyPath;
+  };
+
+  generateSimpleSSHFsConfig = privateKeyPath: host: username:
+    generateSSHFsConfig {
+      name = host;
+      host = host;
+      root = if (username == "root") then "/root" else "/home/${username}";
+      username = username;
+      privateKeyPath = privateKeyPath;
+    };
+
+  sshfsConfigsFromSSHMatchBlocks = builtins.map (block:
+    generateSimpleSSHFsConfig "$HOME/.ssh/id_ed25519"
+    (if (lib.hasAttr "hostname" block) then block.hostname else block.host)
+    block.user) (builtins.filter (block: !lib.hasAttr "proxyCommand" block)
+      (builtins.attrValues sshCfg.matchBlocks));
+in {
   # editor settings
   editor = {
     minimap.enabled = false;
@@ -42,4 +66,6 @@
     meshMaterialType = "normal";
     viewOffset = 100;
   };
+
+  sshfs.configs = sshfsConfigsFromSSHMatchBlocks;
 }

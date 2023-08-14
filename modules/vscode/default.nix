@@ -17,6 +17,10 @@ let
     "git.autofetch" = true;
     "git.autoStash" = true;
 
+    # search settings
+    "search.collapseResults" = "auto";
+    "search.useGlobalIgnoreFiles" = true;
+
     # explorer settings
     "explorer.confirmDragAndDrop" = false;
 

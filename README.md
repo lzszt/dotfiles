@@ -12,4 +12,3 @@
   - get subversion working
 - vscode
   - fix extension problems when installing new ones
-  - search results show files block by global .gitignore but not local

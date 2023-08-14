@@ -29,6 +29,7 @@ in {
       dig
       pavucontrol
       ncdu
+      jq
 
       # Fonts
       nerdfonts

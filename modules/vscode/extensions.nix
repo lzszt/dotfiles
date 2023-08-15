@@ -1,5 +1,7 @@
 { inputs, system, pkgs, ... }:
 let
+  # This is needed because buildVscodeMarketplaceExtension
+  # normally downloads the .vsix file as .zip.
   vsixToZip = input: filename:
     pkgs.stdenv.mkDerivation {
       name = "vsix-to-zip";

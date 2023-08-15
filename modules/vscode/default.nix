@@ -18,6 +18,7 @@ in {
       enable = true;
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
+      mutableExtensionsDir = false;
       inherit userSettings;
       inherit (snippets) languageSnippets globalSnippets;
       extensions = extensions ++ cfg.extensions;

@@ -97,6 +97,8 @@ in {
         };
 
         dotfile-secrets.url = "git@github.com:lzszt/dotfile-secrets.git";
+        home-manager.url = "git@github.com:lzszt/home-manager.git";
+        nixpkgs.url = "git@github.com:NixOS/nixpkgs.git";
       };
 
       # subversion.repos = [{

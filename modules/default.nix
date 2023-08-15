@@ -12,6 +12,7 @@
     ./firefox.nix
     ./fish.nix
     ./git.nix
+    ./mattermost.nix
     ./neomutt.nix
     ./ssh.nix
   ];

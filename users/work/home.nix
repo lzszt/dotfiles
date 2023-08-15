@@ -75,6 +75,19 @@ in {
     };
 
     vscode.enable = true;
+
+    mattermost = {
+      enable = true;
+      config = {
+        version = 3;
+        teams = [{
+          url = "https://mattermost.active-group.de";
+          name = "AG";
+          tabs = [ { name = "TAB_MESSAGING"; } { name = "TAB_PLAYBOOKS"; } ];
+        }];
+      };
+    };
+
     bash = { inherit customAliases; };
 
     ssh = {
@@ -110,7 +123,6 @@ in {
   };
 
   home.packages = with pkgs; [
-    mattermost-desktop
     jitsi-meet-electron
     linphone
 

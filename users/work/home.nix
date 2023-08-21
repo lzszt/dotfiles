@@ -66,7 +66,7 @@ in {
           (mkWorkspace "remote" [ ])
           (mkWorkspace "5" [ "keepassxc" ])
           (mkWorkspace "cal" [ "thunderbird" ])
-          (mkWorkspace "video" [ ])
+          (mkWorkspace "com" [ "jitis-meet-electron" "linphone" ])
           (mkWorkspace "8" [ ])
           (mkWorkspace "9" [ ])
         ];

@@ -4,6 +4,7 @@
 
 - polybar
   - fix font crash on desktop-nixos
+  - cleanup/refactor config
 - mail
   - finish mail setup
 - firefox

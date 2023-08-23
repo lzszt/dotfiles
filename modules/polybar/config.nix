@@ -41,7 +41,7 @@ in {
     bottom = true;
     modules-left = "filesystem cpu memory";
     modules-center = "xmonad date";
-    modules-right = "xkeyboard audio "
+    modules-right = "xkeyboard audio mic "
       + (if (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom) then
         (builtins.concatStringsSep " "
           (pkgs.lib.imap0 (index: _: "eth${toString index}")
@@ -196,6 +196,25 @@ in {
       type = "custom/script";
       exec = "${pkgs.xmonad-log}/bin/xmonad-log";
       tail = true;
+    };
+    "module/mic" = let
+      mic-volume = pkgs.writeScript "mic-volume" ''
+        mic_volume=$(${pkgs.alsa-utils}/bin/amixer get Capture | ${pkgs.gnugrep}/bin/grep -o -E '[0-9]+%' | ${pkgs.coreutils}/bin/head -1)
+        mic_status=$(${pkgs.alsa-utils}/bin/amixer get Capture | ${pkgs.gnugrep}/bin/grep -o -E '\[on\]|\[off\]' | ${pkgs.coreutils}/bin/head -1)
+
+        if [ "$mic_status" == "[on]" ]; then
+            echo " $mic_volume"
+        else
+            echo "%{F${colors.urgent}}%{F-}"
+        fi
+      '';
+      toggle-mic = pkgs.writeScript "toggle-mic"
+        "${pkgs.alsa-utils}/bin/amixer set Capture toggle";
+    in {
+      type = "custom/script";
+      exec = "${mic-volume}";
+      interval = "0.5";
+      click-left = "${toggle-mic}";
     };
   } // (if (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom) then
     (pkgs.lib.my.mergeMapAttr

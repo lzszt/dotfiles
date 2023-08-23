@@ -13,13 +13,6 @@ let
     transparent = "#00000000";
   };
   modules = import ./modules.nix { inherit custom pkgs colors; };
-
-  mkEthModule = interface: {
-    type = "internal/network";
-    interface = "${interface}";
-    interface-type = "wired";
-    label-connected = " %upspeed%  %downspeed%";
-  };
 in {
   "global/wm" = {
     margin-bottom = 0;
@@ -67,9 +60,4 @@ in {
   // mic // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.battery" custom)
     battery)
   // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom)
-    (pkgs.lib.my.mergeMapAttr
-      (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
-      (pkgs.lib.imap0 (index: interface: {
-        index = index;
-        interface = interface;
-      }) custom.polybar.ethernet))))
+    ethernets))

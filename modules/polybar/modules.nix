@@ -164,4 +164,17 @@
       click-left = "${toggle-mic}";
     };
   };
+  ethernets = let
+    mkEthModule = interface: {
+      type = "internal/network";
+      interface = "${interface}";
+      interface-type = "wired";
+      label-connected = " %upspeed%  %downspeed%";
+    };
+  in pkgs.lib.my.mergeMapAttr
+  (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
+  (pkgs.lib.imap0 (index: interface: {
+    index = index;
+    interface = interface;
+  }) custom.polybar.ethernet);
 }

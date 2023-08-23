@@ -4,7 +4,7 @@
     ag.userDefDir = "work";
   };
   default = {
-    layout = "us";
+    layout = "eu";
     user = "leitz";
   };
 

@@ -1,4 +1,4 @@
-{ custom, pkgs }:
+{ custom, pkgs, lib, ... }:
 
 let
   colors = {
@@ -20,9 +20,6 @@ let
     interface-type = "wired";
     label-connected = " %upspeed%  %downspeed%";
   };
-
-  optional = pred: val: if pred then val else { };
-
 in {
   "global/wm" = {
     margin-bottom = 0;
@@ -43,15 +40,12 @@ in {
 
   "bar/bottom" = {
     bottom = true;
-    modules-left = "filesystem cpu memory";
-    modules-center = "xmonad date";
-    modules-right = "xkeyboard audio mic "
-      + (if (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom) then
-        (builtins.concatStringsSep " "
-          (pkgs.lib.imap0 (index: _: "eth${toString index}")
-            custom.polybar.ethernet))
-      else
-        "") + " wlan battery";
+    modules-left = [ "filesystem" "cpu" "memory" ];
+    modules-center = [ "xmonad" "date" ];
+    modules-right = [ "xkeyboard" "audio" "mic" ]
+      ++ (lib.optionals (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom)
+        (pkgs.lib.imap0 (index: _: "eth${toString index}")
+          custom.polybar.ethernet)) ++ [ "wlan" "battery" ];
     monitor = "\${env:MONITOR:}";
     background = "${colors.background}";
     foreground = "${colors.foreground}";
@@ -70,8 +64,9 @@ in {
   };
 } // (with modules;
   xkeyboard // date // filesystem // cpu // audio // wlan // memory // xmonad
-  // mic // (optional (pkgs.lib.my.hasSubAttr "polybar.battery" custom) battery)
-  // (optional (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom)
+  // mic // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.battery" custom)
+    battery)
+  // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom)
     (pkgs.lib.my.mergeMapAttr
       (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
       (pkgs.lib.imap0 (index: interface: {

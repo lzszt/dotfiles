@@ -19,10 +19,7 @@ in {
           MONITOR=$m polybar -r bottom &
         done
       '';
-      config = import ./config.nix {
-        inherit custom;
-        inherit pkgs;
-      };
+      config = import ./config.nix { inherit custom pkgs lib; };
     };
   };
 }

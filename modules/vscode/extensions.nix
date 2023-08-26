@@ -31,7 +31,7 @@ let
   };
 in with pkgs.vscode-extensions;
 [
-  bbenoist.nix
+  jnoortheen.nix-ide
   brettm12345.nixfmt-vscode
   haskell.haskell
   justusadam.language-haskell

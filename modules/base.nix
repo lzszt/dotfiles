@@ -1,6 +1,7 @@
 { inputs, custom, config, lib, pkgs, ... }:
 
 let cfg = config.hosts.base;
+
 in {
 
   imports = [ ./. ];
@@ -30,6 +31,8 @@ in {
       pavucontrol
       ncdu
       jq
+
+      rnix-lsp
 
       # Fonts
       nerdfonts

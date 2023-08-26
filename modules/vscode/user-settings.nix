@@ -58,6 +58,10 @@ in {
     manageHLS = "PATH";
   };
 
+  # default nix settings
+  "[nix]" = { editor.defaultFormatter = "brettm12345.nixfmt-vscode"; };
+  nix.enableLanguageServer = true;
+
   # stl viewer settings
   stlViewer = {
     showAxes = true;

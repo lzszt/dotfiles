@@ -7,6 +7,13 @@ in {
   imports = [ ./. ];
 
   config = {
+    nix.registry = {
+      this.flake = inputs.nixpkgs;
+      n.to = {
+        id = "nixpkgs";
+        type = "indirect";
+      };
+    };
 
     nixpkgs.config.allowUnfree = true;
 

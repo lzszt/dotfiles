@@ -7,11 +7,17 @@ in {
   imports = [ ./. ];
 
   config = {
-    nix.registry = {
-      this.flake = inputs.nixpkgs;
-      n.to = {
-        id = "nixpkgs";
-        type = "indirect";
+    nix = {
+      # Enable flakes for the system Nix.
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
+      registry = {
+        this.flake = inputs.nixpkgs;
+        n.to = {
+          id = "nixpkgs";
+          type = "indirect";
+        };
       };
     };
 

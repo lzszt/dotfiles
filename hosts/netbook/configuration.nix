@@ -33,10 +33,6 @@
   environment.systemPackages = with pkgs; [ nixfmt ];
 
   nix = {
-    # Enable flakes for the system Nix.
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
     settings.trusted-users = [ "root" ] ++ lib.attrNames custom.users;
     settings.max-jobs = 12;
   };

@@ -92,9 +92,9 @@ in {
 
     ssh = {
       enable = true;
-      matchBlocks = (inputs.dotfile-secrets.packages.${system}.agSsh {
+      matchBlocks = (inputs.dotfile-secrets.packages.${system}.ag {
         inherit lib;
-      }).agSshMatchBlocks;
+      }).sshMatchBlocks;
     };
     cloneRepos = {
       enable = true;

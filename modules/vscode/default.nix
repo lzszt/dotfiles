@@ -7,6 +7,7 @@ let
 
   snippets = import ./snippets.nix;
   extensions = import ./extensions.nix { inherit inputs system pkgs; };
+  keybindings = import ./keybindings.nix;
 in {
   options.modules.vscode = {
     enable = lib.mkEnableOption "vscode";
@@ -19,7 +20,7 @@ in {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
-      inherit userSettings;
+      inherit userSettings keybindings;
       inherit (snippets) languageSnippets globalSnippets;
       extensions = extensions ++ cfg.extensions;
     };

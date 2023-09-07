@@ -110,7 +110,7 @@ in {
           it.url = "git@gitlab.com:Zwiebeljunge/it.git";
           haskellmode.url = "git@gitlab.com:Zwiebeljunge/haskellmode.git";
           home-manager.url = "git@github.com:lzszt/home-manager.git";
-          nixpkgs.url = "git@github.com:NixOS/nixpkgs.git";
+          nixpkgs.url = "git@github.com:lzszt/nixpkgs.git";
           haskell = {
             config.url = "git@github.com:lzszt/config.git";
             polysemy-utils.url = "git@github.com:lzszt/polysemy-utils.git";

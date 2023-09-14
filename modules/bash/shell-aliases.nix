@@ -14,6 +14,7 @@
   gp = "git pull";
   gst = "git status";
   gl = "git log";
+  gs = "git stash";
   lgit = "lazygit";
 
   # misc

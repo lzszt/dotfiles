@@ -15,3 +15,5 @@
   - can jitsi server and other options be set via nix?
 - thunderbird
   - can calender setup be automated?
+- vscode
+  - reenable text-tables extension and fix keybindings

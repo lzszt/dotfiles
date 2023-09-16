@@ -52,10 +52,10 @@ in with pkgs.vscode-extensions;
     version = "1.26.1";
     sha256 = "sha256-WO9vYELNvwmuNeI05sUBE969KAiKYtrJ1fRfdZx3OYU=";
   }
-  {
-    publisher = "romanpeshkov";
-    name = "vscode-text-tables";
-    version = "0.1.5";
-    sha256 = "sha256-xUj8kA824wM99PJzoUtJAAlkiJG0IipwKGrl+ck8TJQ=";
-  }
+  # {
+  #   publisher = "romanpeshkov";
+  #   name = "vscode-text-tables";
+  #   version = "0.1.5";
+  #   sha256 = "sha256-xUj8kA824wM99PJzoUtJAAlkiJG0IipwKGrl+ck8TJQ=";
+  # }
 ]

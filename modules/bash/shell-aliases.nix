@@ -18,6 +18,13 @@
   gs = "git stash";
   lgit = "lazygit";
 
+  # haskell/cabal
+
+  cb = "cabal build";
+  cr = "cabal run";
+  cre = "cabal repl";
+  ct = "cabal test";
+
   # misc
   ll = "ls -lisah";
 

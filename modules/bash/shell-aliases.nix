@@ -5,6 +5,9 @@
   nfu = "nix flake update";
   nfl = "nix flake lock";
   nfui = "nix flake lock --update-input";
+  nd = "nix develop --command fish";
+  ns = "nix shell";
+  nr = "nix repl";
 
   # direnv
   dea = "direnv allow";

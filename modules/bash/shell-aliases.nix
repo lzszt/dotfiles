@@ -8,6 +8,7 @@
   nd = "nix develop --command fish";
   ns = "nix shell";
   nr = "nix repl";
+  nb = "nix build";
 
   # direnv
   dea = "direnv allow";

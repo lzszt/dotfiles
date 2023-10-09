@@ -143,6 +143,8 @@ in {
     prusa-slicer
 
     teamviewer
+
+    stellarium
   ];
 
   services = {

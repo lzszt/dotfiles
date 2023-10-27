@@ -1,4 +1,4 @@
-{ sshCfg, lib, ... }:
+{ sshCfg, lib, inputs, pkgs, ... }:
 let
   generateSSHFsConfig = config: {
     name = config.name;
@@ -22,6 +22,9 @@ let
     (if (lib.hasAttr "hostname" block) then block.hostname else block.host)
     block.user) (builtins.filter (block: !lib.hasAttr "proxyCommand" block)
       (builtins.attrValues sshCfg.matchBlocks));
+
+  cabal-add = pkgs.haskell.lib.dontCheck
+    (pkgs.haskellPackages.callCabal2nix "cabal-add" inputs.cabalAddSrc { });
 in {
   # editor settings
   editor = {
@@ -72,4 +75,6 @@ in {
   };
 
   sshfs.configs = sshfsConfigsFromSSHMatchBlocks;
+
+  haskellmode.cabalAddPath = "${cabal-add}/bin/cabal-add";
 }

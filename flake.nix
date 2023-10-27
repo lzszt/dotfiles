@@ -7,6 +7,11 @@
     };
     dotfile-secrets.url = "git+ssh://git@github.com/lzszt/dotfile-secrets";
     haskellmode.url = "gitlab:Zwiebeljunge/haskellmode";
+    # haskellmode.url = "git+file:/home/leitz/projects/haskellmode";
+    cabalAddSrc = {
+      url = "github:/Bodigrim/cabal-add";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -23,6 +28,7 @@
         config.allowUnfree = true;
         inherit overlays system;
       };
+
       inherit (pkgs) lib;
     in {
       formatter.${system} = pkgs.nixfmt;

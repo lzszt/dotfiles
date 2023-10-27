@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cabalAddSrc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698257500,
+        "narHash": "sha256-yg7CmgQHpDR6R34zybm2WxS2iNwtrBXt2H/xhsGhGgM=",
+        "owner": "Bodigrim",
+        "repo": "cabal-add",
+        "rev": "0cb197d7cf31630c2e61f59d9a14f1c0a00af971",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Bodigrim",
+        "repo": "cabal-add",
+        "type": "github"
+      }
+    },
     "dotfile-secrets": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -35,12 +51,15 @@
       }
     },
     "flake-utils_2": {
+      "inputs": {
+        "systems": "systems"
+      },
       "locked": {
-        "lastModified": 1676283394,
-        "narHash": "sha256-XX2f9c3iySLCw54rJ/CZs+ZK6IQy7GXNY4nSOyu2QG4=",
+        "lastModified": 1694529238,
+        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "3db36a8b464d0c4532ba1c7dda728f4576d6d073",
+        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
         "type": "github"
       },
       "original": {
@@ -55,11 +74,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1696844137,
-        "narHash": "sha256-r5sUSoqVZ89EYSiznfpwcxzdQKl3Q8Q01vow7QoORww=",
+        "lastModified": 1698423159,
+        "narHash": "sha256-y48Tv4BN/HXsh+ChqIhdhxXQAG/L28ntxn82EQRmfqo=",
         "owner": "Zwiebeljunge",
         "repo": "haskellmode",
-        "rev": "8d35d434e87397fcea9faca88a6a342f3800e41e",
+        "rev": "6cf5b055567e597370d1675523547142613ae0d2",
         "type": "gitlab"
       },
       "original": {
@@ -106,11 +125,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1677852945,
-        "narHash": "sha256-liiVJjkBTuBTAkRW3hrI8MbPD2ImYzwUpa7kvteiKhM=",
+        "lastModified": 1698266953,
+        "narHash": "sha256-jf72t7pC8+8h8fUslUYbWTX5rKsRwOzRMX8jJsGqDXA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f5ffd5787786dde3a8bf648c7a1b5f78c4e01abb",
+        "rev": "75a52265bda7fd25e06e3a67dee3f0354e73243c",
         "type": "github"
       },
       "original": {
@@ -138,10 +157,26 @@
     },
     "root": {
       "inputs": {
+        "cabalAddSrc": "cabalAddSrc",
         "dotfile-secrets": "dotfile-secrets",
         "haskellmode": "haskellmode",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_3"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },

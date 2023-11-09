@@ -17,3 +17,4 @@
   - can calender setup be automated?
 - vscode
   - reenable text-tables extension and fix keybindings
+- polybar wifi signal strength

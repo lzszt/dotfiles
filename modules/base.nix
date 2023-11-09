@@ -45,6 +45,8 @@ in {
       ncdu
       jq
 
+      obsidian
+
       rnix-lsp
 
       # Fonts

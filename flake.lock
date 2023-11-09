@@ -3,11 +3,11 @@
     "cabalAddSrc": {
       "flake": false,
       "locked": {
-        "lastModified": 1698257500,
-        "narHash": "sha256-yg7CmgQHpDR6R34zybm2WxS2iNwtrBXt2H/xhsGhGgM=",
+        "lastModified": 1698792491,
+        "narHash": "sha256-tf1JAoI4y1Ww0sb8xtA/xI7YFosE/xdpQwvWG5piBQM=",
         "owner": "Bodigrim",
         "repo": "cabal-add",
-        "rev": "0cb197d7cf31630c2e61f59d9a14f1c0a00af971",
+        "rev": "3c7366f9a781ccaec9ff62f76465e63325f4f274",
         "type": "github"
       },
       "original": {
@@ -94,11 +94,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698392685,
-        "narHash": "sha256-yx/sbRneR2AfSAeAMqUu0hoVJdjh+qhl/7dkirp8yo8=",
+        "lastModified": 1699368917,
+        "narHash": "sha256-nUtGIWf86BOkUbtksWtfglvCZ/otP0FTZlQH8Rzc7PA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1369d2cefb6f128c30e42fabcdebbacc07e18b3f",
+        "rev": "6a8444467c83c961e2f5ff64fb4f422e303c98d3",
         "type": "github"
       },
       "original": {
@@ -141,11 +141,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1698134075,
-        "narHash": "sha256-foCD+nuKzfh49bIoiCBur4+Fx1nozo+4C/6k8BYk4sg=",
+        "lastModified": 1699099776,
+        "narHash": "sha256-X09iKJ27mGsGambGfkKzqvw5esP1L/Rf8H3u3fCqIiU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "8efd5d1e283604f75a808a20e6cde0ef313d07d4",
+        "rev": "85f1ba3e51676fa8cc604a3d863d729026a6b8eb",
         "type": "github"
       },
       "original": {

@@ -33,6 +33,8 @@ in {
 
     programs = { home-manager.enable = true; };
 
+    services.syncthing.enable = true;
+
     home.packages = with pkgs; [
       keepassxc
       google-chrome

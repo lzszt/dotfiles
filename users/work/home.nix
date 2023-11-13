@@ -66,7 +66,7 @@ in {
           (mkWorkspace "remote" [ ])
           (mkWorkspace "5" [ "keepassxc" ])
           (mkWorkspace "cal" [ "thunderbird" ])
-          (mkWorkspace "com" [ "jitsi-meet-electron" "linphone" ])
+          (mkWorkspace "com" [ "linphone" ])
           (mkWorkspace "8" [ ])
           (mkWorkspace "9" [ ])
         ];
@@ -123,7 +123,6 @@ in {
   };
 
   home.packages = with pkgs; [
-    jitsi-meet-electron
     linphone
 
     fd

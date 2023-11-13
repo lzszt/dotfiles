@@ -8,7 +8,7 @@ let
   '';
   nix-search-option = pkgs.writeScript "nix search script" ''
     #!/usr/bin/env bash
-    SEARCH="https://search.nixos.org/packages?channel=unstable&size=50&sort=relevance&type=option&query="+$1
+    SEARCH="https://search.nixos.org/options?channel=unstable&size=50&sort=relevance&type=packages&query=+"+$1
     firefox $SEARCH
   '';
 in {

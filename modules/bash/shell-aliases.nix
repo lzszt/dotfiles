@@ -17,6 +17,7 @@
 
   # git
   gp = "git pull";
+  gc = "git clone";
   gst = "git status";
   gl = "git log";
   gs = "git stash";

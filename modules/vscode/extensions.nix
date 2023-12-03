@@ -39,6 +39,7 @@ in with pkgs.vscode-extensions;
   donjayamanne.githistory
   haskellmode
   mkhl.direnv
+  tomoki1207.pdf
 ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
   {
     publisher = "ctf0";

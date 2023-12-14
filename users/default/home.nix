@@ -18,19 +18,6 @@
             create = "maildir";
           };
         };
-        uni-mail = {
-          address = "felix.leitz@student.uni-tuebingen.de";
-          userName = "zxmfh96";
-          imap.host = "mailserv.uni-tuebingen.de";
-          smtp.host = "smtpserv.uni-tuebingen.de";
-          realName = "Felix Leitz";
-          neomutt.enable = true;
-          passwordCommand = "";
-          mbsync = {
-            enable = true;
-            create = "maildir";
-          };
-        };
       };
     };
   };

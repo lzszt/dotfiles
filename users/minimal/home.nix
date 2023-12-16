@@ -18,7 +18,7 @@ in {
           (mkWorkspace "5" [ ])
           (mkWorkspace "6" [ ])
           (mkWorkspace "7" [ ])
-          (mkWorkspace "8" [ ])
+          (mkWorkspace "obs" [ "obsidian" ])
           (mkWorkspace "9" [ ])
         ];
       };

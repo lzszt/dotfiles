@@ -122,7 +122,18 @@ in {
     };
   };
 
-  home.packages = with pkgs; [
+  home.packages = let
+    sieve = let sieve-version = "0.6.1";
+    in pkgs.appimageTools.wrapType2 {
+      name = "sieve";
+      version = "0.6.1";
+      src = pkgs.fetchurl {
+        url =
+          "https://github.com/thsmi/sieve/releases/download/${sieve-version}/sieve-${sieve-version}-linux-x64.AppImage";
+        sha256 = "sha256-tiA+wp7oMGmK3UPJRQ3NBrqVT+D0B6sT+npXUZ7zok8=";
+      };
+    };
+  in with pkgs; [
     linphone
 
     fd
@@ -142,6 +153,7 @@ in {
 
     sieve-connect
     thunderbird
+    sieve
   ];
   home.stateVersion = "22.11";
 }

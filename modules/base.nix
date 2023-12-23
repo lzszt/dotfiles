@@ -47,6 +47,8 @@ in {
 
       obsidian
 
+      thunderbird
+
       rnix-lsp
 
       # Fonts

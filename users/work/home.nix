@@ -152,7 +152,6 @@ in {
     docker-compose
 
     sieve-connect
-    thunderbird
     sieve
   ];
   home.stateVersion = "22.11";

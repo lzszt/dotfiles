@@ -21,8 +21,6 @@ in {
       };
     };
 
-    nixpkgs.config.allowUnfree = true;
-
     modules = {
       rofi.enable = true;
       firefox.enable = true;

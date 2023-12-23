@@ -45,5 +45,14 @@
       body = [ "$LINE_COMMENT TODO (felix): $0" ];
       description = "Insert a TODO remark";
     };
+    section = {
+      prefix = [ "section" ];
+      body = [''
+        $LINE_COMMENT-------------------------------------------------------------
+        $LINE_COMMENT $0
+        $LINE_COMMENT-------------------------------------------------------------
+      ''];
+      description = "Insert a section";
+    };
   };
 }

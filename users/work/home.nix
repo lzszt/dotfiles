@@ -151,7 +151,6 @@ in {
     docker
     docker-compose
 
-    sieve-connect
     sieve
   ];
   home.stateVersion = "22.11";

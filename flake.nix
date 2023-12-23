@@ -25,7 +25,13 @@
         })
       ];
       pkgs = import nixpkgs {
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+
+          # Needed as long as obsidian still uses obsolete electron
+          permittedInsecurePackages =
+            lib.optional (pkgs.obsidian.version == "1.4.16") "electron-25.9.0";
+        };
         inherit overlays system;
       };
 

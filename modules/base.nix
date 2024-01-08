@@ -33,6 +33,11 @@ in {
 
     services.syncthing.enable = true;
 
+    xdg = {
+      enable = true;
+      mime.enable = true;
+    };
+
     home.packages = with pkgs; [
       keepassxc
       google-chrome
@@ -50,6 +55,8 @@ in {
       thunderbird
 
       rnix-lsp
+
+      xdg-utils
 
       # Fonts
       nerdfonts

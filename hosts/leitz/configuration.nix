@@ -5,6 +5,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
+    tmp.cleanOnBoot = true;
     extraModprobeConfig = "blacklist hid_sensor_hub";
     loader = {
       systemd-boot.enable = true;

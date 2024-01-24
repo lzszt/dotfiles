@@ -3,16 +3,17 @@
     "cabalAddSrc": {
       "flake": false,
       "locked": {
-        "lastModified": 1701562984,
-        "narHash": "sha256-/wU6EG7nnQcjIeWZcFeDiDZCZ/BNENd7Sj729xSAm7U=",
+        "lastModified": 1704745533,
+        "narHash": "sha256-cIQ9G2Wm5G06tAFxAslFtj6Su5SqK4dEm3leo7uNowY=",
         "owner": "Bodigrim",
         "repo": "cabal-add",
-        "rev": "00e0e7b4f951673ab6098246f956be216f6db9d5",
+        "rev": "eb940d186cc799faebf75e8dcb60f353d340254d",
         "type": "github"
       },
       "original": {
         "owner": "Bodigrim",
         "repo": "cabal-add",
+        "rev": "eb940d186cc799faebf75e8dcb60f353d340254d",
         "type": "github"
       }
     },
@@ -94,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705879479,
-        "narHash": "sha256-ZIohbyly1KOe+8I3gdyNKgVN/oifKdmeI0DzMfytbtg=",
+        "lastModified": 1706099765,
+        "narHash": "sha256-pt98CX+WkTwtnDdu+9kGnuia/3s5krsUqYOSGOYbuHk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2d47379ad591bcb14ca95a90b6964b8305f6c913",
+        "rev": "e84811035d7c8ec79ed6c687a97e19e2a22123c1",
         "type": "github"
       },
       "original": {

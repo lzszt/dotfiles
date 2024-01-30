@@ -9,7 +9,10 @@
     let
       inherit (inputs) home-manager nixpkgs;
       dir = ../hosts + "/${hostname}";
-      custom = (import (dir + /custom.nix)) // { inherit hostname; };
+      custom = (import (dir + /custom.nix)) // {
+        inherit hostname;
+        secrets = inputs.dotfile-secrets.packages.${system};
+      };
       specialArgs = { inherit inputs system custom; };
       users = lib.mapAttrs (userName: userDef:
         import (../users + "/${userDef.userDefDir}/home.nix")) custom.users;

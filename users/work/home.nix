@@ -1,4 +1,4 @@
-{ inputs, system, config, lib, pkgs, stdenv, ... }:
+{ custom, system, config, lib, pkgs, stdenv, ... }:
 let
   email = "felix.leitz@active-group.de";
   ldapUser = "leitz";
@@ -92,9 +92,7 @@ in {
 
     ssh = {
       enable = true;
-      matchBlocks = (inputs.dotfile-secrets.packages.${system}.ag {
-        inherit lib;
-      }).sshMatchBlocks;
+      matchBlocks = custom.secrets.ag.sshMatchBlocks;
     };
     cloneRepos = {
       enable = true;

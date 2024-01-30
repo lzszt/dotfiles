@@ -71,7 +71,10 @@ in {
           (mkWorkspace "9" [ ])
         ];
       };
-      polybar.enable = true;
+      polybar = {
+        enable = true;
+        custom-modules.left = [ "work-stats" ];
+      };
     };
 
     vscode.enable = true;

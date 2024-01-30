@@ -12,7 +12,7 @@ let
     urgent = "#ff4500";
     transparent = "#00000000";
   };
-  modules = import ./modules.nix { inherit custom pkgs colors; };
+  modules = import ./modules.nix { inherit custom pkgs colors lib; };
 in {
   "global/wm" = {
     margin-bottom = 0;

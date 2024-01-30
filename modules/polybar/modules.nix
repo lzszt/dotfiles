@@ -1,4 +1,4 @@
-{ custom, pkgs, colors, ... }: {
+{ custom, pkgs, colors, lib, ... }: {
   xkeyboard = {
     "module/xkeyboard" = {
       type = "internal/xkeyboard";
@@ -164,6 +164,15 @@
       click-left = "${toggle-mic}";
     };
   };
+
+  work-stats = {
+    "module/work-stats" = {
+      type = "custom/script";
+      exec = "${custom.secrets.ag.work-generate-overview}";
+      interval = "60";
+    };
+  };
+
   ethernets = let
     mkEthModule = interface: {
       type = "internal/network";

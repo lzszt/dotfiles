@@ -1,4 +1,4 @@
-{ custom, pkgs, lib, ... }:
+{ custom, pkgs, lib, custom-modules, ... }:
 
 let
   colors = {
@@ -33,7 +33,7 @@ in {
 
   "bar/bottom" = {
     bottom = true;
-    modules-left = [ "filesystem" "cpu" "memory" ];
+    modules-left = [ "filesystem" "cpu" "memory" ] ++ custom-modules.left;
     modules-center = [ "xmonad" "date" ];
     modules-right = [ "xkeyboard" "audio" "mic" ]
       ++ (lib.optionals (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom)
@@ -57,7 +57,8 @@ in {
   };
 } // (with modules;
   xkeyboard // date // filesystem // cpu // audio // wlan // memory // xmonad
-  // mic // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.battery" custom)
+  // mic // work-stats
+  // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.battery" custom)
     battery)
   // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom)
     ethernets))

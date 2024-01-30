@@ -2,7 +2,10 @@
 
 let cfg = config.modules.desktop.polybar;
 in {
-  options.modules.desktop.polybar.enable = lib.mkEnableOption "polybar";
+  options.modules.desktop.polybar = {
+    enable = lib.mkEnableOption "polybar";
+    custom-modules.left = lib.mkOption { default = [ ]; };
+  };
 
   config = lib.mkIf cfg.enable {
     services.polybar = let
@@ -19,7 +22,10 @@ in {
           MONITOR=$m polybar -r bottom &
         done
       '';
-      config = import ./config.nix { inherit custom pkgs lib; };
+      config = import ./config.nix {
+        inherit custom pkgs lib;
+        custom-modules = cfg.custom-modules;
+      };
     };
   };
 }

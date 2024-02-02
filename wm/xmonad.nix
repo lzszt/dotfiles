@@ -7,7 +7,10 @@
 
     xserver = {
       enable = true;
-      layout = custom.default.layout;
+      xkb = {
+        layout = custom.default.layout;
+        options = "caps:ctrl_modifier";
+      };
 
       displayManager.defaultSession = "none+xmonad";
 
@@ -22,7 +25,7 @@
           hp.xmonad-dbus
         ];
       };
-      xkbOptions = "caps:ctrl_modifier";
+
     };
   };
   systemd.services.upower.enable = true;

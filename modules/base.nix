@@ -53,6 +53,7 @@ in {
       obsidian
 
       thunderbird
+      rink
 
       rnix-lsp
 

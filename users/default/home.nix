@@ -72,6 +72,7 @@
     jetbrains.datagrip
 
     prusa-slicer
+    openscad
 
     teamviewer
 

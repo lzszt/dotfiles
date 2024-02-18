@@ -41,6 +41,8 @@ in {
   cr = "cabal run";
   cre = "cabal repl";
   ct = "cabal test";
+  cc = "cabal clean";
+  cbe = "cabal bench";
 
   # misc
   ll = "ls -lisah";

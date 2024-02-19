@@ -72,7 +72,7 @@
     jetbrains.datagrip
 
     prusa-slicer
-    openscad
+    openscad-unstable
 
     teamviewer
 

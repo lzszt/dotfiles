@@ -152,6 +152,7 @@ in {
     docker
     docker-compose
 
+    obs-studio
     sieve
   ];
   home.stateVersion = "22.11";

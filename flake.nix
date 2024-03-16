@@ -32,9 +32,6 @@
         config = {
           allowUnfree = true;
 
-          # Needed as long as obsidian still uses obsolete electron
-          permittedInsecurePackages =
-            lib.optional (pkgs.obsidian.version == "1.5.3") "electron-25.9.0";
         };
         inherit overlays system;
       };

@@ -55,8 +55,6 @@ in {
       thunderbird
       rink
 
-      rnix-lsp
-
       xdg-utils
 
       # Fonts

@@ -17,6 +17,22 @@
         "type": "github"
       }
     },
+    "deejSrc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1625344242,
+        "narHash": "sha256-ztaVbWQiX59gPlrtvxNqJGqpMYApOKwIUvE4lS/sWVw=",
+        "owner": "omriharel",
+        "repo": "deej",
+        "rev": "9c0307b96341538ec46f18d2e9b18aaa84441175",
+        "type": "github"
+      },
+      "original": {
+        "owner": "omriharel",
+        "repo": "deej",
+        "type": "github"
+      }
+    },
     "dotfile-secrets": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -159,6 +175,7 @@
     "root": {
       "inputs": {
         "cabalAddSrc": "cabalAddSrc",
+        "deejSrc": "deejSrc",
         "dotfile-secrets": "dotfile-secrets",
         "haskellmode": "haskellmode",
         "home-manager": "home-manager",

@@ -16,6 +16,11 @@
         "github:/Bodigrim/cabal-add/eb940d186cc799faebf75e8dcb60f353d340254d";
       flake = false;
     };
+
+    deejSrc = {
+      url = "github:/omriharel/deej";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:

@@ -51,7 +51,10 @@ in {
   };
   config = lib.mkIf cfg.enable {
     systemd.user.services.deej = {
-      Unit = { Description = "Push nix store changes to attic binary cache."; };
+      Unit = {
+        Description =
+          "Run deej to control audio levels via an arduino based controller.";
+      };
       Install = { WantedBy = [ "default.target" ]; };
       Service = {
         ExecStart = "${deej-runner}/deej";

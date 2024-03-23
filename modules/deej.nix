@@ -20,6 +20,8 @@ let
     nativeBuildInputs = with pkgs; [ pkg-config ];
     buildInputs = with pkgs; [ libappindicator-gtk3 webkitgtk ];
 
+    postInstall = "mv $out/bin/cmd $out/bin/deej";
+
     meta = with pkgs.lib; {
       description = "";
 
@@ -40,7 +42,7 @@ let
     installPhase = ''
       mkdir -p $out
       cp ${deejConfig} $out/config.yaml
-      cp ${deej}/bin/cmd $out/deej
+      cp ${deej}/bin/deej $out/deej
     '';
   };
 

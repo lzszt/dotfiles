@@ -45,6 +45,7 @@ in {
       ripgrep
       lazygit
       htop
+      btop
       dig
       pavucontrol
       ncdu

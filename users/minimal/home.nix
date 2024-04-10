@@ -63,11 +63,5 @@ in {
     steam
   ];
 
-  services = {
-    dropbox = {
-      enable = true;
-      path = "${config.home.homeDirectory}/Dropbox";
-    };
-  };
   home.stateVersion = "22.11";
 }

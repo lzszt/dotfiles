@@ -1,4 +1,9 @@
 {
+  nixConfig = {
+    extra-substituters = [ "http://turing:5000" ];
+    allow-import-from-derivation = true;
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url =

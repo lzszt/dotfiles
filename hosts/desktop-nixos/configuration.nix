@@ -40,8 +40,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = lib.mapAttrs (user: _: {
     isNormalUser = true;
-    extraGroups =
-      [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "docker" "dialout" ];
     shell = pkgs.fish;
   }) custom.users;
 

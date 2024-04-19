@@ -59,7 +59,7 @@ in {
       xdg-utils
 
       # Fonts
-      nerdfonts
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
   };
 }

@@ -139,7 +139,7 @@ in {
 
     fd
 
-    jetbrains.datagrip
+    dbeaver
 
     apache-directory-studio
 

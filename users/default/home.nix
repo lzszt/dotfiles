@@ -97,7 +97,7 @@
   home.packages = with pkgs; [
     docker
     docker-compose
-    jetbrains.datagrip
+    dbeaver
 
     prusa-slicer
     openscad-unstable

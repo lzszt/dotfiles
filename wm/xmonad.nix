@@ -5,14 +5,14 @@
     gnome.gnome-keyring.enable = true;
     upower.enable = true;
 
+    displayManager.defaultSession = "none+xmonad";
+
     xserver = {
       enable = true;
       xkb = {
         layout = custom.default.layout;
         options = "caps:ctrl_modifier";
       };
-
-      displayManager.defaultSession = "none+xmonad";
 
       windowManager.xmonad = {
         enable = true;

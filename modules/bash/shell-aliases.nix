@@ -17,7 +17,7 @@ in {
   nfl = "nix flake lock";
   nfc = "nix flake check";
   nfui = "nix flake lock --update-input";
-  nd = "nix develop --command fish";
+  nd = "nix develop -c fish";
   ns = "nix shell";
   nr = "nix repl";
   nb = "nix build";

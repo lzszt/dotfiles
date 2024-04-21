@@ -1,7 +1,8 @@
 {
   nixConfig = {
-    extra-trusted-public-keys =
-      [ "binary-cache:fwYU+TFh/n61r2ZUu27ZDUDhx7WQvLPzMVnvhYvCQJU=" ];
+    extra-trusted-public-keys = [
+      "turing:uu+iwNKMHEHMwTh2TFu0OgzlYfy2Ufpcb4xiGv4hTXkAHcCxyr8R/U0dvECK0DnUahEESN65tyVneB3wJq8Brg=="
+    ];
     extra-substituters = [ "http://turing:5000" ];
     allow-import-from-derivation = true;
   };

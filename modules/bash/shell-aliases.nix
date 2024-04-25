@@ -1,17 +1,6 @@
 { pkgs, custom, config, lib, ... }:
 
-let
-  nix-search = pkgs.writeScript "nix search" ''
-    #!/usr/bin/env bash
-    SEARCH="https://search.nixos.org/packages?channel=unstable&size=50&sort=relevance&type=packages&query="+$1
-    firefox $SEARCH
-  '';
-  nix-search-option = pkgs.writeScript "nix search script" ''
-    #!/usr/bin/env bash
-    SEARCH="https://search.nixos.org/options?channel=unstable&size=50&sort=relevance&type=packages&query=+"+$1
-    firefox $SEARCH
-  '';
-in {
+{
   # nix
   nfu = "nix flake update";
   nfl = "nix flake lock";
@@ -46,8 +35,6 @@ in {
 
   # misc
   ll = "ls -lisah";
-  sp = "${nix-search}";
-  so = "${nix-search-option}";
 
   de = "setxkbmap de";
   us = "setxkbmap us";

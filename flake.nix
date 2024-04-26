@@ -1,10 +1,4 @@
 {
-  nixConfig = {
-    extra-trusted-public-keys =
-      [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
-    extra-substituters = [ "http://turing" ];
-    allow-import-from-derivation = true;
-  };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url =

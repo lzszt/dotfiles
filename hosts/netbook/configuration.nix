@@ -38,6 +38,9 @@
   nix = {
     settings.trusted-users = [ "root" ] ++ lib.attrNames custom.users;
     settings.max-jobs = 12;
+    substituters = [ "http://turing" ];
+    trusted-public-keys =
+      [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
   };
 
   system.stateVersion = "23.05";

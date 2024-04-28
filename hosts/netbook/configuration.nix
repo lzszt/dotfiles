@@ -36,11 +36,13 @@
   environment.systemPackages = with pkgs; [ nixfmt ];
 
   nix = {
-    settings.trusted-users = [ "root" ] ++ lib.attrNames custom.users;
-    settings.max-jobs = 12;
-    substituters = [ "http://turing" ];
-    trusted-public-keys =
-      [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
+    settings = {
+      trusted-users = [ "root" ] ++ lib.attrNames custom.users;
+      max-jobs = 12;
+      substituters = [ "http://turing" ];
+      trusted-public-keys =
+        [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
+    };
   };
 
   system.stateVersion = "23.05";

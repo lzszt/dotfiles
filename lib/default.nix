@@ -26,8 +26,7 @@
             useGlobalPkgs = true;
             useUserPackages = false;
             extraSpecialArgs = specialArgs;
-          } // {
-            users = users;
+            inherit users;
           };
         }
       ];

@@ -51,8 +51,5 @@
           };
     in (go (lib.splitString "." attrPath)).result;
 
-  mkWorkspace = workspaceId: apps: {
-    workspaceId = workspaceId;
-    apps = apps;
-  };
+  mkWorkspace = workspaceId: apps: { inherit workspaceId apps; };
 }

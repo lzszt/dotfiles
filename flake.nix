@@ -30,13 +30,12 @@
         (final: prev: {
           # Shorter than prev.lib.extend (f: p: ...), but I don't know
           # if there's another difference.
-          lib = prev.lib // { my = import ./lib { inherit (final) lib; }; };
+          lib = prev.lib // {
+            my = import ./lib/nixos.nix { inherit (final) lib; };
+          };
         })
       ];
-      pkgs = import nixpkgs {
-        config = { allowUnfree = true; };
-        inherit overlays system;
-      };
+      pkgs = import nixpkgs { inherit overlays system; };
 
       inherit (pkgs) lib;
     in {
@@ -44,8 +43,7 @@
       nixosConfigurations = let machines = lib.my.readDirNames ./hosts;
       in builtins.foldl' (acc: hostname:
         acc // {
-          ${hostname} =
-            lib.my.mkNixosSystem { inherit hostname system inputs pkgs; };
+          ${hostname} = lib.my.mkNixosSystem { inherit hostname inputs; };
         }) { } machines;
 
       devShells.${system}.default = pkgs.mkShell {

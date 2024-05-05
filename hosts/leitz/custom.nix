@@ -1,4 +1,5 @@
 {
+  system = "x86_64-linux";
   users = {
     leitz.userDefDir = "work";
     home.userDefDir = "minimal";

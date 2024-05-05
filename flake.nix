@@ -34,10 +34,7 @@
         })
       ];
       pkgs = import nixpkgs {
-        config = {
-          allowUnfree = true;
-
-        };
+        config = { allowUnfree = true; };
         inherit overlays system;
       };
 
@@ -51,8 +48,7 @@
             lib.my.mkNixosSystem { inherit hostname system inputs pkgs; };
         }) { } machines;
 
-      devShells.${system}.default = let pkgs = nixpkgs.legacyPackages.${system};
-      in pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           (pkgs.haskellPackages.ghcWithPackages (hp:
             with hp; [

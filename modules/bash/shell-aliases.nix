@@ -41,4 +41,5 @@
 } // lib.optionalAttrs (config.home.username == custom.default.user) {
   # nixos
   nrs = "nixos-rebuild switch --use-remote-sudo --flake ~/dotfiles/";
+  nrb = "nixos-rebuild build --flake ~/dotfiles/";
 }

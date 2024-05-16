@@ -33,7 +33,7 @@
       [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
   }) custom.users;
 
-  environment.systemPackages = with pkgs; [ nixfmt ];
+  environment.systemPackages = with pkgs; [ nixfmt-rfc-style ];
 
   nix = {
     settings = {

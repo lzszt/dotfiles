@@ -39,7 +39,7 @@
 
       inherit (pkgs) lib;
     in {
-      formatter.${system} = pkgs.nixfmt;
+      formatter.${system} = pkgs.nixfmt-rfc-style;
       nixosConfigurations = let machines = lib.my.readDirNames ./hosts;
       in builtins.foldl' (acc: hostname:
         acc // {

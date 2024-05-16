@@ -51,7 +51,7 @@
 
   virtualisation.docker.enable = true;
 
-  environment.systemPackages = with pkgs; [ nixfmt ];
+  environment.systemPackages = with pkgs; [ nixfmt-rfc-style ];
 
   nix = {
     settings = {

@@ -24,6 +24,7 @@
 
   # git
   gp = "git pull";
+  gP = "git push";
   gc = "git clone";
   gst = "git status";
   gl = "git log";

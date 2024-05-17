@@ -10,47 +10,40 @@ let
   cfg = config.modules.vscode;
   sshCfg = config.modules.ssh;
 
-  userSettings = import ./user-settings.nix {
+  userSettings = import ./user-settings.nix;
+
+  snippets = import ./snippets.nix;
+  extensions = import ./extensions.nix {
     inherit
       inputs
+      system
       pkgs
       lib
       sshCfg
       ;
   };
-
-  snippets = import ./snippets.nix;
-  extensions = import ./extensions.nix { inherit inputs system pkgs; };
   keybindings = import ./keybindings.nix;
 
   allExtensions =
-    extensions.defaultExtensions
-    ++ (lib.flatten (
+    lib.flatten (
       lib.mapAttrsFlatten (
         extName: ext: if cfg.extensions.${extName}.enable then [ ext.extension ] else [ ]
-      ) extensions.customExtensions
-
-    ))
+      ) extensions
+    )
     ++ cfg.extensions.custom;
 
   allUserSettings =
     userSettings
-    // (pkgs.lib.my.mergeMapAttr (ext: ext.user-settings) (
-      lib.attrValues (
-        lib.filterAttrs (extName: ext: cfg.extensions.${extName}.enable) extensions.customExtensions
-      )
+    // (pkgs.lib.my.mergeMapAttr (ext: ext.user-settings or { }) (
+      lib.attrValues (lib.filterAttrs (extName: ext: cfg.extensions.${extName}.enable) extensions)
     ));
 in
 {
   options.modules.vscode = {
     enable = lib.mkEnableOption "vscode";
-    extensions =
-      {
-        custom = lib.mkOption { default = [ ]; };
-      }
-      // (lib.mapAttrs (extName: _: {
-        enable = lib.mkEnableOption "${extName}";
-      }) extensions.customExtensions);
+    extensions = {
+      custom = lib.mkOption { default = [ ]; };
+    } // (lib.mapAttrs (extName: ext: { enable = (lib.mkEnableOption "${extName}") // {default = ext.default or false;}; }) extensions);
   };
 
   config = lib.mkIf cfg.enable {

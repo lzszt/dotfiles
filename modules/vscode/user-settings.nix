@@ -31,6 +31,8 @@ in {
     minimap.enabled = false;
     tabSize = 2;
     formatOnSave = true;
+    folding = false;
+    stickyScroll.enabled = false;
   };
   # telemetry settings
   telemetry.telemetryLevel = "off";

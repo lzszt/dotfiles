@@ -72,17 +72,24 @@ in
   # explorer settings
   explorer.confirmDragAndDrop = false;
 
-  # default haskell settings
-  haskell = {
-    formattingProvider = "ormolu";
-    manageHLS = "PATH";
-  };
-
   # default nix settings
   "[nix]" = {
     editor.defaultFormatter = "brettm12345.nixfmt-vscode";
   };
   nix.enableLanguageServer = true;
+
+  #-------------------------------------------------------------
+  # Extension Settings
+  #-------------------------------------------------------------
+
+  # gitblame
+  gitblame.ignoreWhitespace = true;
+
+  # default haskell settings
+  haskell = {
+    formattingProvider = "ormolu";
+    manageHLS = "PATH";
+  };
 
   # stl viewer settings
   stlViewer = {

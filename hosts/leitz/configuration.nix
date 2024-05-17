@@ -1,7 +1,16 @@
-{ config, pkgs, lib, custom, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  custom,
+  ...
+}:
 
 {
-  imports = [ ./hardware-configuration.nix ../../wm/xmonad.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../wm/xmonad.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot = {
@@ -44,8 +53,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = lib.mapAttrs (user: _: {
     isNormalUser = true;
-    extraGroups =
-      [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+    ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
   }) custom.users;
 
@@ -57,11 +69,9 @@
     settings = {
       trusted-users = [ "root" ] ++ lib.attrNames custom.users;
       max-jobs = 16;
-      trusted-public-keys =
-        [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
+      trusted-public-keys = [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
     };
   };
 
   system.stateVersion = "23.05";
 }
-

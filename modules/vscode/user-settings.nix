@@ -1,4 +1,10 @@
-{ sshCfg, lib, inputs, pkgs, ... }:
+{
+  sshCfg,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   generateSSHFsConfig = config: {
     name = config.name;
@@ -8,7 +14,8 @@ let
     privateKeyPath = config.privateKeyPath;
   };
 
-  generateSimpleSSHFsConfig = privateKeyPath: host: username:
+  generateSimpleSSHFsConfig =
+    privateKeyPath: host: username:
     generateSSHFsConfig {
       name = host;
       host = host;
@@ -17,15 +24,23 @@ let
       privateKeyPath = privateKeyPath;
     };
 
-  sshfsConfigsFromSSHMatchBlocks = builtins.map (block:
-    generateSimpleSSHFsConfig "$HOME/.ssh/id_ed25519"
-    (if (lib.hasAttr "hostname" block) then block.hostname else block.host)
-    block.user) (builtins.filter (block: !lib.hasAttr "proxyCommand" block)
-      (builtins.attrValues sshCfg.matchBlocks));
+  sshfsConfigsFromSSHMatchBlocks =
+    builtins.map
+      (
+        block:
+        generateSimpleSSHFsConfig "$HOME/.ssh/id_ed25519" (
+          if (lib.hasAttr "hostname" block) then block.hostname else block.host
+        ) block.user
+      )
+      (
+        builtins.filter (block: !lib.hasAttr "proxyCommand" block) (builtins.attrValues sshCfg.matchBlocks)
+      );
 
-  cabal-add = pkgs.haskell.lib.dontCheck
-    (pkgs.haskellPackages.callCabal2nix "cabal-add" inputs.cabalAddSrc { });
-in {
+  cabal-add = pkgs.haskell.lib.dontCheck (
+    pkgs.haskellPackages.callCabal2nix "cabal-add" inputs.cabalAddSrc { }
+  );
+in
+{
   # editor settings
   editor = {
     minimap.enabled = false;
@@ -64,7 +79,9 @@ in {
   };
 
   # default nix settings
-  "[nix]" = { editor.defaultFormatter = "brettm12345.nixfmt-vscode"; };
+  "[nix]" = {
+    editor.defaultFormatter = "brettm12345.nixfmt-vscode";
+  };
   nix.enableLanguageServer = true;
 
   # stl viewer settings

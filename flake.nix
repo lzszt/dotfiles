@@ -12,8 +12,7 @@
     haskellmode.url = "gitlab:Zwiebeljunge/haskellmode";
     # haskellmode.url = "git+file:/home/leitz/projects/haskellmode";
     cabalAddSrc = {
-      url =
-        "github:/Bodigrim/cabal-add/eb940d186cc799faebf75e8dcb60f353d340254d";
+      url = "github:/Bodigrim/cabal-add/eb940d186cc799faebf75e8dcb60f353d340254d";
       flake = false;
     };
 
@@ -23,7 +22,13 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
       system = "x86_64-linux";
       overlays = [
@@ -38,24 +43,28 @@
       pkgs = import nixpkgs { inherit overlays system; };
 
       inherit (pkgs) lib;
-    in {
+    in
+    {
       formatter.${system} = pkgs.nixfmt-rfc-style;
-      nixosConfigurations = let machines = lib.my.readDirNames ./hosts;
-      in builtins.foldl' (acc: hostname:
-        acc // {
-          ${hostname} = lib.my.mkNixosSystem { inherit hostname inputs; };
-        }) { } machines;
+      nixosConfigurations =
+        let
+          machines = lib.my.readDirNames ./hosts;
+        in
+        builtins.foldl' (
+          acc: hostname: acc // { ${hostname} = lib.my.mkNixosSystem { inherit hostname inputs; }; }
+        ) { } machines;
 
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
-          (pkgs.haskellPackages.ghcWithPackages (hp:
-            with hp; [
+          (pkgs.haskellPackages.ghcWithPackages (
+            hp: with hp; [
               ormolu
               haskell-language-server
               dbus
               xmonad-contrib
               monad-logger
-            ]))
+            ]
+          ))
         ];
       };
     };

@@ -18,7 +18,11 @@
       };
       sumtype = {
         prefix = [ "sumtype" ];
-        body = [ "data \${1:Foo}" "	= \${2:Bar}" "	| \${0:Baz}" ];
+        body = [
+          "data \${1:Foo}"
+          "	= \${2:Bar}"
+          "	| \${0:Baz}"
+        ];
         description = "Insert a data record defintion";
       };
       impl = {
@@ -28,7 +32,10 @@
       };
       def = {
         prefix = [ "def" ];
-        body = [ "$1 :: $2" ''$1 = ''${0:error "implement $1"}'' ];
+        body = [
+          "$1 :: $2"
+          ''$1 = ''${0:error "implement $1"}''
+        ];
         description = "Generate a definition";
       };
     };
@@ -47,11 +54,13 @@
     };
     section = {
       prefix = [ "section" ];
-      body = [''
-        $LINE_COMMENT-------------------------------------------------------------
-        $LINE_COMMENT $0
-        $LINE_COMMENT-------------------------------------------------------------
-      ''];
+      body = [
+        ''
+          $LINE_COMMENT-------------------------------------------------------------
+          $LINE_COMMENT $0
+          $LINE_COMMENT-------------------------------------------------------------
+        ''
+      ];
       description = "Insert a section";
     };
   };

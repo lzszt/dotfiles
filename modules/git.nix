@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.git;
   types = lib.types;
-in {
+in
+{
   options.modules.git.email = lib.mkOption { type = types.str; };
   config.programs.git = {
     enable = true;

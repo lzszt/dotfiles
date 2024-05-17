@@ -1,7 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-let cfg = config.modules.desktop.xmonad;
-in {
+let
+  cfg = config.modules.desktop.xmonad;
+in
+{
 
   options.modules.desktop.xmonad = {
     enable = lib.mkEnableOption "xmonad";
@@ -13,13 +20,17 @@ in {
       config = ./xmonad.hs;
       enable = true;
       enableContribAndExtras = true;
-      extraPackages = hp: [ hp.dbus hp.monad-logger ];
+      extraPackages = hp: [
+        hp.dbus
+        hp.monad-logger
+      ];
     };
-    home.file.".xmonad/workspaces".text = let
-      generateWorkspace = workspaceId: apps:
-        "${workspaceId}:${builtins.concatStringsSep "," apps}";
-    in "${lib.concatLines (builtins.map
-      (workspace: generateWorkspace workspace.workspaceId workspace.apps)
-      cfg.workspaces)}";
+    home.file.".xmonad/workspaces".text =
+      let
+        generateWorkspace = workspaceId: apps: "${workspaceId}:${builtins.concatStringsSep "," apps}";
+      in
+      "${lib.concatLines (
+        builtins.map (workspace: generateWorkspace workspace.workspaceId workspace.apps) cfg.workspaces
+      )}";
   };
 }

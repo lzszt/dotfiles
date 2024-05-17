@@ -1,4 +1,10 @@
-{ pkgs, custom, config, lib, ... }:
+{
+  pkgs,
+  custom,
+  config,
+  lib,
+  ...
+}:
 
 {
   # nix
@@ -38,7 +44,8 @@
 
   de = "setxkbmap de";
   us = "setxkbmap us";
-} // lib.optionalAttrs (config.home.username == custom.default.user) {
+}
+// lib.optionalAttrs (config.home.username == custom.default.user) {
   # nixos
   nrs = "nixos-rebuild switch --use-remote-sudo --flake ~/dotfiles/";
   nrb = "nixos-rebuild build --flake ~/dotfiles/";

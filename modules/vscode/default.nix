@@ -1,14 +1,29 @@
-{ inputs, system, config, lib, pkgs, ... }:
+{
+  inputs,
+  system,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.vscode;
   sshCfg = config.modules.ssh;
 
-  userSettings = import ./user-settings.nix { inherit inputs pkgs lib sshCfg; };
+  userSettings = import ./user-settings.nix {
+    inherit
+      inputs
+      pkgs
+      lib
+      sshCfg
+      ;
+  };
 
   snippets = import ./snippets.nix;
   extensions = import ./extensions.nix { inherit inputs system pkgs; };
   keybindings = import ./keybindings.nix;
-in {
+in
+{
   options.modules.vscode = {
     enable = lib.mkEnableOption "vscode";
     extensions = lib.mkOption { default = [ ]; };

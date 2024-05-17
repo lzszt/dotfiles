@@ -1,7 +1,16 @@
-{ config, pkgs, lib, custom, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  custom,
+  ...
+}:
 
 {
-  imports = [ ./hardware-configuration.nix ../../wm/xmonad.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../wm/xmonad.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot = {
@@ -40,7 +49,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = lib.mapAttrs (user: _: {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "dialout" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+      "dialout"
+    ];
     shell = pkgs.fish;
   }) custom.users;
 
@@ -53,11 +67,9 @@
       trusted-users = [ "root" ] ++ lib.attrNames custom.users;
       max-jobs = 12;
       substituters = [ "http://turing" ];
-      trusted-public-keys =
-        [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
+      trusted-public-keys = [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
     };
   };
 
   system.stateVersion = "22.11";
 }
-

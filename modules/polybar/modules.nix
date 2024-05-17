@@ -1,4 +1,11 @@
-{ custom, pkgs, colors, lib, ... }: {
+{
+  custom,
+  pkgs,
+  colors,
+  lib,
+  ...
+}:
+{
   xkeyboard = {
     "module/xkeyboard" = {
       type = "internal/xkeyboard";
@@ -144,25 +151,26 @@
   };
 
   mic = {
-    "module/mic" = let
-      mic-volume = pkgs.writeScript "mic-volume" ''
-        mic_volume=$(${pkgs.alsa-utils}/bin/amixer get Capture | ${pkgs.gnugrep}/bin/grep -o -E '[0-9]+%' | ${pkgs.coreutils}/bin/head -1)
-        mic_status=$(${pkgs.alsa-utils}/bin/amixer get Capture | ${pkgs.gnugrep}/bin/grep -o -E '\[on\]|\[off\]' | ${pkgs.coreutils}/bin/head -1)
+    "module/mic" =
+      let
+        mic-volume = pkgs.writeScript "mic-volume" ''
+          mic_volume=$(${pkgs.alsa-utils}/bin/amixer get Capture | ${pkgs.gnugrep}/bin/grep -o -E '[0-9]+%' | ${pkgs.coreutils}/bin/head -1)
+          mic_status=$(${pkgs.alsa-utils}/bin/amixer get Capture | ${pkgs.gnugrep}/bin/grep -o -E '\[on\]|\[off\]' | ${pkgs.coreutils}/bin/head -1)
 
-        if [ "$mic_status" == "[on]" ]; then
-            echo " $mic_volume"
-        else
-            echo "%{F${colors.urgent}}%{F-}"
-        fi
-      '';
-      toggle-mic = pkgs.writeScript "toggle-mic"
-        "${pkgs.alsa-utils}/bin/amixer set Capture toggle";
-    in {
-      type = "custom/script";
-      exec = "${mic-volume}";
-      interval = "0.5";
-      click-left = "${toggle-mic}";
-    };
+          if [ "$mic_status" == "[on]" ]; then
+              echo " $mic_volume"
+          else
+              echo "%{F${colors.urgent}}%{F-}"
+          fi
+        '';
+        toggle-mic = pkgs.writeScript "toggle-mic" "${pkgs.alsa-utils}/bin/amixer set Capture toggle";
+      in
+      {
+        type = "custom/script";
+        exec = "${mic-volume}";
+        interval = "0.5";
+        click-left = "${toggle-mic}";
+      };
   };
 
   work-stats = {
@@ -173,17 +181,19 @@
     };
   };
 
-  ethernets = let
-    mkEthModule = interface: {
-      type = "internal/network";
-      interface = "${interface}";
-      interface-type = "wired";
-      label-connected = " %upspeed%  %downspeed%";
-    };
-  in pkgs.lib.my.mergeMapAttr
-  (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; })
-  (pkgs.lib.imap0 (index: interface: {
-    index = index;
-    interface = interface;
-  }) custom.polybar.ethernet);
+  ethernets =
+    let
+      mkEthModule = interface: {
+        type = "internal/network";
+        interface = "${interface}";
+        interface-type = "wired";
+        label-connected = " %upspeed%  %downspeed%";
+      };
+    in
+    pkgs.lib.my.mergeMapAttr (ii: { "module/eth${toString ii.index}" = mkEthModule ii.interface; }) (
+      pkgs.lib.imap0 (index: interface: {
+        index = index;
+        interface = interface;
+      }) custom.polybar.ethernet
+    );
 }

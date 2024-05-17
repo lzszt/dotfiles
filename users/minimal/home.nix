@@ -1,7 +1,18 @@
-{ config, lib, pkgs, stdenv, ... }:
-let email = "felix.leitz92@gmail.com";
-in {
-  imports = [ ../../modules ../../modules/base.nix ];
+{
+  config,
+  lib,
+  pkgs,
+  stdenv,
+  ...
+}:
+let
+  email = "felix.leitz92@gmail.com";
+in
+{
+  imports = [
+    ../../modules
+    ../../modules/base.nix
+  ];
 
   modules = {
     git.email = email;
@@ -25,35 +36,38 @@ in {
       polybar.enable = true;
     };
 
-    vscode = { enable = true; };
-
-    ssh.matchBlocks = let
-      mkLzsztInfoSsh = subdomain: {
-        host = subdomain;
-        hostname = "${subdomain}.lzszt.info";
-        user = "root";
-        compression = true;
-      };
-
-    in {
-      "gitlab-runner-1" = {
-        host = "gitlab-runner-1";
-        user = "root";
-        proxyCommand = "ssh root@turing -W %h:%p";
-      };
-
-      "turing" = {
-        host = "turing";
-        user = "root";
-        compression = true;
-      };
-
-      "grafana" = mkLzsztInfoSsh "grafana";
-
-      "apps" = mkLzsztInfoSsh "apps";
-
-      "mail" = mkLzsztInfoSsh "mail";
+    vscode = {
+      enable = true;
     };
+
+    ssh.matchBlocks =
+      let
+        mkLzsztInfoSsh = subdomain: {
+          host = subdomain;
+          hostname = "${subdomain}.lzszt.info";
+          user = "root";
+          compression = true;
+        };
+      in
+      {
+        "gitlab-runner-1" = {
+          host = "gitlab-runner-1";
+          user = "root";
+          proxyCommand = "ssh root@turing -W %h:%p";
+        };
+
+        "turing" = {
+          host = "turing";
+          user = "root";
+          compression = true;
+        };
+
+        "grafana" = mkLzsztInfoSsh "grafana";
+
+        "apps" = mkLzsztInfoSsh "apps";
+
+        "mail" = mkLzsztInfoSsh "mail";
+      };
   };
 
   home.packages = with pkgs; [

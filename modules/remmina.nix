@@ -1,7 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let cfg = config.modules.remmina;
-in {
+let
+  cfg = config.modules.remmina;
+in
+{
   options.modules.remmina = {
     enable = lib.mkEnableOption "remmina";
     matchBlocks = lib.mkOption { default = { }; };

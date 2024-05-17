@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.mattermost;
   json = pkgs.formats.json { };
-in {
+in
+{
   options.modules.mattermost = {
     enable = lib.mkEnableOption "mattermost";
     config = lib.mkOption {

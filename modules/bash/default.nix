@@ -1,7 +1,15 @@
-{ config, lib, pkgs, custom, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  custom,
+  ...
+}:
 
-let cfg = config.modules.bash;
-in {
+let
+  cfg = config.modules.bash;
+in
+{
   options.modules.bash = {
     enable = lib.mkEnableOption "bash";
     customAliases = lib.mkOption { default = { }; };
@@ -13,16 +21,29 @@ in {
       enableCompletion = true;
 
       initExtra = ''
-        PS1=$'\[\033[01;32m\]\u \[\033[00m\]\[\033[01;36m\]\w \[\033[00m\]$(${
-          ./nix.bash
-        })\[\033[01;36m\]\U276F\[\033[00m\] '
+        PS1=$'\[\033[01;32m\]\u \[\033[00m\]\[\033[01;36m\]\w \[\033[00m\]$(${./nix.bash})\[\033[01;36m\]\U276F\[\033[00m\] '
       '';
 
-      historyIgnore = [ "ls" "cd" "exit" ];
-      historyControl = [ "erasedups" "ignoredups" "ignorespace" ];
+      historyIgnore = [
+        "ls"
+        "cd"
+        "exit"
+      ];
+      historyControl = [
+        "erasedups"
+        "ignoredups"
+        "ignorespace"
+      ];
 
       shellAliases =
-        (import ./shell-aliases.nix { inherit pkgs custom config lib; })
+        (import ./shell-aliases.nix {
+          inherit
+            pkgs
+            custom
+            config
+            lib
+            ;
+        })
         // cfg.customAliases;
     };
   };

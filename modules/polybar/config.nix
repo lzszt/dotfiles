@@ -1,4 +1,10 @@
-{ custom, pkgs, lib, custom-modules, ... }:
+{
+  custom,
+  pkgs,
+  lib,
+  custom-modules,
+  ...
+}:
 
 let
   colors = {
@@ -12,8 +18,16 @@ let
     urgent = "#ff4500";
     transparent = "#00000000";
   };
-  modules = import ./modules.nix { inherit custom pkgs colors lib; };
-in {
+  modules = import ./modules.nix {
+    inherit
+      custom
+      pkgs
+      colors
+      lib
+      ;
+  };
+in
+{
   "global/wm" = {
     margin-bottom = 0;
     margin-top = 0;
@@ -33,12 +47,28 @@ in {
 
   "bar/bottom" = {
     bottom = true;
-    modules-left = [ "filesystem" "cpu" "memory" ] ++ custom-modules.left;
-    modules-center = [ "xmonad" "date" ];
-    modules-right = [ "xkeyboard" "audio" "mic" ]
-      ++ (lib.optionals (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom)
-        (pkgs.lib.imap0 (index: _: "eth${toString index}")
-          custom.polybar.ethernet)) ++ [ "wlan" "battery" ];
+    modules-left = [
+      "filesystem"
+      "cpu"
+      "memory"
+    ] ++ custom-modules.left;
+    modules-center = [
+      "xmonad"
+      "date"
+    ];
+    modules-right =
+      [
+        "xkeyboard"
+        "audio"
+        "mic"
+      ]
+      ++ (lib.optionals (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom) (
+        pkgs.lib.imap0 (index: _: "eth${toString index}") custom.polybar.ethernet
+      ))
+      ++ [
+        "wlan"
+        "battery"
+      ];
     monitor = "\${env:MONITOR:}";
     background = "${colors.background}";
     foreground = "${colors.foreground}";
@@ -55,10 +85,19 @@ in {
     override-redirect = true;
     tray-position = "left";
   };
-} // (with modules;
-  xkeyboard // date // filesystem // cpu // audio // wlan // memory // xmonad
-  // mic // work-stats
-  // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.battery" custom)
-    battery)
-  // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom)
-    ethernets))
+}
+// (
+  with modules;
+  xkeyboard
+  // date
+  // filesystem
+  // cpu
+  // audio
+  // wlan
+  // memory
+  // xmonad
+  // mic
+  // work-stats
+  // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.battery" custom) battery)
+  // (lib.optionalAttrs (pkgs.lib.my.hasSubAttr "polybar.ethernet" custom) ethernets)
+)

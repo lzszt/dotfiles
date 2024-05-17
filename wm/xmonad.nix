@@ -1,4 +1,10 @@
-{ config, lib, custom, pkgs, ... }:
+{
+  config,
+  lib,
+  custom,
+  pkgs,
+  ...
+}:
 
 {
   services = {
@@ -25,7 +31,6 @@
           hp.xmonad-dbus
         ];
       };
-
     };
   };
   systemd.services.upower.enable = true;

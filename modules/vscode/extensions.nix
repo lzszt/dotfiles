@@ -1,8 +1,14 @@
-{ inputs, system, pkgs, ... }:
+{
+  inputs,
+  system,
+  pkgs,
+  ...
+}:
 let
   # This is needed because buildVscodeMarketplaceExtension
   # normally downloads the .vsix file as .zip.
-  vsixToZip = input: filename:
+  vsixToZip =
+    input: filename:
     pkgs.stdenv.mkDerivation {
       name = "vsix-to-zip";
       src = input;
@@ -13,23 +19,23 @@ let
       '';
     };
 
-  haskellmode = let
-    haskellmodeInput = inputs.haskellmode.packages.${system};
-    haskellmode-version = haskellmodeInput.haskellmode-version;
+  haskellmode =
+    let
+      haskellmodeInput = inputs.haskellmode.packages.${system};
+      haskellmode-version = haskellmodeInput.haskellmode-version;
 
-    extensionFilename = "haskellmode-${haskellmode-version}";
-
-  in pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-    mktplcRef = {
-      publisher = "lzszt";
-      name = "haskell-mode";
-      version = haskellmode-version;
+      extensionFilename = "haskellmode-${haskellmode-version}";
+    in
+    pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+      mktplcRef = {
+        publisher = "lzszt";
+        name = "haskell-mode";
+        version = haskellmode-version;
+      };
+      vsix = "${vsixToZip haskellmodeInput.haskellmode extensionFilename}/${extensionFilename}.zip";
     };
-    vsix = "${
-        vsixToZip haskellmodeInput.haskellmode extensionFilename
-      }/${extensionFilename}.zip";
-  };
-in with pkgs.vscode-extensions;
+in
+with pkgs.vscode-extensions;
 [
   bbenoist.nix
   brettm12345.nixfmt-vscode
@@ -40,7 +46,8 @@ in with pkgs.vscode-extensions;
   haskellmode
   mkhl.direnv
   tomoki1207.pdf
-] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+]
+++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
   {
     publisher = "ctf0";
     name = "save-editors-layout";

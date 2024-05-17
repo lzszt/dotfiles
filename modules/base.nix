@@ -1,8 +1,16 @@
-{ inputs, custom, config, lib, pkgs, ... }:
+{
+  inputs,
+  custom,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let cfg = config.hosts.base;
-
-in {
+let
+  cfg = config.hosts.base;
+in
+{
 
   imports = [ ./. ];
 
@@ -29,7 +37,9 @@ in {
       ssh.enable = true;
     };
 
-    programs = { home-manager.enable = true; };
+    programs = {
+      home-manager.enable = true;
+    };
 
     services.syncthing.enable = true;
 

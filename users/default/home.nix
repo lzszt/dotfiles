@@ -1,4 +1,11 @@
-{ config, lib, pkgs, stdenv, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  stdenv,
+  ...
+}:
+{
   imports = [ ../minimal/home.nix ];
 
   accounts = {
@@ -30,12 +37,14 @@
   modules = {
     vscode = {
       enable = true;
-      extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
-        publisher = "mtsmfm";
-        name = "vscode-stl-viewer";
-        version = "0.3.0";
-        sha256 = "sha256-1xQl+5PMAsSjf9y25/G63Z5YYj8mQMPOuDSVY4YBukc=";
-      }];
+      extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          publisher = "mtsmfm";
+          name = "vscode-stl-viewer";
+          version = "0.3.0";
+          sha256 = "sha256-1xQl+5PMAsSjf9y25/G63Z5YYj8mQMPOuDSVY4YBukc=";
+        }
+      ];
     };
 
     cloneRepos = {
@@ -51,14 +60,11 @@
             config.url = "git@github.com:lzszt/config.git";
             polysemy-utils.url = "git@github.com:lzszt/polysemy-utils.git";
             shortcuts.url = "git@gitlab.com:leitz-projects/shortcuts.git";
-            expense-tracker.url =
-              "git@gitlab.com:leitz-projects/expense-tracker.git";
+            expense-tracker.url = "git@gitlab.com:leitz-projects/expense-tracker.git";
             BILDschirm.url = "git@gitlab.com:leitz-projects/bildschirm.git";
-            strava-runner.url =
-              "git@gitlab.com:leitz-projects/strava-runner.git";
+            strava-runner.url = "git@gitlab.com:leitz-projects/strava-runner.git";
             strava-api.url = "git@gitlab.com:Zwiebeljunge/stravaapi.git";
-            home-automation.url =
-              "git@gitlab.com:leitz-projects/homeautomation.git";
+            home-automation.url = "git@gitlab.com:leitz-projects/homeautomation.git";
             cad.url = "git@gitlab.com:leitz-projects/3d.git";
           };
         };

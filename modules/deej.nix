@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   cfg = config.modules.deej;
   deej = pkgs.buildGoModule rec {
@@ -18,7 +24,10 @@ let
     ];
 
     nativeBuildInputs = with pkgs; [ pkg-config ];
-    buildInputs = with pkgs; [ libappindicator-gtk3 webkitgtk ];
+    buildInputs = with pkgs; [
+      libappindicator-gtk3
+      webkitgtk
+    ];
 
     postInstall = "mv $out/bin/cmd $out/bin/deej";
 
@@ -45,8 +54,8 @@ let
       cp ${deej}/bin/deej $out/deej
     '';
   };
-
-in {
+in
+{
   options.modules.deej = {
     enable = lib.mkEnableOption "deej";
     config = lib.mkOption { type = lib.types.str; };
@@ -54,10 +63,11 @@ in {
   config = lib.mkIf cfg.enable {
     systemd.user.services.deej = {
       Unit = {
-        Description =
-          "Run deej to control audio levels via an arduino based controller.";
+        Description = "Run deej to control audio levels via an arduino based controller.";
       };
-      Install = { WantedBy = [ "default.target" ]; };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
       Service = {
         ExecStart = "${deej-runner}/deej";
         WorkingDirectory = deej-runner;

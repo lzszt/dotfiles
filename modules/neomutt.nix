@@ -1,6 +1,13 @@
-{ config, lib, pkgs, ... }:
-let cfg = config.modules.neomutt;
-in {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.modules.neomutt;
+in
+{
   options.modules.neomutt.enable = lib.mkEnableOption "neomutt";
 
   config = lib.mkIf cfg.enable {

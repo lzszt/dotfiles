@@ -1,7 +1,15 @@
-{ custom, config, lib, pkgs, ... }:
+{
+  custom,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let cfg = config.modules.fish;
-in {
+let
+  cfg = config.modules.fish;
+in
+{
   options.modules.fish = {
     enable = lib.mkEnableOption "fish";
     customAliases = lib.mkOption { default = { }; };
@@ -12,7 +20,14 @@ in {
       enable = true;
       plugins = [ ];
       shellAbbrs =
-        (import ./bash/shell-aliases.nix { inherit pkgs custom config lib; })
+        (import ./bash/shell-aliases.nix {
+          inherit
+            pkgs
+            custom
+            config
+            lib
+            ;
+        })
         // cfg.customAliases;
       # interactiveShellInit = ''
       #   set fish_greeting

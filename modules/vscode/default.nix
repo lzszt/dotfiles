@@ -26,7 +26,13 @@ in
 {
   options.modules.vscode = {
     enable = lib.mkEnableOption "vscode";
-    extensions = lib.mkOption { default = [ ]; };
+    extensions =
+      {
+        custom = lib.mkOption { default = [ ]; };
+      }
+      // (lib.mapAttrs (extName: _: {
+        enable = lib.mkEnableOption "${extName}";
+      }) extensions.customExtensions);
   };
 
   config = lib.mkIf cfg.enable {
@@ -37,7 +43,15 @@ in
       mutableExtensionsDir = false;
       inherit userSettings keybindings;
       inherit (snippets) languageSnippets globalSnippets;
-      extensions = extensions ++ cfg.extensions;
+      extensions =
+        extensions.defaultExtensions
+        ++ (lib.flatten (
+          lib.mapAttrsFlatten (
+            extName: ext: if cfg.extensions.${extName}.enable then [ ext ] else [ ]
+          ) extensions.customExtensions
+
+        ))
+        ++ cfg.extensions.custom;
     };
   };
 }

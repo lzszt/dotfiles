@@ -35,6 +35,7 @@ in
       bash.enable = true;
       direnv.enable = true;
       ssh.enable = true;
+      vscode.enable = true;
     };
 
     programs = {

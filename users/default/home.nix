@@ -35,10 +35,7 @@
   };
 
   modules = {
-    vscode = {
-      enable = true;
-      extensions.vscode-stl-viewer.enable = true;
-    };
+    vscode.extensions.vscode-stl-viewer.enable = true;
 
     cloneRepos = {
       enable = true;

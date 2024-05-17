@@ -94,8 +94,6 @@ in
         };
       };
 
-      vscode.enable = true;
-
       mattermost = {
         enable = true;
         config = {

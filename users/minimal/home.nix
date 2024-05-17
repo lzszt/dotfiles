@@ -36,10 +36,6 @@ in
       polybar.enable = true;
     };
 
-    vscode = {
-      enable = true;
-    };
-
     ssh.matchBlocks =
       let
         mkLzsztInfoSsh = subdomain: {

@@ -91,15 +91,6 @@ in
     manageHLS = "PATH";
   };
 
-  # stl viewer settings
-  stlViewer = {
-    showAxes = true;
-    showInfo = true;
-    showBoundingBox = true;
-    meshMaterialType = "normal";
-    viewOffset = 100;
-  };
-
   sshfs.configs = sshfsConfigsFromSSHMatchBlocks;
 
   haskellmode.cabalAddPath = "${cabal-add}/bin/cabal-add";

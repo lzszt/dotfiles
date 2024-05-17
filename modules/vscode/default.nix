@@ -22,6 +22,24 @@ let
   snippets = import ./snippets.nix;
   extensions = import ./extensions.nix { inherit inputs system pkgs; };
   keybindings = import ./keybindings.nix;
+
+  allExtensions =
+    extensions.defaultExtensions
+    ++ (lib.flatten (
+      lib.mapAttrsFlatten (
+        extName: ext: if cfg.extensions.${extName}.enable then [ ext.extension ] else [ ]
+      ) extensions.customExtensions
+
+    ))
+    ++ cfg.extensions.custom;
+
+  allUserSettings =
+    userSettings
+    // (pkgs.lib.my.mergeMapAttr (ext: ext.user-settings) (
+      lib.attrValues (
+        lib.filterAttrs (extName: ext: cfg.extensions.${extName}.enable) extensions.customExtensions
+      )
+    ));
 in
 {
   options.modules.vscode = {
@@ -41,17 +59,10 @@ in
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
-      inherit userSettings keybindings;
+      inherit keybindings;
       inherit (snippets) languageSnippets globalSnippets;
-      extensions =
-        extensions.defaultExtensions
-        ++ (lib.flatten (
-          lib.mapAttrsFlatten (
-            extName: ext: if cfg.extensions.${extName}.enable then [ ext ] else [ ]
-          ) extensions.customExtensions
-
-        ))
-        ++ cfg.extensions.custom;
+      userSettings = allUserSettings;
+      extensions = allExtensions;
     };
   };
 }

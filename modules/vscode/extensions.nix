@@ -73,11 +73,15 @@ let
 in
 with pkgs.vscode-extensions;
 {
-  nix = {extension = bbenoist.nix;
-  default = true;};
+  nix = {
+    extension = bbenoist.nix;
+    default = true;
+  };
 
-  nixfmt-vscode = {extension = brettm12345.nixfmt-vscode;
-  default = true;};
+  nixfmt-vscode = {
+    extension = brettm12345.nixfmt-vscode;
+    default = true;
+  };
 
   haskell = {
     extension = haskell.haskell;
@@ -88,8 +92,10 @@ with pkgs.vscode-extensions;
     default = true;
   };
 
-  language-haskell = {extension = justusadam.language-haskell;
-  default = true;};
+  language-haskell = {
+    extension = justusadam.language-haskell;
+    default = true;
+  };
 
   gitblame = {
     extension = waderyan.gitblame;
@@ -97,8 +103,10 @@ with pkgs.vscode-extensions;
     default = true;
   };
 
-  githistory = {extension = donjayamanne.githistory;
-  default = true;};
+  githistory = {
+    extension = donjayamanne.githistory;
+    default = true;
+  };
 
   haskellmode = {
     extension = haskellmode;
@@ -106,11 +114,15 @@ with pkgs.vscode-extensions;
     default = true;
   };
 
-  direnv = {extension = mkhl.direnv;
-  default = true;};
+  direnv = {
+    extension = mkhl.direnv;
+    default = true;
+  };
 
-  pdf = {extension = tomoki1207.pdf;
-  default = true;};
+  pdf = {
+    extension = tomoki1207.pdf;
+    default = true;
+  };
 
   vscode-sshfs = {
     extension = pkgs.vscode-utils.extensionFromVscodeMarketplace {

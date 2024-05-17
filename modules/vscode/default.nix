@@ -41,9 +41,15 @@ in
 {
   options.modules.vscode = {
     enable = lib.mkEnableOption "vscode";
-    extensions = {
-      custom = lib.mkOption { default = [ ]; };
-    } // (lib.mapAttrs (extName: ext: { enable = (lib.mkEnableOption "${extName}") // {default = ext.default or false;}; }) extensions);
+    extensions =
+      {
+        custom = lib.mkOption { default = [ ]; };
+      }
+      // (lib.mapAttrs (extName: ext: {
+        enable = (lib.mkEnableOption "${extName}") // {
+          default = ext.default or false;
+        };
+      }) extensions);
   };
 
   config = lib.mkIf cfg.enable {

@@ -16,6 +16,8 @@
   ns = "nix shell";
   nr = "nix repl";
   nb = "nix build";
+  ncg = "nix-collect-garbage";
+  ncgd = "nix-collect-garbage -d";
 
   # direnv
   dea = "direnv allow";

@@ -116,6 +116,7 @@ with pkgs.vscode-extensions;
 
   direnv = {
     extension = mkhl.direnv;
+    user-settings.direnv.restart.automatic = true;
     default = true;
   };
 

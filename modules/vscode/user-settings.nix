@@ -28,7 +28,10 @@
   };
 
   # explorer settings
-  explorer.confirmDragAndDrop = false;
+  explorer = {
+    confirmDragAndDrop = false;
+    autoReveal = false;
+  };
 
   # default nix settings
   "[nix]" = {

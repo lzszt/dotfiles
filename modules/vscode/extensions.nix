@@ -73,11 +73,6 @@ let
 in
 with pkgs.vscode-extensions;
 {
-  nix = {
-    extension = bbenoist.nix;
-    default = true;
-  };
-
   nixfmt-vscode = {
     extension = brettm12345.nixfmt-vscode;
     default = true;
@@ -150,5 +145,15 @@ with pkgs.vscode-extensions;
       meshMaterialType = "normal";
       viewOffset = 100;
     };
+  };
+
+  nix-ide = {
+    extension = jnoortheen.nix-ide;
+    user-settings.nix = {
+      enableLanguageServer = true;
+      serverPath = "${pkgs.nil}/bin/nil";
+      formatterPath = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+    };
+    default = true;
   };
 }

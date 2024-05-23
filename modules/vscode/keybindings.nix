@@ -8,4 +8,18 @@
     key = "ctrl-shift-m";
     command = "workbench.action.toggleMaximizedPanel";
   }
+  {
+    key = "ctrl+k ctrl+r";
+    command = "-workbench.action.keybindingsReference";
+  }
+  {
+    key = "ctrl+k ctrl+r";
+    command = "git.revertSelectedRanges";
+    when = "editorTextFocus";
+  }
+  {
+    key = "ctrl+k ctrl+r";
+    command = "-git.revertSelectedRanges";
+    when = "isInDiffEditor && !operationInProgress";
+  }
 ]

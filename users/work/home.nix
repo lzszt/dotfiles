@@ -1,12 +1,4 @@
-{
-  custom,
-  system,
-  config,
-  lib,
-  pkgs,
-  stdenv,
-  ...
-}:
+{ custom, pkgs, ... }:
 let
   email = "felix.leitz@active-group.de";
   ldapUser = "leitz";

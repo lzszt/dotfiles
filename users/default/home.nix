@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  stdenv,
-  ...
-}:
+{ pkgs, ... }:
 {
   imports = [ ../minimal/home.nix ];
 

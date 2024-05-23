@@ -1,8 +1,6 @@
 {
   inputs,
-  custom,
   config,
-  lib,
   pkgs,
   ...
 }:

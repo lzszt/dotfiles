@@ -35,7 +35,7 @@ let
       description = "";
 
       homepage = "https://github.com/omriharel/deej";
-      maintainers = with maintainers; [ ];
+      maintainers = [ ];
       license = licenses.mit;
 
       mainProgram = "cmd";

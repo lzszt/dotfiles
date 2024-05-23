@@ -2,7 +2,6 @@
   custom,
   pkgs,
   colors,
-  lib,
   ...
 }:
 {

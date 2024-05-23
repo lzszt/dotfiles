@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  stdenv,
-  ...
-}:
+{ pkgs, ... }:
 let
   email = "felix.leitz92@gmail.com";
 in

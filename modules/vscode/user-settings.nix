@@ -37,5 +37,4 @@
   "[nix]" = {
     editor.defaultFormatter = "brettm12345.nixfmt-vscode";
   };
-  # nix.enableLanguageServer = true;
 }

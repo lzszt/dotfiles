@@ -18,7 +18,6 @@ in
   config = lib.mkIf cfg.enable {
     programs.fish = {
       enable = true;
-      plugins = [ ];
       shellAbbrs =
         (import ./bash/shell-aliases.nix {
           inherit

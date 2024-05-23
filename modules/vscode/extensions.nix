@@ -152,7 +152,6 @@ with pkgs.vscode-extensions;
     user-settings.nix = {
       enableLanguageServer = true;
       serverPath = "${pkgs.nil}/bin/nil";
-      formatterPath = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
     };
     default = true;
   };

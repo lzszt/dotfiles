@@ -11,8 +11,15 @@
   telemetry.telemetryLevel = "off";
 
   # miscellaneous settings
-  workbench.colorThem = "Default Dark+";
-  window.zoomLevel = 1;
+  workbench = {
+    colorThem = "Default Dark+";
+    editor.wrapTabs = true;
+  };
+
+  window = {
+    density.editorTabHeight = "compact";
+    zoomLevel = 1;
+  };
 
   # git settings
   git = {

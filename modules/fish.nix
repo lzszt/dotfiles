@@ -18,6 +18,9 @@ in
   config = lib.mkIf cfg.enable {
     programs.fish = {
       enable = true;
+      shellInit = ''
+        bind " " expand-abbr or self-insert
+      '';
       shellAbbrs =
         (import ./bash/shell-aliases.nix {
           inherit

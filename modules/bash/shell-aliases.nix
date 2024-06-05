@@ -14,6 +14,7 @@
   nfui = "nix flake lock --update-input";
   nd = "nix develop -c fish";
   ns = "nix shell";
+  nst = "nix shell this#";
   nr = "nix repl";
   nb = "nix build";
   ncg = "nix-collect-garbage";

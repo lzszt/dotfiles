@@ -155,4 +155,14 @@ with pkgs.vscode-extensions;
     };
     default = true;
   };
+
+  vscode-text-tables = {
+    extension = pkgs.vscode-utils.extensionFromVscodeMarketplace {
+      publisher = "romanpeshkov";
+      name = "vscode-text-tables";
+      version = "0.1.5";
+      sha256 = "sha256-xUj8kA824wM99PJzoUtJAAlkiJG0IipwKGrl+ck8TJQ=";
+    };
+    default = true;
+  };
 }

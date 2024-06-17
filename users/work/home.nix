@@ -161,7 +161,7 @@ in
 
       fd
 
-      dbeaver
+      dbeaver-bin
 
       apache-directory-studio
 

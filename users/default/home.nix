@@ -87,7 +87,7 @@
   home.packages = with pkgs; [
     docker
     docker-compose
-    dbeaver
+    dbeaver-bin
 
     prusa-slicer
     openscad-unstable

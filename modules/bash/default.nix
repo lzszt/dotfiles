@@ -35,7 +35,7 @@ in
         "ignorespace"
       ];
 
-      shellAliases =
+      shellAliases = lib.attrsets.filterAttrs (_: abbr: !builtins.isNull abbr) (
         (import ./shell-aliases.nix {
           inherit
             pkgs
@@ -44,7 +44,8 @@ in
             lib
             ;
         })
-        // cfg.customAliases;
+        // cfg.customAliases
+      );
     };
   };
 }

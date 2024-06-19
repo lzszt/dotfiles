@@ -3,9 +3,13 @@
   custom,
   config,
   lib,
+  isFish ? false,
   ...
 }:
 
+let
+  fishOnly = abbr: if isFish then abbr else null;
+in
 {
   # nix
   nfu = "nix flake update";
@@ -14,7 +18,10 @@
   nfui = "nix flake lock --update-input";
   nd = "nix develop -c fish";
   ns = "nix shell";
-  nst = "nix shell this#";
+  nst = fishOnly {
+    expansion = "nix shell this#%";
+    setCursor = true;
+  };
   nr = "nix repl";
   nb = "nix build";
   ncg = "nix-collect-garbage";

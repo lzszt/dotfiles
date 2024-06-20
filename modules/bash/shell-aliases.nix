@@ -22,6 +22,10 @@ in
     expansion = "nix shell this#%";
     setCursor = true;
   };
+  nrt = fishOnly {
+    expansion = "nix run this#%";
+    setCursor = true;
+  };
   nr = "nix repl";
   nb = "nix build";
   ncg = "nix-collect-garbage";

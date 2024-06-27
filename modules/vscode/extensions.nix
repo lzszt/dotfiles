@@ -190,29 +190,38 @@ with pkgs.vscode-extensions;
           }
         ];
       in
-      lib.flatten [
-        (rebind {
+      lib.concatMap rebind [
+        {
           oldKey = "Ctrl+Q Space";
           newKey = "Ctrl+Shift+Q Space";
           command = "text-tables.clearCell";
-        })
-        (rebind {
+        }
+        {
           oldKey = "Ctrl+Q Ctrl+Q";
           newKey = "Ctrl+Shift+Q Ctrl+Q";
           command = "text-tables.tableModeOn";
           when = "editorFocus && !tableMode";
-        })
-        (rebind {
+        }
+        {
           oldKey = "Ctrl+Q Ctrl+Q";
           newKey = "Ctrl+Shift+Q Ctrl+Q";
           command = "text-tables.tableModeOff";
           when = "editorFocus && tableMode";
-        })
-        (rebind {
+        }
+        {
           oldKey = "Ctrl+Q Ctrl+F";
           newKey = "Ctrl+Shift+Q Ctrl+F";
           command = "text-tables.formatUnderCursor";
-        })
+        }
       ];
+  };
+
+  org-mode = {
+    extension = pkgs.vscode-utils.extensionFromVscodeMarketplace {
+      publisher = "vscode-org-mode";
+      name = "org-mode";
+      version = "1.0.0";
+      sha256 = "sha256-o9CIjMlYQQVRdtTlOp9BAVjqrfFIhhdvzlyhlcOv5rY=";
+    };
   };
 }

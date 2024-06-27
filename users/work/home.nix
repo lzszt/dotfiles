@@ -56,6 +56,7 @@ in
       };
     in
     {
+      vscode.extensions.org-mode.enable = true;
       fish = {
         enable = true;
         inherit customAliases;

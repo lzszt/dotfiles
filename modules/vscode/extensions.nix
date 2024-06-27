@@ -98,8 +98,8 @@ with pkgs.vscode-extensions;
     default = true;
   };
 
-  githistory = {
-    extension = donjayamanne.githistory;
+  git-graph = {
+    extension = mhutchie.git-graph;
     default = true;
     keybindings = [
       {
@@ -109,7 +109,7 @@ with pkgs.vscode-extensions;
       }
       {
         key = "Ctrl+l";
-        command = "git.viewHistory";
+        command = "git-graph.view";
       }
     ];
   };

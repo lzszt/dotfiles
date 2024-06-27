@@ -22,7 +22,13 @@ let
       sshCfg
       ;
   };
-  keybindings = import ./keybindings.nix;
+  defaultKeybindings = import ./keybindings.nix;
+
+  allKeybindings =
+    defaultKeybindings
+    ++ (lib.concatMap (ext: ext.keybindings or [ ]) (
+      lib.attrValues (lib.filterAttrs (extName: ext: cfg.extensions.${extName}.enable) extensions)
+    ));
 
   allExtensions =
     lib.flatten (
@@ -58,7 +64,7 @@ in
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       mutableExtensionsDir = false;
-      inherit keybindings;
+      keybindings = allKeybindings;
       inherit (snippets) languageSnippets globalSnippets;
       userSettings = allUserSettings;
       extensions = allExtensions;

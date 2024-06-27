@@ -22,4 +22,13 @@
     command = "-git.revertSelectedRanges";
     when = "isInDiffEditor && !operationInProgress";
   }
+  {
+    key = "Ctrl+l";
+    command = "-expandLineSelection";
+    when = "textInputFocus";
+  }
+  {
+    key = "Ctrl+l";
+    command = "git.viewHistory";
+  }
 ]

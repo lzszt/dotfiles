@@ -101,6 +101,17 @@ with pkgs.vscode-extensions;
   githistory = {
     extension = donjayamanne.githistory;
     default = true;
+    keybindings = [
+      {
+        key = "Ctrl+l";
+        command = "-expandLineSelection";
+        when = "textInputFocus";
+      }
+      {
+        key = "Ctrl+l";
+        command = "git.viewHistory";
+      }
+    ];
   };
 
   haskellmode = {

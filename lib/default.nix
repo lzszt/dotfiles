@@ -27,4 +27,7 @@
     (go (lib.splitString "." attrPath)).result;
 
   mkWorkspace = workspaceId: apps: { inherit workspaceId apps; };
+
+  readFileNames =
+    path: builtins.attrNames (lib.filterAttrs (_: type: type == "regular") (builtins.readDir path));
 }

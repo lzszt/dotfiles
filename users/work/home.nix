@@ -159,6 +159,7 @@ in
     with pkgs;
     [
       linphone
+      teams-for-linux
 
       fd
 

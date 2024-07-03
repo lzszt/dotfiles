@@ -69,7 +69,7 @@ in
           workspaces = with pkgs.lib.my; [
             (mkWorkspace "chat" [
               "mattermost-desktop"
-              "google-chrome-stable"
+              "teams-for-linux"
             ])
             (mkWorkspace "home" [ "firefox" ])
             (mkWorkspace "dev" [ "code" ])

@@ -39,11 +39,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1707310071,
-        "narHash": "sha256-ec0UcayGeqTUj+8QdHja4eWW0xR/KnlC1EQuakp9K1w=",
+        "lastModified": 1720266670,
+        "narHash": "sha256-k/7MlzydawX2edNGTA6z2jszqVJ6pEQxqaGx1jJdry4=",
         "ref": "refs/heads/main",
-        "rev": "2f120df3d9b26dd5464150164a743f45ab5e0ac0",
-        "revCount": 23,
+        "rev": "d451677f297dd09ac6398e4a96e39afef37e0db3",
+        "revCount": 24,
         "type": "git",
         "url": "ssh://git@github.com/lzszt/dotfile-secrets"
       },

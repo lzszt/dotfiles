@@ -4,6 +4,8 @@
   user-settings.haskell = {
     formattingProvider = "";
     manageHLS = "PATH";
+    openDocumentationInHackage = false;
+    openSourceInHackage = false;
   };
   default = true;
 }

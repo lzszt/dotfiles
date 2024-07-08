@@ -31,10 +31,10 @@
   time.timeZone = "Europe/Berlin";
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
       package = pkgs.mesa.drivers;
-      driSupport32Bit = true;
+      enable32Bit = true;
       package32 = pkgs.pkgsi686Linux.mesa.drivers;
     };
     pulseaudio.enable = true;

@@ -48,7 +48,6 @@ in
           --user=ext_activegroup2 vpn.egv.at \
           -s "${pkgs.vpn-slice}/bin/vpn-slice --no-host-names --no-ns-hosts 10.0.0.0/8 rdsivo.egv.at"
         '';
-        illr = "/home/leitz/ag/illwerke/illwerke_remote";
 
         virt-leibniz = "virt-manager -c 'qemu+ssh://leibniz/system'";
         virt-turing = "virt-manager -c 'qemu+ssh://turing/system'";

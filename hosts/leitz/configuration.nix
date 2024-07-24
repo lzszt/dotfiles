@@ -43,8 +43,6 @@
     openFirewall = true;
   };
 
-  # Enable sound.
-  sound.enable = true;
   hardware.pulseaudio.enable = true;
 
   programs.fish.enable = true;

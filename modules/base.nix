@@ -59,6 +59,7 @@ in
       pavucontrol
       ncdu
       jq
+      alsa-utils
 
       obsidian
 

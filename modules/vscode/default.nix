@@ -32,7 +32,7 @@ let
 
   allExtensions =
     lib.flatten (
-      lib.mapAttrsFlatten (
+      lib.mapAttrsToList (
         extName: ext: if cfg.extensions.${extName}.enable then [ ext.extension ] else [ ]
       ) extensions
     )

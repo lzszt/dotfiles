@@ -16,7 +16,7 @@ let
   generateSimpleSSHFsConfig =
     privateKeyPath: host: username:
     generateSSHFsConfig {
-      name = host;
+      name = if username == "root" then host else "${username}@${host}";
       host = host;
       root = if (username == "root") then "/root" else "/home/${username}";
       username = username;

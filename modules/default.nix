@@ -2,10 +2,6 @@
 
 {
   imports = [
-    ./polybar
-    ./rofi
-    ./vscode
-    ./xmonad
     ./bash
     ./cloneRepos.nix
     ./deej.nix
@@ -15,6 +11,10 @@
     ./git.nix
     ./mattermost.nix
     ./neomutt.nix
+    ./polybar
+    ./rofi
     ./ssh.nix
+    ./vscode
+    ./xmonad
   ];
 }

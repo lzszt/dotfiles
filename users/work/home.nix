@@ -138,6 +138,8 @@ in
         #   name = "2023";
         # }];
       };
+
+      vscext-init.enable = true;
     };
 
   home.packages =

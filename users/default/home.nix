@@ -85,6 +85,8 @@
         noise_reduction: high
       '';
     };
+
+    vscext-init.enable = true;
   };
 
   home.packages = with pkgs; [

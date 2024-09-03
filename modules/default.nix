@@ -14,6 +14,7 @@
     ./polybar
     ./rofi
     ./ssh.nix
+    ./vscext-init
     ./vscode
     ./xmonad
   ];

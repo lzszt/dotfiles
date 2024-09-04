@@ -12,7 +12,7 @@ let
   marketplace-ext = import ./marketplace-ext.nix;
   vscode-extensions-ext = import ./vscode-extensions-ext.nix;
 
-  init-vscode-extension = pkgs.writeScriptBin "init-vscode-extension" ''
+  init-vscode-extension = pkgs.writeScriptBin "vsext-init" ''
     echo 'Initializing vscode extension'
 
     read -p "Enter extension name: " EXTNAME
@@ -43,7 +43,8 @@ let
       options=($EXTVERSIONS)
       select EXTVERSION in "''${options[@]}"
       do
-          SHA256_HASH=$(nix store prefetch-file --json https://marketplace.visualstudio.com/_apis/public/gallery/publishers/$EXTPUBLISHER/vsextensions/$EXTNAME/$EXTVERSION/vspackage | ${pkgs.jq}/bin/jq -r '.hash')
+          SHA256_HASH=$(nix store prefetch-file --json https://marketplace.visualstudio.com/_apis/public/gallery/publishers/$EXTPUBLISHER/vsextensions/$EXTNAME/$EXTVERSION/vspackage \
+                          | ${pkgs.jq}/bin/jq -r '.hash')
           echo "${
             marketplace-ext {
               publisher = "$EXTPUBLISHER";

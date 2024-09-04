@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   extension = pkgs.vscode-extensions.banacorn.agda-mode;
+  user-settings.agdaMode.view.panelMountPosition = "right";
   keybindings = [
     {
       key = "ctrl+x ctrl+=";

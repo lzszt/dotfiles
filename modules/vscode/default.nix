@@ -8,7 +8,6 @@
 }:
 let
   cfg = config.modules.vscode;
-  sshCfg = config.modules.ssh;
 
   userSettings = import ./user-settings.nix;
 
@@ -19,7 +18,7 @@ let
       system
       pkgs
       lib
-      sshCfg
+      config
       ;
   };
   defaultKeybindings = import ./keybindings.nix;

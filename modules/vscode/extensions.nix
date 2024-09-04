@@ -3,7 +3,7 @@
   system,
   pkgs,
   lib,
-  sshCfg,
+  config,
   ...
 }:
 pkgs.lib.my.mergeMapAttr (extension: {
@@ -13,7 +13,7 @@ pkgs.lib.my.mergeMapAttr (extension: {
       inputs
       system
       lib
-      sshCfg
+      config
       ;
   };
 }) (pkgs.lib.my.readFileNames ./extensions)

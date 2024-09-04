@@ -1,10 +1,11 @@
 {
   pkgs,
   lib,
-  sshCfg,
+  config,
   ...
 }:
 let
+  sshCfg = config.modules.ssh;
   generateSSHFsConfig = config: {
     name = config.name;
     host = config.host;

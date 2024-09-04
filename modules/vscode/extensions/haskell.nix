@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+inputs@{ pkgs, ... }:
 {
   extension = pkgs.vscode-extensions.haskell.haskell;
   user-settings.haskell = {
@@ -7,5 +7,6 @@
     openDocumentationInHackage = false;
     openSourceInHackage = false;
   };
+  depends-on = [ (import ./language-haskell.nix inputs) ];
   default = true;
 }

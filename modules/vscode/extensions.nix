@@ -20,25 +20,19 @@ let
     };
   }) (pkgs.lib.my.readFileNames ./extensions);
 
-  installedExtensions =
+  enabledExtensions =
     lib.flatten (
       lib.mapAttrsToList (
-        extName: ext: if cfg.extensions.${extName}.enable then [ ext.extension ] else [ ]
+        extName: ext: if cfg.extensions.${extName}.enable then [ ext ] else [ ]
       ) allExtensions
     )
     ++ cfg.extensions.custom;
 
-  keybindings = (
-    lib.concatMap (ext: ext.keybindings or [ ]) (
-      lib.attrValues (lib.filterAttrs (extName: ext: cfg.extensions.${extName}.enable) allExtensions)
-    )
-  );
+  installedExtensions = map (ext: ext.extension) enabledExtensions;
 
-  userSettings = (
-    pkgs.lib.my.mergeMapAttr (ext: ext.user-settings or { }) (
-      lib.attrValues (lib.filterAttrs (extName: ext: cfg.extensions.${extName}.enable) allExtensions)
-    )
-  );
+  keybindings = (lib.concatMap (ext: ext.keybindings or [ ]) enabledExtensions);
+
+  userSettings = pkgs.lib.my.mergeMapAttr (ext: ext.user-settings or { }) enabledExtensions;
 
   enableOptions = (
     lib.mapAttrs (extName: ext: {

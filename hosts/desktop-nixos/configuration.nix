@@ -59,6 +59,7 @@
   environment.systemPackages = with pkgs; [ nixfmt-rfc-style ];
 
   nix = {
+    package = pkgs.nixVersions.latest;
     settings = {
       trusted-users = [ "root" ] ++ lib.attrNames custom.users;
       max-jobs = 12;

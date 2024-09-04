@@ -55,7 +55,10 @@ in
       };
     in
     {
-      vscode.extensions.org-mode.enable = true;
+      vscode.extensions = {
+        org-mode.enable = true;
+        agda-mode.enable = true;
+      };
       fish = {
         enable = true;
         inherit customAliases;
@@ -165,6 +168,7 @@ in
       fd
 
       dbeaver-bin
+      jetbrains.datagrip
 
       apache-directory-studio
 

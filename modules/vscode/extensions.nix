@@ -23,7 +23,14 @@ let
   enabledExtensions =
     lib.flatten (
       lib.mapAttrsToList (
-        extName: ext: if cfg.extensions.${extName}.enable then [ ext ] else [ ]
+        extName: ext:
+        if cfg.extensions.${extName}.enable then
+          let
+            dependencyExts = ext.depends-on or [ ];
+          in
+          [ ext ] ++ dependencyExts
+        else
+          [ ]
       ) allExtensions
     )
     ++ cfg.extensions.custom;

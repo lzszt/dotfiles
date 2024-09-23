@@ -32,6 +32,7 @@ in
   };
   nr = "nix repl";
   nb = "nix build";
+  nbl = "nix build -L";
   ncg = "nix-collect-garbage";
   ncgd = "nix-collect-garbage -d";
 

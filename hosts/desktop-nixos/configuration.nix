@@ -37,7 +37,6 @@
       enable32Bit = true;
       package32 = pkgs.pkgsi686Linux.mesa.drivers;
     };
-    pulseaudio.enable = true;
   };
 
   programs.fish.enable = true;

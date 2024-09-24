@@ -46,6 +46,7 @@ in
   gc = "git clone";
   gst = "git status";
   gl = "git log";
+  glo = "git log --oneline";
   gs = "git stash";
   gsa = "git stash apply";
   lgit = "lazygit";

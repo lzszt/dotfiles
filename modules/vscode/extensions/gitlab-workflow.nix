@@ -8,5 +8,5 @@
     duoCodeSuggestions.enabled = false;
     showPipelineUpdateNotifications = true;
   };
-  default = false;
+  default = true;
 }

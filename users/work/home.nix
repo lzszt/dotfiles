@@ -50,7 +50,6 @@ in
         '';
 
         virt-leibniz = "virt-manager -c 'qemu+ssh://leibniz/system'";
-        virt-turing = "virt-manager -c 'qemu+ssh://turing/system'";
         virt-lovelace = "virt-manager -c 'qemu+ssh://lovelace/system'";
       };
     in

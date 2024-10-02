@@ -64,6 +64,7 @@ in
       };
       git.email = email;
       neomutt.enable = true;
+      timetracking.enable = true;
       desktop = {
         xmonad = {
           enable = true;

@@ -14,6 +14,7 @@
     ./polybar
     ./rofi
     ./ssh.nix
+    ./timetracking
     ./vscext-init
     ./vscode
     ./xmonad

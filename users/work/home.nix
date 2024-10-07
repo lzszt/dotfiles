@@ -51,6 +51,8 @@ in
 
         virt-leibniz = "virt-manager -c 'qemu+ssh://leibniz/system'";
         virt-lovelace = "virt-manager -c 'qemu+ssh://lovelace/system'";
+
+        tt = "timetracking";
       };
     in
     {

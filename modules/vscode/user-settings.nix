@@ -34,6 +34,8 @@
     useGlobalIgnoreFiles = true;
   };
 
+  files.insertFinalNewline = true;
+
   # explorer settings
   explorer = {
     confirmDragAndDrop = false;

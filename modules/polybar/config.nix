@@ -85,6 +85,39 @@ in
     override-redirect = true;
     tray-position = "left";
   };
+
+  "bar/compact" = {
+    bottom = true;
+    modules-left = custom-modules.left;
+    modules-center = [
+      "xmonad"
+      "date"
+    ];
+    modules-right =
+      [
+        "audio"
+        "mic"
+      ]
+      ++ [
+        "wlan"
+        "battery"
+      ];
+    monitor = "\${env:MONITOR:}";
+    background = "${colors.background}";
+    foreground = "${colors.foreground}";
+    fixed-center = true;
+    font-0 = "JetBrainsMono Nerd Font:size=15;4";
+    height = "30";
+    locale = "en_US.UTF-8";
+    offset-x = "0%";
+    padding = "0";
+    radius-top = "0";
+    width = "100%";
+    # display "above" window manager
+    wm-restack = "generic";
+    override-redirect = true;
+    tray-position = "left";
+  };
 }
 // (
   with modules;

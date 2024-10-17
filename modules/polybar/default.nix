@@ -29,7 +29,14 @@ in
         package = myPolybar;
         script = ''
           for m in $(polybar --list-monitors | ${pkgs.coreutils}/bin/cut -d":" -f1); do
-            MONITOR=$m polybar -r bottom &
+            WIDTH=$(polybar --list-monitors | ${pkgs.gnugrep}/bin/grep $m | ${pkgs.coreutils}/bin/cut -d":" -f2 | ${pkgs.coreutils}/bin/cut -d"x" -f1)
+            if [ $WIDTH -ge 3000 ];
+            then
+              MODE="bottom"
+            else
+              MODE="compact"
+            fi
+            MONITOR=$m polybar -r $MODE &
           done
         '';
         config = import ./config.nix {

@@ -20,20 +20,20 @@ let
     };
   }) (pkgs.lib.my.readFileNames ./extensions);
 
+  extensionAndDeps =
+    ext:
+    let
+      dependencyExts = lib.concatMap extensionAndDeps (ext.depends-on or [ ]);
+    in
+    [ ext ] ++ dependencyExts;
+
   enabledExtensions =
     lib.flatten (
       lib.mapAttrsToList (
-        extName: ext:
-        if cfg.extensions.${extName}.enable then
-          let
-            dependencyExts = ext.depends-on or [ ];
-          in
-          [ ext ] ++ dependencyExts
-        else
-          [ ]
+        extName: ext: if cfg.extensions.${extName}.enable then extensionAndDeps ext else [ ]
       ) allExtensions
     )
-    ++ cfg.extensions.custom;
+    ++ lib.concatMap extensionAndDeps cfg.extensions.custom;
 
   installedExtensions = map (ext: ext.extension) enabledExtensions;
 

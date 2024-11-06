@@ -8,7 +8,7 @@
 
 let
   cfg = config.modules.fish;
-  fishOnly = lib.id;
+  fishOnly = alias: { setCursor = true; } // alias;
 in
 {
   options.modules.fish = {

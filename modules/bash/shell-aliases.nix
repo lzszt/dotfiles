@@ -16,15 +16,12 @@
   ns = "nix shell";
   nst = fishOnly {
     expansion = "nix shell this#%";
-    setCursor = true;
   };
   nrt = fishOnly {
     expansion = "nix run this#%";
-    setCursor = true;
   };
   nrd = fishOnly {
     expansion = "nix run .#%";
-    setCursor = true;
   };
   nr = "nix repl";
   nb = "nix build";

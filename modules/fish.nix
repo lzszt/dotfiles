@@ -8,11 +8,12 @@
 
 let
   cfg = config.modules.fish;
+  fishOnly = lib.id;
 in
 {
   options.modules.fish = {
     enable = lib.mkEnableOption "fish";
-    customAliases = lib.mkOption { default = { }; };
+    customAliases = lib.mkOption { default = lib.const { }; };
   };
 
   config = lib.mkIf cfg.enable {
@@ -25,10 +26,10 @@ in
             custom
             config
             lib
+            fishOnly
             ;
-          isFish = true;
         })
-        // cfg.customAliases;
+        // cfg.customAliases fishOnly;
     };
   };
 }

@@ -3,13 +3,10 @@
   custom,
   config,
   lib,
-  isFish ? false,
+  fishOnly,
   ...
 }:
 
-let
-  fishOnly = abbr: if isFish then abbr else null;
-in
 {
   # nix
   nfu = "nix flake update";

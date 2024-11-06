@@ -42,7 +42,7 @@ in
 
   modules =
     let
-      customAliases = {
+      customAliases = fishOnly: {
         illc = ''
           sudo ${pkgs.openconnect}/bin/openconnect --protocol=anyconnect \
           --user=ext_activegroup2 vpn.egv.at \
@@ -53,6 +53,11 @@ in
         virt-lovelace = "virt-manager -c 'qemu+ssh://lovelace/system'";
 
         tt = "timetracking";
+
+        jit = fishOnly {
+          expansion = "google-chrome-stable 'https://jitsi.active-group.de/%'";
+          setCursor = true;
+        };
       };
     in
     {

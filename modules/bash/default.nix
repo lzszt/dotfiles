@@ -8,11 +8,12 @@
 
 let
   cfg = config.modules.bash;
+  fishOnly = lib.const null;
 in
 {
   options.modules.bash = {
     enable = lib.mkEnableOption "bash";
-    customAliases = lib.mkOption { default = { }; };
+    customAliases = lib.mkOption { default = lib.const { }; };
   };
 
   config = lib.mkIf cfg.enable {
@@ -42,9 +43,11 @@ in
             custom
             config
             lib
+            fishOnly
             ;
+
         })
-        // cfg.customAliases
+        // cfg.customAliases fishOnly
       );
     };
   };

@@ -58,6 +58,11 @@ in
           expansion = "google-chrome-stable 'https://jitsi.active-group.de/%'";
           setCursor = true;
         };
+
+        mst = fishOnly {
+          expansion = "teams-for-linux --url '%'";
+          setCursor = true;
+        };
       };
     in
     {

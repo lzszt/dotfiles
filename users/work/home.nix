@@ -87,7 +87,10 @@ in
             (mkWorkspace "cal" [ "thunderbird" ])
             (mkWorkspace "com" [ "linphone" ])
             (mkWorkspace "8" [ ])
-            (mkWorkspace "9" [ ])
+            (mkWorkspace "9" [
+              "remmina"
+              "alacritty"
+            ])
           ];
         };
         polybar = {

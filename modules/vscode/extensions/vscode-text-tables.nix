@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, rebind, ... }:
 {
   extension = pkgs.vscode-utils.extensionFromVscodeMarketplace {
     publisher = "romanpeshkov";
@@ -7,43 +7,28 @@
     sha256 = "sha256-xUj8kA824wM99PJzoUtJAAlkiJG0IipwKGrl+ck8TJQ=";
   };
   default = true;
-  keybindings =
-    let
-      rebind = binding: [
-        {
-          key = binding.oldKey;
-          command = "-" + binding.command;
-          when = binding.when or "";
-        }
-        {
-          key = binding.newKey;
-          command = binding.command;
-          when = binding.when or "";
-        }
-      ];
-    in
-    pkgs.lib.concatMap rebind [
-      {
-        oldKey = "Ctrl+Q Space";
-        newKey = "Ctrl+Shift+Q Space";
-        command = "text-tables.clearCell";
-      }
-      {
-        oldKey = "Ctrl+Q Ctrl+Q";
-        newKey = "Ctrl+Shift+Q Ctrl+Q";
-        command = "text-tables.tableModeOn";
-        when = "editorFocus && !tableMode";
-      }
-      {
-        oldKey = "Ctrl+Q Ctrl+Q";
-        newKey = "Ctrl+Shift+Q Ctrl+Q";
-        command = "text-tables.tableModeOff";
-        when = "editorFocus && tableMode";
-      }
-      {
-        oldKey = "Ctrl+Q Ctrl+F";
-        newKey = "Ctrl+Shift+Q Ctrl+F";
-        command = "text-tables.formatUnderCursor";
-      }
-    ];
+  keybindings = pkgs.lib.concatMap rebind [
+    {
+      oldKey = "Ctrl+Q Space";
+      newKey = "Ctrl+Shift+Q Space";
+      command = "text-tables.clearCell";
+    }
+    {
+      oldKey = "Ctrl+Q Ctrl+Q";
+      newKey = "Ctrl+Shift+Q Ctrl+Q";
+      command = "text-tables.tableModeOn";
+      when = "editorFocus && !tableMode";
+    }
+    {
+      oldKey = "Ctrl+Q Ctrl+Q";
+      newKey = "Ctrl+Shift+Q Ctrl+Q";
+      command = "text-tables.tableModeOff";
+      when = "editorFocus && tableMode";
+    }
+    {
+      oldKey = "Ctrl+Q Ctrl+F";
+      newKey = "Ctrl+Shift+Q Ctrl+F";
+      command = "text-tables.formatUnderCursor";
+    }
+  ];
 }

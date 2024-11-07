@@ -8,6 +8,18 @@
 }:
 let
   cfg = config.modules.vscode;
+  rebind = binding: [
+    {
+      key = binding.oldKey;
+      command = "-" + binding.command;
+      when = binding.when or "";
+    }
+    {
+      key = binding.newKey;
+      command = binding.command;
+      when = binding.when or "";
+    }
+  ];
   allExtensions = pkgs.lib.my.mergeMapAttr (extension: {
     ${lib.removeSuffix ".nix" extension} = import ./extensions/${extension} {
       inherit
@@ -16,6 +28,7 @@ let
         system
         lib
         config
+        rebind
         ;
     };
   }) (pkgs.lib.my.readFileNames ./extensions);

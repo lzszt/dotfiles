@@ -1,4 +1,5 @@
-[
+{ lib, rebind, ... }:
+lib.flatten [
   {
     key = "ctrl+shift+m";
     command = "-workbench.actions.view.problems";
@@ -22,14 +23,9 @@
     command = "-git.revertSelectedRanges";
     when = "isInDiffEditor && !operationInProgress";
   }
-  {
-    key = "ctrl+e ctrl+s";
+  (rebind {
+    oldKey = "shift+alt+right";
+    newKey = "ctrl+e ctrl+s";
     command = "editor.action.smartSelect.expand";
-    when = "editorTextFocus";
-  }
-  {
-    key = "shift+alt+right";
-    command = "-editor.action.smartSelect.expand";
-    when = "editorTextFocus";
-  }
+  })
 ]

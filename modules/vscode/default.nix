@@ -12,6 +12,20 @@ let
   userSettings = import ./user-settings.nix;
 
   snippets = import ./snippets.nix;
+
+  rebind = binding: [
+    {
+      key = binding.oldKey;
+      command = "-" + binding.command;
+      when = binding.when or "";
+    }
+    {
+      key = binding.newKey;
+      command = binding.command;
+      when = binding.when or "";
+    }
+  ];
+
   extensions = import ./extensions.nix {
     inherit
       inputs
@@ -19,9 +33,10 @@ let
       pkgs
       lib
       config
+      rebind
       ;
   };
-  defaultKeybindings = import ./keybindings.nix;
+  defaultKeybindings = import ./keybindings.nix { inherit lib rebind; };
 
   allKeybindings = defaultKeybindings ++ extensions.keybindings;
 

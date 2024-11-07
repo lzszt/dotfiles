@@ -1,5 +1,5 @@
 { lib, rebind, ... }:
-lib.flatten [
+[
   {
     key = "ctrl+shift+m";
     command = "-workbench.actions.view.problems";

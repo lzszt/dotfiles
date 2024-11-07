@@ -4,22 +4,11 @@
   pkgs,
   lib,
   config,
+  rebind,
   ...
 }:
 let
   cfg = config.modules.vscode;
-  rebind = binding: [
-    {
-      key = binding.oldKey;
-      command = "-" + binding.command;
-      when = binding.when or "";
-    }
-    {
-      key = binding.newKey;
-      command = binding.command;
-      when = binding.when or "";
-    }
-  ];
   allExtensions = pkgs.lib.my.mergeMapAttr (extension: {
     ${lib.removeSuffix ".nix" extension} = import ./extensions/${extension} {
       inherit
@@ -50,7 +39,7 @@ let
 
   installedExtensions = map (ext: ext.extension) enabledExtensions;
 
-  keybindings = (lib.concatMap (ext: ext.keybindings or [ ]) enabledExtensions);
+  keybindings = lib.concatMap (ext: ext.keybindings or [ ]) enabledExtensions;
 
   userSettings = pkgs.lib.my.mergeMapAttr (ext: ext.user-settings or { }) enabledExtensions;
 

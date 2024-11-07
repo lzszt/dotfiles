@@ -38,7 +38,7 @@ let
   };
   defaultKeybindings = import ./keybindings.nix { inherit lib rebind; };
 
-  allKeybindings = defaultKeybindings ++ extensions.keybindings;
+  allKeybindings = lib.flatten (defaultKeybindings ++ extensions.keybindings);
 
   allUserSettings = userSettings // extensions.userSettings;
 in

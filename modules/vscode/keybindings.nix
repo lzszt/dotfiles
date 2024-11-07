@@ -22,4 +22,14 @@
     command = "-git.revertSelectedRanges";
     when = "isInDiffEditor && !operationInProgress";
   }
+  {
+    key = "ctrl+e ctrl+s";
+    command = "editor.action.smartSelect.expand";
+    when = "editorTextFocus";
+  }
+  {
+    key = "shift+alt+right";
+    command = "-editor.action.smartSelect.expand";
+    when = "editorTextFocus";
+  }
 ]

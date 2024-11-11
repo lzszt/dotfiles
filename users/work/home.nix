@@ -125,7 +125,14 @@ in
 
       ssh = {
         enable = true;
-        matchBlocks = custom.secrets.ag.sshMatchBlocks;
+        matchBlocks = custom.secrets.ag.sshMatchBlocks // {
+          apps = {
+            host = "apps";
+            hostname = "apps.lzszt.info";
+            user = "root";
+            compression = true;
+          };
+        };
       };
       cloneRepos = {
         enable = true;

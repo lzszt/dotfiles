@@ -55,7 +55,7 @@ in
         tt = "timetracking";
 
         jit = fishOnly {
-          expansion = "google-chrome-stable 'https://jitsi.active-group.de/%'";
+          expansion = "google-chrome-stable 'https://jitsi.active-group.de/%' &; disown";
         };
 
         mst = fishOnly {

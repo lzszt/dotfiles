@@ -16,7 +16,6 @@
   - can calender setup be automated?
 - vscode
   - org mode
-  - enable dependencies in extensions
   - text tables extension
     - shortcut for new table
     - org/md mode for tables?

@@ -53,6 +53,7 @@ in
         virt-lovelace = "virt-manager -c 'qemu+ssh://lovelace/system'";
 
         tt = "timetracking";
+        sc = "shortcuts";
 
         jit = fishOnly {
           expansion = "google-chrome-stable 'https://jitsi.active-group.de/%' &; disown";
@@ -182,6 +183,8 @@ in
     in
     with pkgs;
     [
+
+      custom.secrets.ag.shortcuts
       linphone
       teams-for-linux
 

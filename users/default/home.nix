@@ -97,7 +97,6 @@
     docker
     docker-compose
     dbeaver-bin
-    jetbrains.datagrip
 
     prusa-slicer
     openscad-unstable

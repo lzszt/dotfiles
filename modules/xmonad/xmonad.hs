@@ -143,8 +143,10 @@ polybarHook dbus =
           ppUrgent = wrapper urgent,
           ppHidden = wrapper gray,
           ppHiddenNoWindows = wrapper hidden,
-          -- i dont know how else to hide the window title
-          ppTitle = const "" -- shorten 100 . wrapper normal
+          -- hide the window title
+          ppTitle = const "",
+          --  hide the layout
+          ppLayout = const ""
         }
 
 myPolybarLogHook :: D.Client -> X ()

@@ -10,6 +10,13 @@ let
   cfg = config.modules.vscode;
 
   userSettings = import ./user-settings.nix;
+  userSpecificExtensionSettings = lib.mergeAttrsList (
+    builtins.attrValues (
+      builtins.mapAttrs (extension: options: options.user-settings) (
+        builtins.removeAttrs cfg.extensions [ "custom" ]
+      )
+    )
+  );
 
   snippets = import ./snippets.nix;
 
@@ -36,18 +43,19 @@ let
       rebind
       ;
   };
+
   defaultKeybindings = import ./keybindings.nix { inherit lib rebind; };
 
   allKeybindings = lib.flatten (defaultKeybindings ++ extensions.keybindings);
 
-  allUserSettings = userSettings // extensions.userSettings;
+  allUserSettings = lib.attrsets.recursiveUpdate (lib.attrsets.recursiveUpdate userSettings extensions.userSettings) userSpecificExtensionSettings;
 in
 {
   options.modules.vscode = {
     enable = lib.mkEnableOption "vscode";
     extensions = {
       custom = lib.mkOption { default = [ ]; };
-    } // extensions.enableOptions;
+    } // extensions.options;
   };
 
   config = lib.mkIf cfg.enable {

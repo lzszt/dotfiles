@@ -43,11 +43,12 @@ let
 
   userSettings = pkgs.lib.my.mergeMapAttr (ext: ext.user-settings or { }) enabledExtensions;
 
-  enableOptions = (
+  options = (
     lib.mapAttrs (extName: ext: {
       enable = (lib.mkEnableOption "${extName}") // {
         default = ext.default or false;
       };
+      user-settings = (lib.mkOption { default = { }; });
     }) allExtensions
   );
 in
@@ -57,6 +58,6 @@ in
     installedExtensions
     keybindings
     userSettings
-    enableOptions
+    options
     ;
 }

@@ -7,8 +7,6 @@
     sha256 = "sha256-bVq7/HhVDJJtO5rk1q5FYswpYMPcvasvUYf5WUItJqc=";
   };
   user-settings.todomd = {
-    defaultFile = "/home/leitz/Sync/todo.md";
-    defaultArchiveFile = "/home/leitz/Sync/todo.archive.md";
     addCreationDate = true;
     creationDateIncludeTime = true;
     completionDateIncludeTime = true;

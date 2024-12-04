@@ -41,8 +41,6 @@ in
     comppositing-underline = "over";
     pseudo-transparency = false;
     screenchange-reload = true;
-    throttle-output = "5";
-    throttle-output-for = "10";
   };
 
   "bar/bottom" = {

@@ -10,7 +10,6 @@
     addCreationDate = true;
     creationDateIncludeTime = true;
     completionDateIncludeTime = true;
-    autoArchiveTasks = true;
   };
   default = true;
 }

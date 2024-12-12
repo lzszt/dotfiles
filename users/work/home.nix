@@ -177,7 +177,7 @@ in
           sieve-version = "0.6.1";
         in
         pkgs.appimageTools.wrapType2 {
-          name = "sieve";
+          pname = "sieve";
           version = sieve-version;
           src = pkgs.fetchurl {
             url = "https://github.com/thsmi/sieve/releases/download/${sieve-version}/sieve-${sieve-version}-linux-x64.AppImage";

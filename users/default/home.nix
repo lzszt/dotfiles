@@ -100,6 +100,7 @@
 
     prusa-slicer
     openscad-unstable
+    libfive
 
     teamviewer
 

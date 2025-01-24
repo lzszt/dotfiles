@@ -57,6 +57,8 @@ in
         "apps" = mkLzsztInfoSsh "apps";
 
         "mail" = mkLzsztInfoSsh "mail";
+
+        "immich" = mkLzsztInfoSsh "immich";
       };
   };
 

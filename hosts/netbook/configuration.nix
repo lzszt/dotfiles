@@ -47,7 +47,6 @@
     settings = {
       trusted-users = [ "root" ] ++ lib.attrNames custom.users;
       max-jobs = 12;
-      substituters = [ "http://turing" ];
       trusted-public-keys = [ "turing:2Om1SNna/w1LfgW+hIy/A7LAQOLLewfQTSHZ5FL8j/k=" ];
     };
   };

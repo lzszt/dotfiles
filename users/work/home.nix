@@ -194,9 +194,6 @@ in
 
       fd
 
-      dbeaver-bin
-      jetbrains.datagrip
-
       apache-directory-studio
 
       remmina

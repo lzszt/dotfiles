@@ -1,13 +1,9 @@
 {
   inputs,
-  config,
   pkgs,
   ...
 }:
 
-let
-  cfg = config.hosts.base;
-in
 {
 
   imports = [ ./. ];

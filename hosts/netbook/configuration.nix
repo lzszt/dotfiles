@@ -30,6 +30,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  programs.fish.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = lib.mapAttrs (user: _: {
     isNormalUser = true;
@@ -38,6 +40,7 @@
       "networkmanager"
       "docker"
     ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.fish;
   }) custom.users;
 
   environment.systemPackages = with pkgs; [ nixfmt-rfc-style ];

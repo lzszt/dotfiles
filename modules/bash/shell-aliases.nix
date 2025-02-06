@@ -29,6 +29,13 @@
   ncg = "nix-collect-garbage";
   ncgd = "nix-collect-garbage -d";
 
+  nsp = fishOnly {
+    expansion = "open firefox 'https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=%'";
+  };
+  nso = fishOnly {
+    expansion = "open firefox 'https://search.nixos.org/options?channel=unstable&size=50&sort=relevance&type=packages&query=%'";
+  };
+
   # direnv
   dea = "direnv allow";
   ded = "direnv deny";

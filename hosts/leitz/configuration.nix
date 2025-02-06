@@ -42,6 +42,8 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
 
   programs.fish.enable = true;
 

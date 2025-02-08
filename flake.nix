@@ -21,6 +21,8 @@
       url = "github:/omriharel/deej";
       flake = false;
     };
+
+    nixpkgs-grayjay.url = "github:NixOS/nixpkgs?ref=pull/368427/head";
   };
 
   outputs =

@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  system,
   ...
 }:
 
@@ -57,6 +58,10 @@
       jq
       alsa-utils
 
+      (import inputs.nixpkgs-grayjay {
+        config.allowUnfree = true;
+        inherit system;
+      }).grayjay
 
       thunderbird
       rink

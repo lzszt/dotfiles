@@ -57,7 +57,6 @@
       jq
       alsa-utils
 
-      obsidian
 
       thunderbird
       rink

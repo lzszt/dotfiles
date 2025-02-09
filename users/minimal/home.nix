@@ -39,12 +39,6 @@ in
         };
       in
       {
-        "gitlab-runner-1" = {
-          host = "gitlab-runner-1";
-          user = "root";
-          proxyCommand = "ssh root@turing -W %h:%p";
-        };
-
         "turing" = {
           host = "turing";
           user = "root";

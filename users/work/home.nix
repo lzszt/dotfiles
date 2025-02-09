@@ -29,7 +29,6 @@ in
           smtp.host = "smtp.active-group.de";
           realName = "Felix Leitz";
           primary = true;
-          neomutt.enable = true;
           passwordCommand = "";
           mbsync = {
             enable = true;
@@ -78,7 +77,6 @@ in
         inherit customAliases;
       };
       git.email = email;
-      neomutt.enable = true;
       timetracking.enable = true;
       desktop = {
         xmonad = {

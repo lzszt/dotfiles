@@ -11,7 +11,6 @@ in
   modules = {
     git.email = email;
     fish.enable = true;
-    neomutt.enable = true;
     desktop = {
       xmonad = {
         enable = true;

@@ -10,7 +10,6 @@
     ./fish.nix
     ./git.nix
     ./mattermost.nix
-    ./neomutt.nix
     ./polybar
     ./rofi
     ./ssh.nix

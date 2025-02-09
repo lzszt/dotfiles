@@ -12,7 +12,6 @@
           smtp.host = "smtp.gmail.com";
           realName = "Felix Leitz";
           primary = true;
-          neomutt.enable = true;
           passwordCommand = "";
           mbsync = {
             enable = true;

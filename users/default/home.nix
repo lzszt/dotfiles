@@ -2,31 +2,6 @@
 {
   imports = [ ../minimal/home.nix ];
 
-  accounts = {
-    email = {
-      accounts = {
-        gmail = {
-          address = "felix.leitz92@gmail.com";
-          userName = "felix.leitz92@gmail.com";
-          imap.host = "imap.gmail.com";
-          smtp.host = "smtp.gmail.com";
-          realName = "Felix Leitz";
-          primary = true;
-          passwordCommand = "";
-          mbsync = {
-            enable = true;
-            create = "maildir";
-          };
-        };
-      };
-    };
-  };
-
-  programs = {
-    mbsync.enable = true;
-    msmtp.enable = true;
-  };
-
   modules = {
     vscode.extensions = {
       vscode-stl-viewer.enable = true;

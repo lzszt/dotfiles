@@ -15,8 +15,6 @@ in
       userEmail = email;
       userName = "Felix Leitz";
     };
-    mbsync.enable = true;
-    msmtp.enable = true;
   };
 
   accounts = {

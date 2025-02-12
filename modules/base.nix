@@ -42,6 +42,17 @@
     xdg = {
       enable = true;
       mime.enable = true;
+
+      desktopEntries = {
+        Grayjay = {
+          name = "Grayjay";
+          genericName = "Web Player";
+          exec = "Grayjay %U";
+          terminal = false;
+          categories = [ "Application" ];
+          mimeType = [ "x-scheme-handler/grayjay" ];
+        };
+      };
     };
 
     home.packages = with pkgs; [

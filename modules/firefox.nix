@@ -14,6 +14,7 @@ in
     programs.firefox = {
       enable = true;
       profiles.myprofile.extensions = [
+        ffad.adblocker-ultimate
         ffad.keepa
         ffad.privacy-badger
         ffad.keepassxc-browser

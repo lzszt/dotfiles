@@ -13,6 +13,7 @@
       system = custom-raw.system;
 
       overlays = [
+        inputs.nur.overlays.default
         (final: prev: {
           # Shorter than prev.lib.extend (f: p: ...), but I don't know
           # if there's another difference.
@@ -32,7 +33,8 @@
         secrets = inputs.dotfile-secrets.packages.${system};
       };
       specialArgs = {
-        inherit inputs system custom;
+        inputs = builtins.removeAttrs inputs [ "nur" ];
+        inherit system custom;
       };
       users = lib.mapAttrs (
         userName: userDef: import (../users + "/${userDef.userDefDir}/home.nix")

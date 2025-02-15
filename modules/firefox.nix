@@ -16,8 +16,8 @@ in
       profiles.myprofile.extensions = [
         ffad.adblocker-ultimate
         ffad.keepa
-        ffad.privacy-badger
         ffad.keepassxc-browser
+        ffad.privacy-badger
       ];
     };
   };

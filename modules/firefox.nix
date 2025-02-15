@@ -15,6 +15,7 @@ in
       enable = true;
       profiles.myprofile.extensions = [
         ffad.adblocker-ultimate
+        ffad.cookie-autodelete
         ffad.keepa
         ffad.keepassxc-browser
         ffad.privacy-badger

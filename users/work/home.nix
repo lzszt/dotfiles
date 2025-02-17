@@ -1,4 +1,9 @@
-{ custom, pkgs, ... }:
+{
+  custom,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   email = "felix.leitz@active-group.de";
   ldapUser = "leitz";
@@ -190,7 +195,10 @@ in
 
       fd
 
-      apache-directory-studio
+      (import inputs.nixpkgs-apache-directory-studio {
+        config.allowUnfree = true;
+        inherit system;
+      }).apache-directory-studio
 
       remmina
       openconnect

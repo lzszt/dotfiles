@@ -61,7 +61,6 @@
       alacritty
       ripgrep
       lazygit
-      htop
       btop
       dig
       pavucontrol

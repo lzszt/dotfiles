@@ -13,7 +13,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      profiles.myprofile.extensions = [
+      profiles.myprofile.extensions.packages = [
         ffad.adblocker-ultimate
         ffad.cookie-autodelete
         ffad.keepa

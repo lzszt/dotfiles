@@ -68,6 +68,8 @@
       jq
       alsa-utils
 
+      brave
+
       (import inputs.nixpkgs-grayjay {
         config.allowUnfree = true;
         inherit system;

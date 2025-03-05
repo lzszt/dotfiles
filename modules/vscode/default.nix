@@ -61,13 +61,15 @@ in
   config = lib.mkIf cfg.enable {
     programs.vscode = {
       enable = true;
-      enableExtensionUpdateCheck = false;
-      enableUpdateCheck = false;
       mutableExtensionsDir = false;
-      keybindings = allKeybindings;
-      inherit (snippets) languageSnippets globalSnippets;
-      userSettings = allUserSettings;
-      extensions = extensions.installedExtensions;
+      profiles.default = {
+        enableExtensionUpdateCheck = false;
+        enableUpdateCheck = false;
+        keybindings = allKeybindings;
+        inherit (snippets) languageSnippets globalSnippets;
+        userSettings = allUserSettings;
+        extensions = extensions.installedExtensions;
+      };
     };
   };
 }

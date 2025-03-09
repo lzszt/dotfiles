@@ -29,7 +29,6 @@ import XMonad.Prelude
 import XMonad.StackSet qualified as W
 import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
-import XMonad.Util.Ungrab
 
 newtype WorkspaceConfig
   = WorkspaceConfig [(WorkspaceId, [String])]

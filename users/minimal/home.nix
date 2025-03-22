@@ -45,13 +45,11 @@ in
           compression = true;
         };
 
-        "grafana" = mkLzsztInfoSsh "grafana";
-
         "apps" = mkLzsztInfoSsh "apps";
-
-        "mail" = mkLzsztInfoSsh "mail";
-
+        "grafana" = mkLzsztInfoSsh "grafana";
         "immich" = mkLzsztInfoSsh "immich";
+        "mail" = mkLzsztInfoSsh "mail";
+        "valheim" = mkLzsztInfoSsh "valheim";
       };
   };
 

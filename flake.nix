@@ -11,7 +11,7 @@
     };
     dotfile-secrets.url = "git+ssh://git@github.com/lzszt/dotfile-secrets";
     haskellmode.url = "gitlab:Zwiebeljunge/haskellmode";
-    # haskellmode.url = "git+file:/home/leitz/projects/haskellmode";
+    # haskellmode.url = "git+file:///home/leitz/projects/haskellmode";
     cabalAddSrc = {
       url = "github:/Bodigrim/cabal-add/eb940d186cc799faebf75e8dcb60f353d340254d";
       flake = false;

@@ -39,11 +39,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1740633816,
-        "narHash": "sha256-X901Vk/MwNC7oqDUswrqW+CHrY5RXXjNT0T9lfHugAw=",
+        "lastModified": 1742901836,
+        "narHash": "sha256-tlE2/ZFMQ8jv1ZFR6F/tPAdkiqqnVskqkLsfsAhCjyY=",
         "ref": "refs/heads/main",
-        "rev": "be13e811177e2f15c0e390ba572d046f15f565e2",
-        "revCount": 47,
+        "rev": "ce9bd96e672721414825d9aa0b55d9940422bac1",
+        "revCount": 48,
         "type": "git",
         "url": "ssh://git@github.com/lzszt/dotfile-secrets"
       },
@@ -193,6 +193,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-remmina": {
+      "locked": {
+        "lastModified": 1742751704,
+        "narHash": "sha256-rBfc+H1dDBUQ2mgVITMGBPI1PGuCznf9rcWX/XIULyE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f0946fa5f1fb876a9dc2e1850d9d3a4e3f914092",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1741310760,
@@ -257,6 +273,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-apache-directory-studio": "nixpkgs-apache-directory-studio",
         "nixpkgs-grayjay": "nixpkgs-grayjay",
+        "nixpkgs-remmina": "nixpkgs-remmina",
         "nur": "nur"
       }
     },

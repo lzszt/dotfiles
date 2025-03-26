@@ -200,7 +200,10 @@ in
         inherit system;
       }).apache-directory-studio
 
-      remmina
+      (import inputs.nixpkgs-remmina {
+        config.allowUnfree = true;
+        inherit system;
+      }).remmina
       openconnect
       vpn-slice
 

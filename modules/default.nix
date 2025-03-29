@@ -4,7 +4,6 @@
   imports = [
     ./bash
     ./cloneRepos.nix
-    ./deej.nix
     ./direnv.nix
     ./firefox.nix
     ./fish.nix

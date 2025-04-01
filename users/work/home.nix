@@ -2,6 +2,7 @@
   custom,
   pkgs,
   inputs,
+  system,
   ...
 }:
 let
@@ -185,6 +186,12 @@ in
             sha256 = "sha256-tiA+wp7oMGmK3UPJRQ3NBrqVT+D0B6sT+npXUZ7zok8=";
           };
         };
+      pkgs2411 = (
+        import inputs.nixpkgs-2411 {
+          config.allowUnfree = true;
+          inherit system;
+        }
+      );
     in
     with pkgs;
     [
@@ -195,15 +202,9 @@ in
 
       fd
 
-      (import inputs.nixpkgs-apache-directory-studio {
-        config.allowUnfree = true;
-        inherit system;
-      }).apache-directory-studio
+      pkgs2411.apache-directory-studio
 
-      (import inputs.nixpkgs-remmina {
-        config.allowUnfree = true;
-        inherit system;
-      }).remmina
+      pkgs2411.remmina
       openconnect
       vpn-slice
 

@@ -20,8 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-apache-directory-studio.url = "github:NixOS/nixpkgs/9f4128e00b0ae8ec65918efeba59db998750ead6";
-    nixpkgs-remmina.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-2411.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
 
   outputs =

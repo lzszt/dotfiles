@@ -37,13 +37,16 @@ in
           user = "root";
           compression = true;
         };
-      in
-      {
-        "turing" = {
-          host = "turing";
+
+        mkLocalSsh = subdomain: {
+          host = subdomain;
           user = "root";
           compression = true;
         };
+      in
+      {
+
+        "turing" = mkLocalSsh "turing";
 
         "apps" = mkLzsztInfoSsh "apps";
         "grafana" = mkLzsztInfoSsh "grafana";

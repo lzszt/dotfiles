@@ -72,6 +72,8 @@
     };
   };
 
-  system.stateVersion = "23.05";
-  system.configurationRevision = self.rev or "dirty";
+  system = {
+    stateVersion = "23.05";
+    configurationRevision = self.rev or "dirty";
+  };
 }

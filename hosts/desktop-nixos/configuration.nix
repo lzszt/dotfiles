@@ -2,6 +2,7 @@
   pkgs,
   lib,
   custom,
+  self,
   ...
 }:
 
@@ -66,5 +67,9 @@
     };
   };
 
-  system.stateVersion = "22.11";
+  system = {
+    stateVersion = "22.11";
+
+    configurationRevision = self.rev or "dirty";
+  };
 }

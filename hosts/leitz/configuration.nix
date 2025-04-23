@@ -2,6 +2,7 @@
   pkgs,
   lib,
   custom,
+  self,
   ...
 }:
 
@@ -72,4 +73,5 @@
   };
 
   system.stateVersion = "23.05";
+  system.configurationRevision = self.rev or "dirty";
 }

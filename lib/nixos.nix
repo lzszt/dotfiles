@@ -5,7 +5,12 @@
     path: builtins.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir path));
 
   mkNixosSystem =
-    { hostname, inputs }:
+    {
+      hostname,
+      inputs,
+      self,
+      ...
+    }:
     let
       inherit (inputs) home-manager nixpkgs;
       dir = ../hosts + "/${hostname}";
@@ -34,14 +39,18 @@
       };
       specialArgs = {
         inputs = builtins.removeAttrs inputs [ "nur" ];
-        inherit system custom;
+        inherit system custom self;
       };
       users = lib.mapAttrs (
         userName: userDef: import (../users + "/${userDef.userDefDir}/home.nix")
       ) custom.users;
     in
     nixpkgs.lib.nixosSystem {
-      inherit system pkgs specialArgs;
+      inherit
+        system
+        pkgs
+        specialArgs
+        ;
       modules = [
         (dir + /configuration.nix)
         home-manager.nixosModules.home-manager

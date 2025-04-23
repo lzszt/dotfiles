@@ -23,6 +23,7 @@
 
   outputs =
     inputs@{
+      self,
       nixpkgs,
       ...
     }:
@@ -48,7 +49,7 @@
           machines = lib.my.readDirNames ./hosts;
         in
         builtins.foldl' (
-          acc: hostname: acc // { ${hostname} = lib.my.mkNixosSystem { inherit hostname inputs; }; }
+          acc: hostname: acc // { ${hostname} = lib.my.mkNixosSystem { inherit hostname inputs self; }; }
         ) { } machines;
 
       devShells.${system}.default = pkgs.mkShell {

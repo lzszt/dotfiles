@@ -70,10 +70,7 @@
 
       brave
 
-      (import inputs.nixpkgs-grayjay {
-        config.allowUnfree = true;
-        inherit system;
-      }).grayjay
+      grayjay
 
       thunderbird
       rink

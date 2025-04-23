@@ -161,22 +161,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-grayjay": {
-      "locked": {
-        "lastModified": 1743730653,
-        "narHash": "sha256-JcDH51/vtErAo5pPsVX9nGaFfPHIBlr1iHtRNevZz4Y=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ead67ac21057907eb0d62733efa051f327e4716d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "pull/368427/head",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1741310760,
@@ -239,7 +223,6 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-2411": "nixpkgs-2411",
-        "nixpkgs-grayjay": "nixpkgs-grayjay",
         "nur": "nur"
       }
     },

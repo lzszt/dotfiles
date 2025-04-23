@@ -13,8 +13,6 @@
       flake = false;
     };
 
-    nixpkgs-grayjay.url = "github:NixOS/nixpkgs?ref=pull/368427/head";
-
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";

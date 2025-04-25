@@ -71,4 +71,5 @@
   # nixos
   nrs = "nixos-rebuild switch --use-remote-sudo --flake ~/dotfiles/";
   nrb = "nixos-rebuild build --flake ~/dotfiles/";
+  nlg = "nixos-rebuild list-generations | head -n 10";
 }

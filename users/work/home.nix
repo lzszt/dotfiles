@@ -75,6 +75,7 @@ in
           defaultFile = "/home/leitz/Syncthing Folder/todo.md";
           defaultArchiveFile = "/home/leitz/Syncthing Folder/todo.archive.md";
         };
+        git-worktrees.enable = true;
       };
       fish = {
         enable = true;

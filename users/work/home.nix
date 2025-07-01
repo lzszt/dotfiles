@@ -198,7 +198,7 @@ in
     [
 
       custom.secrets.ag.shortcuts
-      linphone
+      pkgs2411.linphone
       teams-for-linux
 
       fd

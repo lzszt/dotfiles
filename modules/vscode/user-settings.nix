@@ -14,6 +14,7 @@
   workbench = {
     colorThem = "Default Dark+";
     editor.wrapTabs = true;
+    startupEditor = "none";
   };
 
   window = {

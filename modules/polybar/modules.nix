@@ -27,7 +27,7 @@
       interval = 1;
       label = "%date% %time%";
       time = "%H:%M:%S";
-      date = "%d %b %Y";
+      date = "%d";
       type = "internal/date";
     };
   };

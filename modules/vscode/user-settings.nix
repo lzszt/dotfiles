@@ -8,7 +8,10 @@
     stickyScroll.enabled = false;
   };
   # telemetry settings
-  telemetry.telemetryLevel = "off";
+  telemetry = {
+    telemetryLevel = "off";
+    feedback.enabled = false;
+  };
 
   # miscellaneous settings
   workbench = {

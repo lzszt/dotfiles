@@ -2,7 +2,6 @@
   custom,
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -22,7 +21,6 @@ in
       shellAbbrs =
         (import ./bash/shell-aliases.nix {
           inherit
-            pkgs
             custom
             config
             lib

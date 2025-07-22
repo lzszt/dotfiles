@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   custom,
   ...
 }:
@@ -39,7 +38,6 @@ in
       shellAliases = lib.attrsets.filterAttrs (_: abbr: !builtins.isNull abbr) (
         (import ./shell-aliases.nix {
           inherit
-            pkgs
             custom
             config
             lib

@@ -64,6 +64,13 @@
 
   environment.systemPackages = with pkgs; [ nixfmt-rfc-style ];
 
+  fileSystems = {
+    "/mnt/freenas" = {
+      device = "freenas.home.active-group.de:/mnt/share/storage";
+      fsType = "nfs";
+    };
+  };
+
   nix = {
     package = pkgs.nixVersions.latest;
     settings = {

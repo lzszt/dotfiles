@@ -25,6 +25,12 @@
   nr = "nix repl";
   nb = "nix build";
   nbl = "nix build -L";
+  nbtl = fishOnly {
+    expansion = "nix build .#nixosConfigurations.%.config.system.build.toplevel -L";
+  };
+  nbvm = fishOnly {
+    expansion = "nix build .#nixosConfigurations.%.config.system.build.vm -L";
+  };
   ncg = "nix-collect-garbage";
   ncgd = "nix-collect-garbage -d";
 

@@ -9,7 +9,10 @@
     ./hardware-configuration.nix
   ];
 
-  boot.extraModprobeConfig = "blacklist hid_sensor_hub";
+  boot = {
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    extraModprobeConfig = "blacklist hid_sensor_hub";
+  };
 
   networking.extraHosts = ''
     193.186.94.33 dns0.tun0		# vpn-slice-tun0 AUTOCREATED

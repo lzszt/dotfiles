@@ -6,6 +6,7 @@
     duo.enabledWithoutGitlabProject = false;
     duoChat.enabled = false;
     duoCodeSuggestions.enabled = false;
+    gitlab.duoAgentPlatform.enabled = false;
     showPipelineUpdateNotifications = true;
   };
   default = true;

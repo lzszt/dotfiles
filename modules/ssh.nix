@@ -12,7 +12,6 @@ in
   config = lib.mkIf cfg.enable {
     programs.ssh = {
       enable = true;
-      compression = true;
 
       matchBlocks = cfg.matchBlocks;
     };

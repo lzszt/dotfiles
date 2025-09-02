@@ -203,9 +203,9 @@ in
 
       fd
 
-      pkgs2411.apache-directory-studio
+      apache-directory-studio
 
-      pkgs2411.remmina
+      remmina
       openconnect
       vpn-slice
 

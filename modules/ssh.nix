@@ -10,13 +10,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    services.ssh-agent.enable = true;
     programs.ssh = {
       enable = true;
 
       matchBlocks = cfg.matchBlocks // {
         "*" = {
           forwardAgent = false;
-          addKeysToAgent = "no";
+          addKeysToAgent = "yes";
           compression = false;
           serverAliveInterval = 0;
           serverAliveCountMax = 3;

@@ -12,7 +12,7 @@
     nix = {
       # Enable flakes for the system Nix.
       extraOptions = ''
-        experimental-features = nix-command flakes
+        experimental-features = nix-command flakes pipe-operators
       '';
       registry = {
         this.flake = inputs.nixpkgs;

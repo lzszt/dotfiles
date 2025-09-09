@@ -2,7 +2,7 @@
 
 {
   # (a -> AttrSet) -> [a] -> AttrSet
-  mergeMapAttr = f: xs: builtins.foldl' (a: b: a // b) { } (builtins.map f xs);
+  mergeMapAttr = f: xs: xs |> builtins.map f |> builtins.foldl' (a: b: a // b) { };
 
   hasSubAttr =
     attrPath: attrset:
@@ -24,10 +24,11 @@
             attrset = attrset;
           };
     in
-    (go (lib.splitString "." attrPath)).result;
+    (attrPath |> lib.splitString "." |> go).result;
 
   mkWorkspace = workspaceId: apps: { inherit workspaceId apps; };
 
   readFileNames =
-    path: builtins.attrNames (lib.filterAttrs (_: type: type == "regular") (builtins.readDir path));
+    path:
+    path |> builtins.readDir |> lib.filterAttrs (_: type: type == "regular") |> builtins.attrNames;
 }

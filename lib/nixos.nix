@@ -2,7 +2,8 @@
 
 {
   readDirNames =
-    path: builtins.attrNames (lib.filterAttrs (_: type: type == "directory") (builtins.readDir path));
+    path:
+    path |> builtins.readDir |> lib.filterAttrs (_: type: type == "directory") |> builtins.attrNames;
 
   mkNixosSystem =
     {

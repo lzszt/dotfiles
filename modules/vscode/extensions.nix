@@ -9,18 +9,21 @@
 }:
 let
   cfg = config.modules.vscode;
-  allExtensions = pkgs.lib.my.mergeMapAttr (extension: {
-    ${lib.removeSuffix ".nix" extension} = import ./extensions/${extension} {
-      inherit
-        pkgs
-        inputs
-        system
-        lib
-        config
-        rebind
-        ;
-    };
-  }) (pkgs.lib.my.readFileNames ./extensions);
+  allExtensions =
+    ./extensions
+    |> pkgs.lib.my.readFileNames
+    |> pkgs.lib.my.mergeMapAttr (extension: {
+      ${lib.removeSuffix ".nix" extension} = import ./extensions/${extension} {
+        inherit
+          pkgs
+          inputs
+          system
+          lib
+          config
+          rebind
+          ;
+      };
+    });
 
   extensionAndDeps =
     ext:

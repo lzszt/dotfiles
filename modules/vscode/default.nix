@@ -10,13 +10,12 @@ let
   cfg = config.modules.vscode;
 
   userSettings = import ./user-settings.nix;
-  userSpecificExtensionSettings = lib.mergeAttrsList (
-    builtins.attrValues (
-      builtins.mapAttrs (extension: options: options.user-settings) (
-        builtins.removeAttrs cfg.extensions [ "custom" ]
-      )
-    )
-  );
+  userSpecificExtensionSettings =
+    [ "custom" ]
+    |> builtins.removeAttrs cfg.extensions
+    |> builtins.mapAttrs (extension: options: options.user-settings)
+    |> builtins.attrValues
+    |> lib.mergeAttrsList;
 
   snippets = import ./snippets.nix;
 

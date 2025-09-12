@@ -18,6 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix.url = "github:ryantm/agenix";
+
     nixpkgs-2411.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
 

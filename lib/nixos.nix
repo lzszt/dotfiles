@@ -63,6 +63,7 @@
             inherit users;
           };
         }
+        inputs.agenix.nixosModules.default
       ];
     };
 }

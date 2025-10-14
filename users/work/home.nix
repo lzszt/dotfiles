@@ -52,10 +52,6 @@ in
           -s "${pkgs.vpn-slice}/bin/vpn-slice --no-host-names --no-ns-hosts 10.0.0.0/8 rdsivo.egv.at"
         '';
 
-        virt-leibniz = "virt-manager -c 'qemu+ssh://leibniz/system'";
-        virt-lovelace = "virt-manager -c 'qemu+ssh://lovelace/system'";
-
-        tt = "timetracking";
         sc = "shortcuts";
 
         jit = fishOnly {

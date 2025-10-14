@@ -844,11 +844,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1760440371,
-        "narHash": "sha256-G81szxYRv5S87vIQIvLh9uWX8Xkg6yNt0ZjRxBFMn6c=",
+        "lastModified": 1760443902,
+        "narHash": "sha256-KrcUDv4KPydrhY29doA+kvTI9j1QvX60haixMIAidTA=",
         "owner": "active-group",
         "repo": "nix-starter-kit",
-        "rev": "05bf0c8f8f80ed38f3971565148095418743b5aa",
+        "rev": "b4b4867e65aed7e62266269d0f887b50b1ee89a0",
         "type": "github"
       },
       "original": {

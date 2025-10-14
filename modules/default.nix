@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -16,5 +16,8 @@
     ./vscext-init
     ./vscode
     ./xmonad
+
+    inputs.nix-starter-kit.nixosModules.timetracking
+    inputs.agenix.homeManagerModules.default
   ];
 }

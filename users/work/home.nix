@@ -3,6 +3,7 @@
   pkgs,
   inputs,
   system,
+  config,
   ...
 }:
 let
@@ -41,6 +42,18 @@ in
         };
       };
     };
+  };
+
+  age = {
+    identityPaths = [ "/home/leitz/.ssh/id_ed25519" ];
+    secrets.timetracking-api-key.file = ../../secrets/timetracking-api-key.age;
+    secrets.timereporting-api-key.file = ../../secrets/timereporting-api-key.age;
+  };
+
+  active-group.timetracking = {
+    enable = true;
+    timetracking-token = config.age.secrets.timetracking-api-key.path;
+    timereporting-token = config.age.secrets.timereporting-api-key.path;
   };
 
   modules =

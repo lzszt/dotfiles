@@ -34,13 +34,8 @@ let
       };
       vsix = "${vsixToZip haskellmodeInput.haskellmode extensionFilename}/${extensionFilename}.zip";
     };
-
-  cabal-add = pkgs.haskell.lib.dontCheck (
-    pkgs.haskellPackages.callCabal2nix "cabal-add" inputs.cabalAddSrc { }
-  );
 in
 {
   extension = haskellmode;
-  user-settings.haskellmode.cabalAddPath = "${cabal-add}/bin/cabal-add";
   default = true;
 }

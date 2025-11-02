@@ -26,9 +26,7 @@ in
           fi
         '';
 
-        cloneSingleGitRepo = cloneSingleRepo (
-          url: name: "${pkgs.gitAndTools.gitFull}/bin/git clone ${url} ${name}"
-        );
+        cloneSingleGitRepo = cloneSingleRepo (url: name: "${pkgs.gitFull}/bin/git clone ${url} ${name}");
 
         cloneOrRecurse =
           dir: key: value:

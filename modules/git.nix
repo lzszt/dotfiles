@@ -7,8 +7,12 @@ in
   options.modules.git.email = lib.mkOption { type = types.str; };
   config.programs.git = {
     enable = true;
-    userName = "Felix Leitz";
-    userEmail = cfg.email;
+    settings.user = {
+      name = "Felix Leitz";
+      email = cfg.email;
+      pull.rebase = "false";
+      init.defaultBranch = "main";
+    };
     ignores = [
       # Direnv
       ".direnv/"
@@ -21,9 +25,5 @@ in
       "result"
       "result/*"
     ];
-    extraConfig = {
-      pull.rebase = "false";
-      init.defaultBranch = "main";
-    };
   };
 }

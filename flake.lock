@@ -13,11 +13,11 @@
         "rev": "1d694828d7d5ae4e9f28c6a574e1548abd683fde",
         "revCount": 260,
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/active-accounting.git"
+        "url": "ssh://git@gitlab.active-group.de/ag/active-accounting.git"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/active-accounting.git"
+        "url": "ssh://git@gitlab.active-group.de/ag/active-accounting.git"
       }
     },
     "active-timekeeping": {
@@ -33,11 +33,11 @@
         "rev": "b0e8bd63df764b7384c19e62fc010886ae9dab3a",
         "revCount": 14,
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/active-timekeeping"
+        "url": "ssh://git@gitlab.active-group.de/ag/active-timekeeping"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/active-timekeeping"
+        "url": "ssh://git@gitlab.active-group.de/ag/active-timekeeping"
       }
     },
     "active-timetracking": {
@@ -50,17 +50,17 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1761775963,
-        "narHash": "sha256-/jwI59jpB+6wDvCZzNE33++0bA70LpbVa2EGxaS2L68=",
+        "lastModified": 1762761793,
+        "narHash": "sha256-RXpbz8LeXl71/MbBdbsJ6ZbQbUItQ7oK4BB3ztm0vbQ=",
         "ref": "refs/heads/main",
-        "rev": "352f77cfcae170d696183e690205b9a2648efb15",
-        "revCount": 202,
+        "rev": "668aae9d081bb0d6b7daf5d3d454b5ae0808575c",
+        "revCount": 205,
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/active-timetracking.git"
+        "url": "ssh://git@gitlab.active-group.de/ag/active-timetracking.git"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/active-timetracking.git"
+        "url": "ssh://git@gitlab.active-group.de/ag/active-timetracking.git"
       }
     },
     "agenix": {
@@ -686,11 +686,11 @@
         "rev": "fbc3a7d495ac20c23337a8bcbe13bd9223fb9c24",
         "revCount": 104,
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/kaan-sein-tool"
+        "url": "ssh://git@gitlab.active-group.de/ag/kaan-sein-tool"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/kaan-sein-tool"
+        "url": "ssh://git@gitlab.active-group.de/ag/kaan-sein-tool"
       }
     },
     "kimai-config-sync": {
@@ -706,11 +706,11 @@
         "rev": "da933f6f264b9a78535b8b8ed22ec31c8aca934d",
         "revCount": 63,
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/kimai-config-sync"
+        "url": "ssh://git@gitlab.active-group.de/ag/kimai-config-sync"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@gitlab.active-group.de:1022/ag/kimai-config-sync"
+        "url": "ssh://git@gitlab.active-group.de/ag/kimai-config-sync"
       }
     },
     "kimai_report": {
@@ -844,11 +844,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1762247764,
-        "narHash": "sha256-GpWgXmFmqzWrJPXvh0GDhqzInHi00rXDP5xPyrlk4E8=",
+        "lastModified": 1762761824,
+        "narHash": "sha256-clNwuhepjI8/aeGbWuHE7g2wrXAc2fzyFeOjQsA9BxE=",
         "owner": "active-group",
         "repo": "nix-starter-kit",
-        "rev": "c1288f3c61b7ebbca3673de4f6cdc49f49f86a8a",
+        "rev": "b20a6a4a8b7caa97a0fec0523f8f5a0aa1b37bcb",
         "type": "github"
       },
       "original": {

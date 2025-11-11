@@ -17,4 +17,5 @@ in
     desktop-nixos
     leitz
   ];
+  "nas-credentials.age".publicKeys = [ leitz ];
 }

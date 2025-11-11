@@ -1,4 +1,5 @@
 {
+  config,
   ...
 }:
 
@@ -12,6 +13,11 @@
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     extraModprobeConfig = "blacklist hid_sensor_hub";
+  };
+
+  age = {
+    identityPaths = [ "/home/leitz/.ssh/id_ed25519" ];
+    secrets.nas-credentials.file = ../../secrets/nas-credentials.age;
   };
 
   networking.extraHosts = ''
@@ -32,11 +38,17 @@
 
   virtualisation.docker.enable = true;
 
-  fileSystems = {
-    "/mnt/freenas" = {
-      device = "freenas.home.active-group.de:/mnt/share/storage";
-      fsType = "nfs";
-    };
+  fileSystems."/mnt/nas" = {
+    device = "//nas.home.active-group.de/share";
+    fsType = "cifs";
+    options =
+      let
+        # this line prevents hanging on network split
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+      in
+      [
+        "${automount_opts},credentials=${config.age.secrets.nas-credentials.path}"
+      ];
   };
 
   nix.settings.max-jobs = 16;

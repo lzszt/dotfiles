@@ -7,11 +7,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1761121872,
-        "narHash": "sha256-8GDtAddyE/9+TsDlEz6loXKymrTqb1FT/BKFdb5csRY=",
+        "lastModified": 1762771802,
+        "narHash": "sha256-5qvHiOHPxdAFjcjMcdbpP2FC3rSX0XSxRlHG4jaDvjs=",
         "ref": "refs/heads/main",
-        "rev": "1d694828d7d5ae4e9f28c6a574e1548abd683fde",
-        "revCount": 260,
+        "rev": "e79bab25eb2c83c84dccdf75519daa02431f8a6a",
+        "revCount": 366,
         "type": "git",
         "url": "ssh://git@gitlab.active-group.de/ag/active-accounting.git"
       },
@@ -638,11 +638,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762721397,
-        "narHash": "sha256-E428EuouA4nFTNlLuqlL4lVR78X+EbBIqDqsBFnB79w=",
+        "lastModified": 1763416652,
+        "narHash": "sha256-8EBEEvtzQ11LCxpQHMNEBQAGtQiCu/pqP9zSovDSbNM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b8645b18b0f5374127bbade6de7381ef0b3d5720",
+        "rev": "ea164b7c9ccdc2321379c2ff78fd4317b4c41312",
         "type": "github"
       },
       "original": {
@@ -844,11 +844,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1762761824,
-        "narHash": "sha256-clNwuhepjI8/aeGbWuHE7g2wrXAc2fzyFeOjQsA9BxE=",
+        "lastModified": 1762772142,
+        "narHash": "sha256-YOqByC4/ceaIKKg7yVcrvDQIRFiCW4HPtDL8NRDv6T4=",
         "owner": "active-group",
         "repo": "nix-starter-kit",
-        "rev": "b20a6a4a8b7caa97a0fec0523f8f5a0aa1b37bcb",
+        "rev": "43a767b46e3929a6f280611b6a31a9083b5c248b",
         "type": "github"
       },
       "original": {
@@ -1046,11 +1046,11 @@
     },
     "nixpkgs_12": {
       "locked": {
-        "lastModified": 1762596750,
-        "narHash": "sha256-rXXuz51Bq7DHBlfIjN7jO8Bu3du5TV+3DSADBX7/9YQ=",
+        "lastModified": 1763283776,
+        "narHash": "sha256-Y7TDFPK4GlqrKrivOcsHG8xSGqQx3A6c+i7novT85Uk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b6a8526db03f735b89dd5ff348f53f752e7ddc8e",
+        "rev": "50a96edd8d0db6cc8db57dab6bb6d6ee1f3dc49a",
         "type": "github"
       },
       "original": {
@@ -1195,11 +1195,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762754606,
-        "narHash": "sha256-ig9eOYELw+zDp2hPr0JRa2BGWKM3BXK4uZV89gmm8yU=",
+        "lastModified": 1763468275,
+        "narHash": "sha256-+iklM4kwJeJeHvalBQg5Ed+SX+cuLBCanpRgOjqHMjs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1224f831bcc923490547d9b3315c601f5314f1b6",
+        "rev": "5f00d58446ad867bc703cbed70ac2a80aba7a793",
         "type": "github"
       },
       "original": {

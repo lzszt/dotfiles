@@ -32,6 +32,7 @@
     expansion = "nix build .#nixosConfigurations.%.config.system.build.vm -L";
   };
   nrsth = fishOnly { expansion = "nixos-rebuild switch --flake . --target-host"; };
+  nrtth = fishOnly { expansion = "nixos-rebuild switch --flake . --target-host"; };
   ncg = "nix-collect-garbage";
   ncgd = "nix-collect-garbage -d";
 

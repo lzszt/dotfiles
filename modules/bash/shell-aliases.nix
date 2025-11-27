@@ -33,6 +33,7 @@
   };
   nrsth = fishOnly { expansion = "nixos-rebuild switch --flake . --target-host"; };
   nrtth = fishOnly { expansion = "nixos-rebuild test --flake . --target-host"; };
+  nrdath = fishOnly { expansion = "nixos-rebuild dry-activate --flake . --target-host"; };
   ncg = "nix-collect-garbage";
   ncgd = "nix-collect-garbage -d";
 

@@ -202,9 +202,14 @@ in
           inherit system;
         }
       );
+
+      sync-labor = pkgs.writeScriptBin "sync-labor" ''
+        ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-labor-report | tt-import-arbeitszeiten
+      '';
     in
     with pkgs;
     [
+      sync-labor
 
       custom.secrets.ag.shortcuts
       pkgs2411.linphone

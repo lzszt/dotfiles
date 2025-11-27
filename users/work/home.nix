@@ -46,14 +46,14 @@ in
 
   age = {
     identityPaths = [ "/home/leitz/.ssh/id_ed25519" ];
-    secrets.timetracking-api-key.file = ../../secrets/timetracking-api-key.age;
-    secrets.timereporting-api-key.file = ../../secrets/timereporting-api-key.age;
+    secrets.arbeitszeiten-api-key.file = ../../secrets/arbeitszeiten-api-key.age;
+    secrets.abrechenbare-zeiten-api-key.file = ../../secrets/abrechenbare-zeiten-api-key.age;
   };
 
   active-group.timetracking = {
     enable = true;
-    timetracking-token = config.age.secrets.timetracking-api-key.path;
-    timereporting-token = config.age.secrets.timereporting-api-key.path;
+    arbeitszeiten-token = config.age.secrets.arbeitszeiten-api-key.path;
+    abrechenbare-zeiten-token = config.age.secrets.abrechenbare-zeiten-api-key.path;
   };
 
   modules =

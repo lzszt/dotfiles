@@ -9,11 +9,11 @@ let
 in
 {
   "hetzner-storage-box-credentials.age".publicKeys = [ desktop-nixos ];
-  "timetracking-api-kay.age".publicKeys = [
+  "arbeitszeiten-api-key.age".publicKeys = [
     desktop-nixos
     leitz
   ];
-  "timereporting-api-key.age".publicKeys = [
+  "abrechenbare-zeiten-api-key.age".publicKeys = [
     desktop-nixos
     leitz
   ];

@@ -204,11 +204,11 @@ in
       );
 
       sync-labor = pkgs.writeScriptBin "sync-labor" ''
-        ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-labor-report | tt-import-arbeitszeiten
+        ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-labor-report | tt-import-arbeitszeiten - --begin 2025-11-24
       '';
 
       sync-billable = pkgs.writeScriptBin "sync-billable" ''
-        ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-billable-report | tt-import-abrechenbare-zeiten
+        ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-billable-report | tt-import-abrechenbare-zeiten - --begin 2025-11-24
       '';
     in
     with pkgs;

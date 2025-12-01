@@ -206,10 +206,15 @@ in
       sync-labor = pkgs.writeScriptBin "sync-labor" ''
         ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-labor-report | tt-import-arbeitszeiten
       '';
+
+      sync-billable = pkgs.writeScriptBin "sync-billable" ''
+        ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-billable-report | tt-import-abrechenbare-zeiten
+      '';
     in
     with pkgs;
     [
       sync-labor
+      sync-billable
 
       custom.secrets.ag.shortcuts
       pkgs2411.linphone

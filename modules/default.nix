@@ -17,7 +17,7 @@
     ./vscode
     ./xmonad
 
-    inputs.nix-starter-kit.nixosModules.timetracking
+    inputs.nix-starter-kit.homeModules.timetracking
     inputs.agenix.homeManagerModules.default
   ];
 }

@@ -210,11 +210,17 @@ in
       sync-billable = pkgs.writeScriptBin "sync-billable" ''
         ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-billable-report --at $(date -d "yesterday" '+%Y-%m-%d') | tt-import-abrechenbare-zeiten - --begin 2025-11-24
       '';
+
+      ag-sync = pkgs.writeScriptBin "ag-sync" ''
+        ${sync-labor}/bin/sync-labor
+        ${sync-billable}/bin/sync-billable
+      '';
     in
     with pkgs;
     [
       sync-labor
       sync-billable
+      ag-sync
 
       custom.secrets.ag.shortcuts
       pkgs2411.linphone

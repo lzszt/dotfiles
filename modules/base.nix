@@ -61,6 +61,8 @@
       thunderbird
       rink
 
+      nix-output-monitor
+
       xdg-utils
 
       # Fonts

@@ -7,9 +7,11 @@ in
   options.modules.git.email = lib.mkOption { type = types.str; };
   config.programs.git = {
     enable = true;
-    settings.user = {
-      name = "Felix Leitz";
-      email = cfg.email;
+    settings = {
+      user = {
+        name = "Felix Leitz";
+        email = cfg.email;
+      };
       pull.rebase = "false";
       init.defaultBranch = "main";
     };

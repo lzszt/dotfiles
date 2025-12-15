@@ -240,8 +240,6 @@ in
       openconnect
       vpn-slice
 
-      virt-manager
-
       docker
       docker-compose
 

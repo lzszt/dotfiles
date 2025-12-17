@@ -56,6 +56,8 @@
       jq
       alsa-utils
 
+      libreoffice
+
       brave
 
       thunderbird

@@ -14,6 +14,7 @@ in
   imports = [
     ../../modules
     ../../modules/base.nix
+    inputs.nix-starter-kit.homeModules.timetracking
   ];
 
   programs = {

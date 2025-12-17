@@ -170,12 +170,6 @@ in
             home-manager.url = "git@github.com:lzszt/home-manager.git";
             nixpkgs.url = "git@github.com:lzszt/nixpkgs.git";
           };
-
-        # subversion.repos = [{
-        #   dir = ag + "/stundenzettel";
-        #   url = "https://svn.active-group.de/svn/controlling/2023/Stundenzettel";
-        #   name = "2023";
-        # }];
       };
 
       vscext-init.enable = true;

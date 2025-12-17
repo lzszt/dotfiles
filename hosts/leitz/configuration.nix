@@ -26,14 +26,16 @@
     193.186.88.7 rdsivo.egv.at rdsivo		# vpn-slice-tun0 AUTOCREATED
   '';
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
+  services = {
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+    blueman.enable = true;
   };
-  services.blueman.enable = true;
+
   hardware.bluetooth.enable = true;
 
   virtualisation.docker.enable = true;

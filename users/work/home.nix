@@ -8,7 +8,6 @@
 }:
 let
   email = "felix.leitz@active-group.de";
-  ldapUser = "leitz";
 in
 {
   imports = [
@@ -22,26 +21,6 @@ in
       enable = true;
       userEmail = email;
       userName = "Felix Leitz";
-    };
-  };
-
-  accounts = {
-    email = {
-      accounts = {
-        work = {
-          address = email;
-          userName = ldapUser;
-          imap.host = "imap.active-group.de";
-          smtp.host = "smtp.active-group.de";
-          realName = "Felix Leitz";
-          primary = true;
-          passwordCommand = "";
-          mbsync = {
-            enable = true;
-            create = "maildir";
-          };
-        };
-      };
     };
   };
 

@@ -43,6 +43,8 @@
     docker
     docker-compose
 
+    jetbrains.datagrip
+
     prusa-slicer
     openscad-unstable
 

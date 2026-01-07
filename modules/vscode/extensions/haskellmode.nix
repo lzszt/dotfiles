@@ -5,20 +5,6 @@
   ...
 }:
 let
-  # This is needed because buildVscodeMarketplaceExtension
-  # normally downloads the .vsix file as .zip.
-  vsixToZip =
-    input: filename:
-    pkgs.stdenv.mkDerivation {
-      name = "vsix-to-zip";
-      src = input;
-      buildPhase = pkgs.writeScript "vsix-to-zip" ''
-        mkdir result
-        mv ${filename}.vsix result/${filename}.zip
-        mv result $out
-      '';
-    };
-
   haskellmode =
     let
       haskellmodeInput = inputs.haskellmode.packages.${system};
@@ -32,7 +18,7 @@ let
         name = "haskell-mode";
         version = haskellmode-version;
       };
-      vsix = "${vsixToZip haskellmodeInput.haskellmode extensionFilename}/${extensionFilename}.zip";
+      vsix = "${haskellmodeInput.haskellmode}/${extensionFilename}.vsix";
     };
 in
 {

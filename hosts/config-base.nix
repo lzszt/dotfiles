@@ -39,7 +39,7 @@
 
   programs.fish.enable = true;
 
-  environment.systemPackages = with pkgs; [ nixfmt-rfc-style ];
+  environment.systemPackages = [ pkgs.nixfmt ];
 
   nix = {
     package = pkgs.nixVersions.latest;

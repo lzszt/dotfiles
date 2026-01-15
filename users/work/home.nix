@@ -157,8 +157,8 @@ in
 
   home.packages =
     let
-      pkgs2411 = (
-        import inputs.nixpkgs-2411 {
+      pkgs-stable = (
+        import inputs.nixpkgs-stable {
           config.allowUnfree = true;
           inherit system;
         }
@@ -190,7 +190,7 @@ in
       ag-sync
 
       custom.secrets.ag.shortcuts
-      pkgs2411.linphone
+      pkgs-stable.linphone
       teams-for-linux
 
       fd

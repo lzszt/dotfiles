@@ -16,7 +16,7 @@
 
     agenix.url = "github:ryantm/agenix";
 
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     nix-starter-kit.url = "github:active-group/nix-starter-kit";
   };

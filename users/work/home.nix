@@ -204,7 +204,7 @@ in
       docker
       docker-compose
 
-      sieve-editor-gui
+      pkgs-stable.sieve-editor-gui
     ];
   home.stateVersion = "22.11";
 }

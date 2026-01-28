@@ -7,6 +7,9 @@
     folding = false;
     stickyScroll.enabled = false;
   };
+
+  terminal.integrated.initialHint = false;
+
   # telemetry settings
   telemetry = {
     telemetryLevel = "off";

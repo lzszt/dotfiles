@@ -169,7 +169,7 @@ in
       '';
 
       sync-billable = pkgs.writeScriptBin "sync-billable" ''
-        ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-billable-report --at $(date -d "yesterday" '+%Y-%m-%d') | tt-import-abrechenbare-zeiten - --begin 2025-11-24
+        ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-billable-report | tt-import-abrechenbare-zeiten - --begin 2025-11-24
       '';
 
       sync-absense = pkgs.writeScriptBin "sync-absense" ''

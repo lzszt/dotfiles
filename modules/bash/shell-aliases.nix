@@ -3,6 +3,7 @@
   config,
   lib,
   fishOnly,
+  pkgs,
   ...
 }:
 
@@ -36,6 +37,7 @@
   nrdath = fishOnly { expansion = "nixos-rebuild dry-activate --flake . --target-host"; };
   ncg = "nix-collect-garbage";
   ncgd = "nix-collect-garbage -d";
+  ntv = "${pkgs.nix-search-tv}/bin/nix-search-tv print | ${pkgs.fzf}/bin/fzf --preview '${pkgs.nix-search-tv}/bin/nix-search-tv preview {}' --scheme history";
 
   nsp = fishOnly {
     expansion = "open firefox 'https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=%'";

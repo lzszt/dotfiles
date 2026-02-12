@@ -2,6 +2,7 @@
   custom,
   config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -25,6 +26,7 @@ in
             config
             lib
             fishOnly
+            pkgs
             ;
         })
         // cfg.customAliases fishOnly;

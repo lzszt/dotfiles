@@ -2,6 +2,7 @@
   config,
   lib,
   custom,
+  pkgs,
   ...
 }:
 
@@ -42,6 +43,7 @@ in
             config
             lib
             fishOnly
+            pkgs
             ;
 
         })

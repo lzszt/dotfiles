@@ -23,6 +23,11 @@
       };
     };
 
+    services.riemann-tools = {
+      enableHealth = true;
+      riemannHost = "monitoring.lzszt.info";
+    };
+
     modules = {
       rofi.enable = true;
       firefox.enable = true;

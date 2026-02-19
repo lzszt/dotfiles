@@ -52,6 +52,7 @@ in
         "grafana" = mkLzsztInfoSsh "grafana";
         "immich" = mkLzsztInfoSsh "immich";
         "mail" = mkLzsztInfoSsh "mail";
+        "monitoring" = mkLzsztInfoSsh "monitoring";
         "valheim" = mkLzsztInfoSsh "valheim";
       };
   };

@@ -25,6 +25,11 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  services.riemann-tools = {
+    enableHealth = true;
+    riemannHost = "monitoring.lzszt.info";
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = lib.mapAttrs (user: _: {
     isNormalUser = true;

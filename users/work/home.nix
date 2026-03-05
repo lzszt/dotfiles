@@ -195,6 +195,8 @@ in
 
       fd
 
+      obs-studio
+
       apache-directory-studio
 
       remmina

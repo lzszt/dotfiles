@@ -25,6 +25,15 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  i18n = {
+    supportedLocales = [
+      "de_DE.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+    ];
+
+    defaultLocale = "en_US.UTF-8";
+  };
+
   services.riemann-tools = {
     enableHealth = true;
     riemannHost = "monitoring.lzszt.info";

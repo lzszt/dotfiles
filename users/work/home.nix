@@ -65,6 +65,7 @@ in
           defaultArchiveFile = "/home/leitz/Syncthing Folder/todo.archive.md";
         };
         git-worktrees.enable = true;
+        vscode-zig.enable = true;
       };
       fish = {
         enable = true;

@@ -6,6 +6,7 @@
     vscode.extensions = {
       vscode-stl-viewer.enable = true;
       vscode-zig.enable = true;
+      claude-code.enable = true;
       preview-tiff.enable = true;
       todo-md.user-settings.todomd = {
         defaultFile = "/home/leitz/Sync/todo.md";

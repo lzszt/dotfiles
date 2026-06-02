@@ -42,7 +42,7 @@ in
         illc = ''
           sudo ${pkgs.openconnect}/bin/openconnect --protocol=anyconnect \
           --user=ext_activegroup2 vpn.egv.at \
-          -s "${pkgs.vpn-slice}/bin/vpn-slice --no-host-names --no-ns-hosts 10.0.0.0/8 rdsivo.egv.at"
+          -s "${pkgs.vpn-slice}/bin/vpn-slice --no-host-names --no-ns-hosts 10.0.0.0/8 rdsgwext.egv.at"
         '';
 
         sc = "shortcuts";

@@ -14,6 +14,7 @@ in
     ../../modules
     ../../modules/base.nix
     inputs.nix-starter-kit.homeModules.timetracking
+    inputs.nix-starter-kit.homeModules.thunderbird
   ];
 
   programs = {
@@ -30,10 +31,38 @@ in
     secrets.abrechenbare-zeiten-api-key.file = ../../secrets/abrechenbare-zeiten-api-key.age;
   };
 
-  active-group.timetracking = {
-    enable = true;
-    arbeitszeiten-token = config.age.secrets.arbeitszeiten-api-key.path;
-    abrechenbare-zeiten-token = config.age.secrets.abrechenbare-zeiten-api-key.path;
+  active-group = {
+    thunderbird = {
+      enable = true;
+      userName = "leitz";
+      profile = "jyh6jfa5.default";
+      calendars = {
+        enableAGCalendars = true;
+        felix = {
+          readOnly = false;
+          suppressAlarms = false;
+          color = "#ff2968";
+        };
+        felix-schulungen = {
+          readOnly = false;
+          suppressAlarms = false;
+          color = "#c01c28";
+        };
+        geburtstage.color = "#0000ff";
+        regeltermine.color = "#0000ff";
+
+        bianca-schulungen.enable = false;
+        marco-schulungen.enable = false;
+        marcus-schulungen.enable = false;
+        markus-schulungen.enable = false;
+        pr.enable = false;
+      };
+    };
+    timetracking = {
+      enable = true;
+      arbeitszeiten-token = config.age.secrets.arbeitszeiten-api-key.path;
+      abrechenbare-zeiten-token = config.age.secrets.abrechenbare-zeiten-api-key.path;
+    };
   };
 
   modules =

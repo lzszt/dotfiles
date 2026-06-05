@@ -13,6 +13,7 @@ in
   imports = [
     ../../modules
     ../../modules/base.nix
+    inputs.nix-starter-kit.homeModules.ldap
     inputs.nix-starter-kit.homeModules.timetracking
     inputs.nix-starter-kit.homeModules.thunderbird
   ];
@@ -32,6 +33,12 @@ in
   };
 
   active-group = {
+    ldap = {
+      userName = "leitz";
+      fullName = "Felix Leitz";
+      inherit email;
+      phoneNumber = "+49 (7071) 70896-77";
+    };
     thunderbird = {
       enable = true;
       userName = "leitz";

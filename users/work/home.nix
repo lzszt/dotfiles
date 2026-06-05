@@ -19,6 +19,9 @@ in
   ];
 
   programs = {
+    thunderbird.settings = {
+      "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
+    };
     mercurial = {
       enable = true;
       userEmail = email;

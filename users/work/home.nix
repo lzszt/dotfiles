@@ -21,6 +21,9 @@ in
   programs = {
     thunderbird.settings = {
       "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
+
+      # lsit view for mails
+      "mail.threadpane.listview" = 1;
     };
     mercurial = {
       enable = true;
@@ -44,8 +47,6 @@ in
     };
     thunderbird = {
       enable = true;
-      userName = "leitz";
-      profile = "jyh6jfa5.default";
       calendars = {
         enableAGCalendars = true;
         felix = {

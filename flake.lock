@@ -943,11 +943,11 @@
         "nixpkgs": "nixpkgs_16"
       },
       "locked": {
-        "lastModified": 1780645763,
-        "narHash": "sha256-LO6taZGjYz5MXJL8Kxn8ViI3hRIMJzE8cgMpAWyov7E=",
+        "lastModified": 1780895239,
+        "narHash": "sha256-qSGqdxrBBIcyf2NfQX5HHgKk3tBZWijxi25Lr9Nknm8=",
         "owner": "active-group",
         "repo": "nix-starter-kit",
-        "rev": "5688e88a7d1ff4d818d1f7bbd82530bd26cd5845",
+        "rev": "7adb017e2f54744a7e108649110e510fbb5aa26b",
         "type": "github"
       },
       "original": {

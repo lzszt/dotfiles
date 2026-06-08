@@ -53,11 +53,13 @@ in
           readOnly = false;
           suppressAlarms = false;
           color = "#ff2968";
+          notifications = [ "-PT10M" ];
         };
         felix-schulungen = {
           readOnly = false;
           suppressAlarms = false;
           color = "#c01c28";
+          notifications = [ "-P7D" ];
         };
         geburtstage.color = "#0000ff";
         regeltermine.color = "#0000ff";

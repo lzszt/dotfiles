@@ -234,7 +234,7 @@ in
 
       custom.secrets.ag.shortcuts
       pkgs-stable.linphone
-      teams-for-linux
+      pkgs-stable.teams-for-linux
 
       fd
 

@@ -60,6 +60,8 @@
 
       brave
 
+      tuxedo
+
       thunderbird
       rink
 

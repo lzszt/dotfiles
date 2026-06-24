@@ -54,6 +54,8 @@ in
         "monitoring" = mkLzsztInfoSsh "monitoring";
         "valheim" = mkLzsztInfoSsh "valheim";
       };
+
+    tuxedo.path = "~/Sync/todo.txt";
   };
 
   home.packages = with pkgs; [

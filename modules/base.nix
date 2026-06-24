@@ -31,6 +31,7 @@
       ssh.enable = true;
       vscode.enable = true;
       fish.enable = true;
+      tuxedo.enable = true;
     };
 
     programs = {
@@ -60,8 +61,6 @@
       libreoffice
 
       brave
-
-      tuxedo
 
       thunderbird
       rink

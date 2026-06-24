@@ -13,6 +13,7 @@
     ./rofi
     ./ssh.nix
     ./timetracking
+    ./tuxedo.nix
     ./vscext-init
     ./vscode
     ./xmonad

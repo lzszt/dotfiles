@@ -193,6 +193,7 @@ in
       };
 
       vscext-init.enable = true;
+      tuxedo.path = "~/Syncthing\\ Folder/todo.txt";
     };
 
   home.packages =

@@ -39,6 +39,7 @@
     };
 
     vscext-init.enable = true;
+    tuxedo.path = "~/Sync/todo.txt";
   };
 
   home.packages = with pkgs; [

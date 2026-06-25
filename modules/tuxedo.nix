@@ -18,7 +18,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.tuxedo ];
+    home.packages = [ pkgs.master.tuxedo ];
     modules = {
       fish.customAliases = fishOnly: {
         tux = "tuxedo ${cfg.path}";

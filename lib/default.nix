@@ -30,5 +30,17 @@
 
   readFileNames =
     path:
-    path |> builtins.readDir |> lib.filterAttrs (_: type: type == "regular") |> builtins.attrNames;
+    path
+    |> builtins.readDir
+    |> lib.filterAttrs (_: type: type == "regular")
+    |> builtins.attrNames;
+
+  types = {
+    functionToAttrs = lib.mkOptionType {
+      name = "Alias function";
+      merge =
+        loc: defs: fishOnly:
+        defs |> builtins.map (x: x.value fishOnly) |> lib.foldl' lib.recursiveUpdate { };
+    };
+  };
 }

@@ -14,12 +14,7 @@ in
   options.modules.fish = {
     enable = lib.mkEnableOption "fish";
     customAliases = lib.mkOption {
-      type = lib.mkOptionType {
-        name = "Alias function";
-        merge =
-          loc: defs: fishOnly:
-          defs |> builtins.map (x: x.value fishOnly) |> lib.foldl' lib.recursiveUpdate { };
-      };
+      type = pkgs.lib.my.types.functionToAttrs;
       default = lib.const { };
     };
   };

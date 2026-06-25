@@ -109,10 +109,7 @@ in
         git-worktrees.enable = true;
         vscode-zig.enable = true;
       };
-      fish = {
-        enable = true;
-        inherit customAliases;
-      };
+      fish.customAliases = customAliases;
       git.email = email;
       timetracking.enable = true;
       desktop = {

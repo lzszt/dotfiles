@@ -10,7 +10,6 @@ in
 
   modules = {
     git.email = email;
-    fish.enable = true;
     desktop = {
       xmonad = {
         enable = true;

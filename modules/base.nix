@@ -30,6 +30,7 @@
       direnv.enable = true;
       ssh.enable = true;
       vscode.enable = true;
+      fish.enable = true;
     };
 
     programs = {

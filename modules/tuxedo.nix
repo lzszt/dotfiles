@@ -19,8 +19,13 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.tuxedo ];
-    modules.fish.customAliases = fishOnly: {
-      tux = "tuxedo ${cfg.path}";
+    modules = {
+      fish.customAliases = fishOnly: {
+        tux = "tuxedo ${cfg.path}";
+      };
+      bash.customAliases = fishOnly: {
+        tux = "tuxedo ${cfg.path}";
+      };
     };
   };
 }

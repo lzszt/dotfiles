@@ -13,7 +13,15 @@ in
 {
   options.modules.fish = {
     enable = lib.mkEnableOption "fish";
-    customAliases = lib.mkOption { default = lib.const { }; };
+    customAliases = lib.mkOption {
+      type = lib.mkOptionType {
+        name = "Alias function";
+        merge =
+          loc: defs: fishOnly:
+          defs |> builtins.map (x: x.value fishOnly) |> lib.foldl' lib.recursiveUpdate { };
+      };
+      default = lib.const { };
+    };
   };
 
   config = lib.mkIf cfg.enable {

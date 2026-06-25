@@ -1,6 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,8 +17,6 @@
     };
 
     agenix.url = "github:ryantm/agenix";
-
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     nix-starter-kit.url = "github:active-group/nix-starter-kit";
   };

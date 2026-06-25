@@ -2,7 +2,6 @@
   custom,
   pkgs,
   inputs,
-  system,
   config,
   ...
 }:
@@ -198,13 +197,6 @@ in
 
   home.packages =
     let
-      pkgs-stable = (
-        import inputs.nixpkgs-stable {
-          config.allowUnfree = true;
-          inherit system;
-        }
-      );
-
       sync-labor = pkgs.writeScriptBin "sync-labor" ''
         ${custom.secrets.ag.shortcuts}/bin/shortcuts --generate-labor-report --at $(date -d "yesterday" '+%Y-%m-%d') | tt-import-arbeitszeiten - --begin 2025-11-24
       '';
@@ -231,8 +223,8 @@ in
       ag-sync
 
       custom.secrets.ag.shortcuts
-      pkgs-stable.linphone
-      pkgs-stable.teams-for-linux
+      pkgs.stable.linphone
+      pkgs.stable.teams-for-linux
 
       fd
 
@@ -247,7 +239,7 @@ in
       docker
       docker-compose
 
-      pkgs-stable.sieve-editor-gui
+      pkgs.stable.sieve-editor-gui
     ];
   home.stateVersion = "22.11";
 }

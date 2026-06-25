@@ -13,6 +13,10 @@
       ...
     }:
     let
+      config = {
+        allowUnfree = true;
+      };
+
       inherit (inputs) home-manager nixpkgs;
       dir = ../hosts + "/${hostname}";
       custom-raw = import (dir + /custom.nix);
@@ -27,10 +31,24 @@
             my = import ./. { inherit (final) lib; };
           };
         })
+        (final: prev: {
+          stable = (
+            import inputs.nixpkgs-stable {
+              inherit config;
+              system = prev.stdenv.hostPlatform.system;
+            }
+          );
+          master = (
+            import inputs.nixpkgs-master {
+              inherit config;
+              system = prev.stdenv.hostPlatform.system;
+            }
+          );
+        })
       ];
 
       pkgs = import nixpkgs {
-        config.allowUnfree = true;
+        inherit config;
         inherit system overlays;
       };
 

@@ -13,7 +13,10 @@ in
 {
   options.modules.bash = {
     enable = lib.mkEnableOption "bash";
-    customAliases = lib.mkOption { default = lib.const { }; };
+    customAliases = lib.mkOption {
+      type = pkgs.lib.my.types.functionToAttrs;
+      default = lib.const { };
+    };
   };
 
   config = lib.mkIf cfg.enable {

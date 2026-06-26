@@ -24,11 +24,6 @@ in
       # lsit view for mails
       "mail.threadpane.listview" = 1;
     };
-    mercurial = {
-      enable = true;
-      userEmail = email;
-      userName = "Felix Leitz";
-    };
   };
 
   age = {

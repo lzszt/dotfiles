@@ -49,19 +49,8 @@ in
           color = "#ff2968";
           notifications = [ "-PT10M" ];
         };
-        felix-schulungen = {
-          readOnly = false;
-          suppressAlarms = false;
-          color = "#c01c28";
-          notifications = [ "-P7D" ];
-        };
         geburtstage.color = "#0000ff";
         regeltermine.color = "#0000ff";
-
-        bianca-schulungen.enable = false;
-        marco-schulungen.enable = false;
-        marcus-schulungen.enable = false;
-        markus-schulungen.enable = false;
         pr.enable = false;
       };
     };

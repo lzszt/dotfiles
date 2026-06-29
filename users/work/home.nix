@@ -176,7 +176,7 @@ in
       };
 
       vscext-init.enable = true;
-      tuxedo.path = "~/Syncthing\\ Folder/todo.txt";
+      tuxedo.path = "~/Sync/todo.txt";
     };
 
   home.packages =

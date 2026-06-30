@@ -208,7 +208,7 @@ in
 
       custom.secrets.ag.shortcuts
       pkgs.stable.linphone
-      pkgs.stable.teams-for-linux
+      pkgs.teams-for-linux
 
       fd
 

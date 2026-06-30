@@ -24,14 +24,14 @@
     };
 
     modules = {
-      rofi.enable = true;
-      firefox.enable = true;
       bash.enable = true;
       direnv.enable = true;
-      ssh.enable = true;
-      vscode.enable = true;
+      firefox.enable = true;
       fish.enable = true;
+      rofi.enable = true;
+      ssh.enable = true;
       tuxedo.enable = true;
+      vscode.enable = true;
     };
 
     programs = {

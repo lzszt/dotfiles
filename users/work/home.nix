@@ -85,10 +85,6 @@ in
       vscode.extensions = {
         # org-mode.enable = true;
         agda-mode.enable = true;
-        todo-md.user-settings.todomd = {
-          defaultFile = "/home/leitz/Syncthing Folder/todo.md";
-          defaultArchiveFile = "/home/leitz/Syncthing Folder/todo.archive.md";
-        };
         git-worktrees.enable = true;
         vscode-zig.enable = true;
       };

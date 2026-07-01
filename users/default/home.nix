@@ -8,10 +8,6 @@
       vscode-zig.enable = true;
       claude-code.enable = true;
       preview-tiff.enable = true;
-      todo-md.user-settings.todomd = {
-        defaultFile = "/home/leitz/Sync/todo.md";
-        defaultArchiveFile = "/home/leitz/Sync/todo.archive.md";
-      };
     };
 
     cloneRepos = {

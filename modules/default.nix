@@ -8,6 +8,7 @@
     ./firefox.nix
     ./fish.nix
     ./git.nix
+    ./lazygit.nix
     ./mattermost.nix
     ./polybar
     ./rofi

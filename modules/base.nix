@@ -28,6 +28,7 @@
       direnv.enable = true;
       firefox.enable = true;
       fish.enable = true;
+      lazygit.enable = true;
       rofi.enable = true;
       ssh.enable = true;
       tuxedo.enable = true;
@@ -50,7 +51,6 @@
       google-chrome
       alacritty
       ripgrep
-      lazygit
       btop
       dig
       pavucontrol

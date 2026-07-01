@@ -5,5 +5,5 @@
     autoOpenJackInTerminal = false;
     showDocstringInParameterHelp = true;
   };
-  default = true;
+  default = false;
 }

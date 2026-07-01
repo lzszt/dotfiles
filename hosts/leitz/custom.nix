@@ -1,8 +1,8 @@
 {
   system = "x86_64-linux";
   users = {
-    leitz.userDefDir = "work";
-    home.userDefDir = "minimal";
+    leitz.user = "work";
+    home.user = "minimal";
   };
   default = {
     layout = "eu";

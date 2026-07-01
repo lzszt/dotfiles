@@ -3,7 +3,10 @@
 {
   readDirNames =
     path:
-    path |> builtins.readDir |> lib.filterAttrs (_: type: type == "directory") |> builtins.attrNames;
+    path
+    |> builtins.readDir
+    |> lib.filterAttrs (_: type: type == "directory")
+    |> builtins.attrNames;
 
   mkNixosSystem =
     {
@@ -61,7 +64,7 @@
         inherit system custom self;
       };
       users = lib.mapAttrs (
-        userName: userDef: import (../users + "/${userDef.userDefDir}/home.nix")
+        userName: userDef: import (../users + "/${userDef.user}/home.nix")
       ) custom.users;
     in
     nixpkgs.lib.nixosSystem {

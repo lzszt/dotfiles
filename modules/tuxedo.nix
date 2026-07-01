@@ -10,7 +10,7 @@ let
 in
 {
   options.modules.tuxedo = {
-    enable = lib.mkEnableOption "polybar";
+    enable = lib.mkEnableOption "tuxedo";
     path = lib.mkOption {
       type = lib.types.str;
       description = "Path of todo.txt";

@@ -63,9 +63,7 @@
         inputs = builtins.removeAttrs inputs [ "nur" ];
         inherit system custom self;
       };
-      users = lib.mapAttrs (
-        userName: userDef: import (../users + "/${userDef.user}/home.nix")
-      ) custom.users;
+      users = lib.mapAttrs (userName: userDef: import (../users + "/${userDef.user}.nix")) custom.users;
     in
     nixpkgs.lib.nixosSystem {
       inherit

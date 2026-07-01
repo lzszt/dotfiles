@@ -4,8 +4,8 @@ let
 in
 {
   imports = [
-    ../../modules
-    ../../modules/base.nix
+    ../modules
+    ../modules/base.nix
   ];
 
   modules = {

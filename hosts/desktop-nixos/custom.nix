@@ -1,7 +1,7 @@
 {
   system = "x86_64-linux";
   users = {
-    leitz.user = "default";
+    leitz.user = "home";
     ag.user = "work";
   };
   default = {

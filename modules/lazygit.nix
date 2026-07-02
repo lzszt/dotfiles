@@ -31,9 +31,6 @@ in
 
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.lazygit ];
-    xdg.configFile."lazygit/config.yml" = {
-      force = true;
-      text = lib.generators.toYAML { } cfg.config;
-    };
+    xdg.configFile."lazygit/config.yml".text = lib.generators.toYAML { } cfg.config;
   };
 }

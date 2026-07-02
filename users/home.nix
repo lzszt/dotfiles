@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ minimal/home.nix ];
+  imports = [ ./minimal.nix ];
 
   modules = {
     vscode.extensions = {

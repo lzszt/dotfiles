@@ -20,12 +20,6 @@
     secrets.nas-credentials.file = ../../secrets/nas-credentials.age;
   };
 
-  networking.extraHosts = ''
-    193.186.94.33 dns0.tun0		# vpn-slice-tun0 AUTOCREATED
-    193.186.94.34 dns1.tun0		# vpn-slice-tun0 AUTOCREATED
-    193.186.88.7 rdsivo.egv.at rdsivo		# vpn-slice-tun0 AUTOCREATED
-  '';
-
   services = {
     printing.enable = true;
     avahi = {

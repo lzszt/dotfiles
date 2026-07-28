@@ -87,6 +87,7 @@ in
         agda-mode.enable = true;
         git-worktrees.enable = true;
         vscode-zig.enable = true;
+        claude-code.enable = true;
       };
       fish.customAliases = customAliases;
       git.email = email;

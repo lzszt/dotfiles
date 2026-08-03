@@ -28,6 +28,13 @@
       openFirewall = true;
     };
     blueman.enable = true;
+    llama-cpp = {
+      enable = true;
+      settings = {
+        port = 8888;
+        hf-repo = "Qwen/Qwen3-4B-GGUF:Q4_K_M";
+      };
+    };
   };
 
   hardware.bluetooth.enable = true;

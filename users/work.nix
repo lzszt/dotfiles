@@ -91,6 +91,7 @@ in
       };
       fish.customAliases = customAliases;
       git.email = email;
+      little-coder.enable = true;
       timetracking.enable = true;
       desktop = {
         xmonad = {

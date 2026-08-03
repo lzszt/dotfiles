@@ -29,6 +29,7 @@
       firefox.enable = true;
       fish.enable = true;
       lazygit.enable = true;
+      little-coder.enable = true;
       rofi.enable = true;
       ssh.enable = true;
       tuxedo.enable = true;

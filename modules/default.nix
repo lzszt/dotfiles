@@ -9,6 +9,7 @@
     ./fish.nix
     ./git.nix
     ./lazygit.nix
+    ./little-coder.nix
     ./mattermost.nix
     ./polybar
     ./rofi

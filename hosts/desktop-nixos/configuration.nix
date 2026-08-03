@@ -41,6 +41,19 @@
     ];
   };
 
+  services.llama-cpp = {
+    enable = true;
+    package = pkgs.llama-cpp.override {
+      rocmSupport = true;
+      rocmGpuTargets = [ "gfx1010" ];
+    };
+    settings = {
+      port = 8888;
+      hf-repo = "Qwen/Qwen3-4B-GGUF:Q4_K_M";
+      gpu-layers = 99;
+    };
+  };
+
   virtualisation.docker.enable = true;
 
   nix.settings.max-jobs = 12;

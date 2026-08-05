@@ -65,42 +65,50 @@ in
 {
   options.modules.little-coder = {
     enable = lib.mkEnableOption "little-coder";
-    model = lib.mkOption {
+    defaultModel = lib.mkOption {
       type = lib.types.str;
       default = "qwen3-4b";
-      description = "Model ID to use with little-coder (must match what llama-cpp is serving)";
+      description = "Default model ID for little-coder";
+    };
+    models = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ "qwen3-4b" ];
+      description = "List of model IDs available via llama-swap";
+    };
+    port = lib.mkOption {
+      type = lib.types.port;
+      default = 8888;
+      description = "Port of the llama-swap proxy";
     };
   };
 
   config = lib.mkIf cfg.enable {
     home.packages = [ little-coder ];
     home.sessionVariables = {
-      LLAMACPP_BASE_URL = "http://127.0.0.1:8888/v1";
+      LLAMACPP_BASE_URL = "http://127.0.0.1:${toString cfg.port}/v1";
       LLAMACPP_API_KEY = "noop";
     };
     xdg.configFile."little-coder/models.json".text = builtins.toJSON {
-      default = "llamacpp/${cfg.model}";
+      default = "llamacpp/${cfg.defaultModel}";
       providers = {
         llamacpp = {
           api = "openai-completions";
-          baseUrl = "http://127.0.0.1:8888/v1";
+          baseUrl = "http://127.0.0.1:${toString cfg.port}/v1";
           apiKey = "LLAMACPP_API_KEY";
-          models = [
-            {
-              id = cfg.model;
-              name = "${cfg.model} (local llama.cpp)";
-              reasoning = true;
-              input = [ "text" ];
-              contextWindow = 32768;
-              maxTokens = 4096;
-              cost = {
-                input = 0;
-                output = 0;
-                cacheRead = 0;
-                cacheWrite = 0;
-              };
-            }
-          ];
+          models = map (id: {
+            inherit id;
+            name = "${id} (local llama.cpp)";
+            reasoning = true;
+            input = [ "text" ];
+            contextWindow = 32768;
+            maxTokens = 4096;
+            cost = {
+              input = 0;
+              output = 0;
+              cacheRead = 0;
+              cacheWrite = 0;
+            };
+          }) cfg.models;
         };
       };
     };

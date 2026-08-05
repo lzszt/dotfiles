@@ -42,7 +42,7 @@ in
     thunderbird = {
       enable = true;
       calendars = {
-        enableAGCalendars = true;
+        agCalendars.enable = true;
         felix = {
           readOnly = false;
           suppressAlarms = false;

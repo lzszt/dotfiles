@@ -1022,11 +1022,11 @@
         "nixpkgs": "nixpkgs_16"
       },
       "locked": {
-        "lastModified": 1785395941,
-        "narHash": "sha256-PRes9I+TeD06aziPsztz6NJ9ZJGGn2+fjsychMLWWZE=",
+        "lastModified": 1785923322,
+        "narHash": "sha256-ANtXFtJdl0Ec4jDhYA2TdKBMvbZ2acHtj6V12mO8n/M=",
         "owner": "active-group",
         "repo": "nix-starter-kit",
-        "rev": "c32cc99150d2bca11e87f4894b0b48dc590a31e7",
+        "rev": "b46171a658166b2e28ce6d3b8bb1ec45c8772db9",
         "type": "github"
       },
       "original": {

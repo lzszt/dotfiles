@@ -34,7 +34,7 @@ in
       );
       default = {
         "qwen3-4b" = {
-          hf-repo = "Qwen/Qwen3-4B-GGUF:Q4_K_M";
+          hf-repo = "Qwen/Qwen3-8B-GGUF:Q8_0";
         };
       };
       description = "Models available for little-coder via llama-swap";
@@ -46,17 +46,15 @@ in
       enable = true;
       inherit (cfg) port;
       settings = {
-        models = lib.mapAttrs (
-          name: modelCfg: {
-            cmd = toString [
-              (lib.getExe' pkgs.llama-cpp "llama-server")
-              "--port \${PORT}"
-              "--hf-repo ${modelCfg.hf-repo}"
-              "--no-webui"
-              modelCfg.extraArgs
-            ];
-          }
-        ) cfg.models;
+        models = lib.mapAttrs (name: modelCfg: {
+          cmd = toString [
+            (lib.getExe' pkgs.llama-cpp "llama-server")
+            "--port \${PORT}"
+            "--hf-repo ${modelCfg.hf-repo}"
+            "--no-webui"
+            modelCfg.extraArgs
+          ];
+        }) cfg.models;
       };
     };
   };

@@ -3,6 +3,10 @@
   imports = [ ./minimal.nix ];
 
   modules = {
+    nixos-hetzner-init = {
+      enable = true;
+    };
+
     vscode.extensions = {
       vscode-stl-viewer.enable = true;
       vscode-zig.enable = true;

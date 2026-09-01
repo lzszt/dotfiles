@@ -10,6 +10,7 @@
     ./git.nix
     ./lazygit.nix
     ./mattermost.nix
+    ./nixos-hetzner-init
     ./polybar
     ./rofi
     ./ssh.nix

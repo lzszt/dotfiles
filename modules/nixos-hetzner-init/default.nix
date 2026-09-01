@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.nixos-hetzner-init;
 in
@@ -8,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-
+    home.packages = [ pkgs.hcloud ];
   };
 }

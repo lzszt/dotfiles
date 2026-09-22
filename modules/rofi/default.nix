@@ -12,7 +12,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      terminal = "${pkgs.alacritty}/bin/alacritty";
+      settings.terminal = "${pkgs.alacritty}/bin/alacritty";
       theme = ./theme.rafi;
       plugins = [ pkgs.rofi-calc ];
     };

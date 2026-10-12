@@ -13,8 +13,9 @@ in
     ../modules
     ../modules/base.nix
     inputs.nix-starter-kit.homeModules.ldap
-    inputs.nix-starter-kit.homeModules.timetracking
     inputs.nix-starter-kit.homeModules.thunderbird
+    inputs.nix-starter-kit.homeModules.timetracking
+    # inputs.hetzner-setup.homeModules.hetzner-setup
   ];
 
   programs = {
@@ -30,6 +31,7 @@ in
     identityPaths = [ "/home/leitz/.ssh/id_ed25519" ];
     secrets.arbeitszeiten-api-key.file = ../secrets/arbeitszeiten-api-key.age;
     secrets.abrechenbare-zeiten-api-key.file = ../secrets/abrechenbare-zeiten-api-key.age;
+    secrets.hetzner-api-token-work.file = ../secrets/hetzner-api-token-work.age;
   };
 
   active-group = {
@@ -82,6 +84,11 @@ in
       };
     in
     {
+      hetzner-setup = {
+        enable = true;
+        tokenPath = config.age.secrets.hetzner-api-token-work.path;
+        context = "work";
+      };
       vscode.extensions = {
         # org-mode.enable = true;
         agda-mode.enable = true;

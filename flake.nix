@@ -20,6 +20,8 @@
     agenix.url = "github:ryantm/agenix";
 
     nix-starter-kit.url = "github:active-group/nix-starter-kit";
+
+    hetzner-setup.url = "github:lzszt/hetzner-setup";
   };
 
   outputs =

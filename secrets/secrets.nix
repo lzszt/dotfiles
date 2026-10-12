@@ -18,4 +18,6 @@ in
     leitz
   ];
   "nas-credentials.age".publicKeys = [ leitz ];
+  "hetzner-api-token-work.age".publicKeys = [ leitz ];
+  "hetzner-api-token-home.age".publicKeys = [ desktop-nixos ];
 }

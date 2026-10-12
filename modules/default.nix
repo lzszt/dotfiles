@@ -8,6 +8,7 @@
     ./firefox.nix
     ./fish.nix
     ./git.nix
+    ./hetzner-setup.nix
     ./lazygit.nix
     ./mattermost.nix
     ./polybar

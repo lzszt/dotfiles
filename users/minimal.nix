@@ -45,6 +45,7 @@ in
       in
       {
 
+        "curie" = mkLocalSsh "curie";
         "turing" = mkLocalSsh "turing";
 
         "apps" = mkLzsztInfoSsh "apps";

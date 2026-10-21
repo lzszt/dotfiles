@@ -37,14 +37,12 @@
   fileSystems."/mnt/nas" = {
     device = "//nas.home.active-group.de/share";
     fsType = "cifs";
-    options =
-      let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,uid=1000,gid=100";
-      in
-      [
-        "${automount_opts},credentials=${config.age.secrets.nas-credentials.path}"
-      ];
+    options = [
+      "gid=100"
+      "file_mode=0770"
+      "dir_mode=0770"
+      "credentials=${config.age.secrets.nas-credentials.path}"
+    ];
   };
 
   nix.settings.max-jobs = 16;

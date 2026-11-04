@@ -25,6 +25,41 @@
     secrets.hetzner-storage-box-credentials.file = ../../secrets/hetzner-storage-box-credentials.age;
   };
 
+  # shairport-sync announces itself to iPhones and Macs through Avahi over D-Bus
+  services.avahi = {
+    enable = true;
+    settings.publish = {
+      enable = true;
+      # allows programs to publish services over D-Bus
+      disable-user-service-publishing = false;
+      publish-addresses = true;
+    };
+  };
+
+  # Classic AirPlay (AirPlay 1) ports, from the shairport-sync README
+  networking.firewall = {
+    allowedTCPPorts = [ 5000 ]; # RTSP control connection
+    allowedUDPPortRanges = [
+      {
+        from = 6000;
+        to = 6009;
+      } # audio, control and timing streams
+    ];
+  };
+
+  # The receiver runs in your session, next to PipeWire
+  systemd.user.services.shairport-sync = {
+    description = "AirPlay audio receiver";
+    wantedBy = [ "default.target" ]; # starts with any session of yours
+    after = [ "pipewire.service" ]; # PipeWire must be running first
+    wants = [ "pipewire.service" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.shairport-sync}/bin/shairport-sync -o pipewire -a 'Desktop NixOS'";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+  };
+
   environment.systemPackages = with pkgs; [ cifs-utils ];
   fileSystems."/mnt/storagebox" = {
     device = "//u444360.your-storagebox.de/backup";

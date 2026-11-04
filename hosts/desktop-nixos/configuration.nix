@@ -28,11 +28,9 @@
   # shairport-sync announces itself to iPhones and Macs through Avahi over D-Bus
   services.avahi = {
     enable = true;
-    settings.publish = {
+    publish = {
       enable = true;
-      # allows programs to publish services over D-Bus
-      disable-user-service-publishing = false;
-      publish-addresses = true;
+      userServices = true; # allows programs to publish services over D-Bus
     };
   };
 

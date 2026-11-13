@@ -1699,11 +1699,11 @@
         "nixpkgs": "nixpkgs_18"
       },
       "locked": {
-        "lastModified": 1794575242,
-        "narHash": "sha256-n1zQfWVYlpq9R2SKPf4A+uEy5Ozhjcqe989uWJFSJtg=",
+        "lastModified": 1794576712,
+        "narHash": "sha256-ANF5vwT88Y3++cLy26lmwUngcntu+cZhr3AlrWZuWx8=",
         "owner": "lzszt",
         "repo": "zig-utils",
-        "rev": "d51d9682c277761bf93d6b424bd5f70759122b62",
+        "rev": "87252b3d03e471af2b24e746159396b87f7026ba",
         "type": "github"
       },
       "original": {

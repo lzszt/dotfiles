@@ -22,6 +22,8 @@
     nix-starter-kit.url = "github:active-group/nix-starter-kit";
 
     hetzner-setup.url = "github:lzszt/hetzner-setup";
+
+    zig-utils.url = "github:lzszt/zig-utils";
   };
 
   outputs =

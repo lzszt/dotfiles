@@ -3,6 +3,7 @@
   pkgs,
   lib,
   custom,
+  inputs,
   ...
 }:
 {
@@ -53,7 +54,10 @@
 
   programs.fish.enable = true;
 
-  environment.systemPackages = [ pkgs.nixfmt ];
+  environment.systemPackages = [
+    pkgs.nixfmt
+    inputs.zig-utils.packages.${pkgs.stdenv.hostPlatform.system}.nixwhich
+  ];
 
   nix = {
     package = pkgs.nixVersions.latest;

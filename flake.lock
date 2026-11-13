@@ -9,11 +9,11 @@
         "rapid": "rapid"
       },
       "locked": {
-        "lastModified": 1793091959,
-        "narHash": "sha256-UMeTPhF9fr5vp9BIOplRVq2HjWtdJ2zTIxUBw/hMqSI=",
+        "lastModified": 1794218610,
+        "narHash": "sha256-SoLreuRwM2kTWwa+90aj/lTu5seyH464Ut6IGZoEfVk=",
         "ref": "refs/heads/main",
-        "rev": "f6906409c4bbc1320d2329a2b07b651077c0840c",
-        "revCount": 821,
+        "rev": "acf0f2b1c1599b97bd95dd5b2a8f4bb7d9890b63",
+        "revCount": 829,
         "type": "git",
         "url": "ssh://git@gitlab.active-group.de/ag/active-accounting.git"
       },
@@ -52,11 +52,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1791785894,
-        "narHash": "sha256-JlS/Dk2F1lQZWQ6XU/1CN93k1EDfONstergBoXwlIrk=",
+        "lastModified": 1793706499,
+        "narHash": "sha256-kbNPN8Sjpvdr2tr3O7B6jbwRQDcbgicDeIxwPOnvZOc=",
         "ref": "refs/heads/main",
-        "rev": "b4c2d461d14ff57c9b1713989420d563f750f50c",
-        "revCount": 286,
+        "rev": "da50658d085c628ac8d96bf132954e568d5b86c5",
+        "revCount": 289,
         "type": "git",
         "url": "ssh://git@gitlab.active-group.de/ag/active-timetracking.git"
       },
@@ -341,11 +341,11 @@
         "nixpkgs-lib": "nixpkgs-lib_10"
       },
       "locked": {
-        "lastModified": 1788450739,
-        "narHash": "sha256-glZLQlzIn1fXH6PazR2iUmTo7kzzyYSshrWhLS9TqCU=",
+        "lastModified": 1793576659,
+        "narHash": "sha256-V1h85lUaJBQoHFrB2vpXZOE0Ju1MYSnIpsehoVZYlDo=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "31729ca8cbdb4fa927b34e5f4353e6a83f39e993",
+        "rev": "ea2630b7470978622c7689a1ff75d2b389175399",
         "type": "github"
       },
       "original": {
@@ -708,11 +708,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793193205,
-        "narHash": "sha256-X6xa6sGA7RnJQuZGbFMC+K+KToWAlBDCCjJXfTwEPsw=",
+        "lastModified": 1794278858,
+        "narHash": "sha256-rkrJwLgLSHBnXfgoSKIDa+2LLGdTqynsV3GAxOTGhUU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "095fef2f265c3c0da4fe315efba8f8a04495ab34",
+        "rev": "82ce401aa350502897c3f2e85f384d61cd3b0b6d",
         "type": "github"
       },
       "original": {
@@ -729,11 +729,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788642154,
-        "narHash": "sha256-sPpQFVaFTDqO/4vvCAhuAhqTgqN/ygu+9eJcs5eB0js=",
+        "lastModified": 1794251182,
+        "narHash": "sha256-R2sZBXiOJo3HAnvTiVkbbHDJy//JMlAwUKEiPbfqPXk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fd0956c99c41ae3c13a73a638f1f7e963aebc4ab",
+        "rev": "6eb2d33d1d0c95a37ef6443c88e6c1686012ee8b",
         "type": "github"
       },
       "original": {
@@ -975,11 +975,11 @@
         "nixpkgs": "nixpkgs_16"
       },
       "locked": {
-        "lastModified": 1793091992,
-        "narHash": "sha256-8s3oaQ0tWd5x2Vs9jO4PpJzuNBdZ5X2wOl2rVXOCFks=",
+        "lastModified": 1794478514,
+        "narHash": "sha256-pJTRG5J1hNHywKp8/r+JJQQuDdUR6QM3oYiYWhhlal4=",
         "owner": "active-group",
         "repo": "nix-starter-kit",
-        "rev": "9cfda83641ca2fe8666806ee524c4f4163a51ec9",
+        "rev": "0e0074d3853992d212bd97ac9b331f95ca106790",
         "type": "github"
       },
       "original": {
@@ -1021,11 +1021,11 @@
     },
     "nixpkgs-lib_10": {
       "locked": {
-        "lastModified": 1788057806,
-        "narHash": "sha256-DTQSMxzDWmT0zhguthvegnVkn7CFqGCv4IHCzk5ZUpM=",
+        "lastModified": 1793504054,
+        "narHash": "sha256-ThkfL3D/FhCiZFc9+3BtxwuMmpuK+/bGtXCSo1+yVew=",
         "owner": "nix-community",
         "repo": "nixpkgs.lib",
-        "rev": "596e2e3940e09b2abbeb03f75fa1828c57fcd72c",
+        "rev": "7851ba61fd862b277cb6a9cef37394bc18bb94e4",
         "type": "github"
       },
       "original": {
@@ -1159,11 +1159,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1793599812,
-        "narHash": "sha256-Xr4w43MFFB4Y+HwBpMtNSlaMmRqgFMYzTzhTiCZsNaY=",
+        "lastModified": 1794574194,
+        "narHash": "sha256-F5doDbelztYbriaWgBQgoEwcp7r+B+k2+B4ZwG078+w=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "26cb179eedc112961a5e17ec1401c44c7c8e1888",
+        "rev": "bf07b5d6f8abd258efb0e7181debbdc48efc5eee",
         "type": "github"
       },
       "original": {
@@ -1175,11 +1175,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1793526781,
-        "narHash": "sha256-2Cxxgpz1+cRgKZJFi12/9LG3aIBN66f2RvFs34Oj/A0=",
+        "lastModified": 1794165970,
+        "narHash": "sha256-XuAV2cUwaod3Bt4XFVqiXz3v1w2ex16W6Sv4S7EWres=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9bb52223f4f6a0cc606fd0852d8784f896c137d5",
+        "rev": "ac588ef1c914865dad517b337ea0eb9694a4021c",
         "type": "github"
       },
       "original": {
@@ -1286,11 +1286,11 @@
     },
     "nixpkgs_16": {
       "locked": {
-        "lastModified": 1788850223,
-        "narHash": "sha256-aC0T+TiOLhRBBEF18b9I96621Gj/nPc7tuAFK6/xONA=",
+        "lastModified": 1794473670,
+        "narHash": "sha256-BlW+tejEV9QtbmZ5b/zoiFx0gV68pvVHLbFo9nfBQZ8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ff5dd92ba9414e3cf152a3af8fe4446ebf9e8558",
+        "rev": "02f38753415ded0449d254db537d2bd65b1cf8ad",
         "type": "github"
       },
       "original": {
@@ -1302,11 +1302,11 @@
     },
     "nixpkgs_17": {
       "locked": {
-        "lastModified": 1793341285,
-        "narHash": "sha256-Y1CiZ4SoBUjLQyQM/pY+rS2dXD3CHLPstF0lmOc73D4=",
+        "lastModified": 1794386569,
+        "narHash": "sha256-x9sADJvoVG0L6RejZB+/BB4YiGZFBZrfTlhF4uBq1tQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1c89083e451e891152365b799595cf7790a43325",
+        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
         "type": "github"
       },
       "original": {
@@ -1452,11 +1452,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793597619,
-        "narHash": "sha256-WSABF4GIqDuwZL+NJsi/fLJ0h7uzbV5FcNo37QGipT4=",
+        "lastModified": 1794574460,
+        "narHash": "sha256-JrN2ThjqU5nBkHZAXeSOMGqs+1JDwWzsCoYtZcSvbdA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ca5f5b0e6e652d72d38b54d56635f08fc103bc4d",
+        "rev": "7d3b273078741ff5e4dd06bb7eca40f971667ed2",
         "type": "github"
       },
       "original": {
